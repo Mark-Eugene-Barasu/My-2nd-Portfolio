@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wish List</title>
+    
+    <link rel="stylesheet" href="font-awesome.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+body {
+    font-family: Arial, sans-serif;
+}
+
+#listPage.print {
+    background-color: #FAF2AD;
+    padding: 20px;
+    font-family: cursive;
+}
+
+#listPage.print ul {
+    margin: 10px 0px;
+    padding: 0px;
+    border-left: 4px double red;
+}
+
+#listPage.print li {
+    list-style-type: none;
+    margin: 0px -20px;
+    padding-left: 26px;
+    border-bottom: 1px solid blue;
+    line-height: 36px;
+    font-size: 24px;
+    font-family: cursive;
+}
+    </style>
+</head>
+<body>
+
+    <nav id="nav01"></nav>
+
+    <div id="main">
+        <div id="listPage">
+            <!--put h1 header here-->
+    
+            <h1>My Wish List<hr>
+    
+            <div id="formArea">
+                <!--put text input and two buttons here-->
+                <label>What I want:
+                    <input type="text" id="iWant" />
+                </label>
+                <button type="button" id="addIt">Add It!</button>
+                <br>
+                <br>
+                <button type="button" id="printable">Print Your List</button>
+            </div>
+            <!-- put a list to hold the items on the wishlist here-->
+            <ul id="wishList"></ul>
+        </div>
+    <footer id="foot01"></footer>
+    </div>
+
+    <script src="projects.js"></script>
+    <script>
+        var printButton = document.getElementById("printable");
+printButton.addEventListener("click", printView);
+
+var addButton = document.getElementById("addIt");
+addButton.addEventListener("click", addTheThing);
+
+
+var myList = [];
+var myListArea = document.getElementById("wishList");
+
+
+
+function addTheThing() {
+
+    var theThing = document.getElementById("iWant");
+
+    addToTheList(theThing);
+    resetInput(theThing);
+
+}
+
+function addToTheList(thingToAdd) {
+    myList.push(thingToAdd.value);
+    var newListItem = document.createElement("li");
+    newListItem.innerHTML = myList[myList.length - 1];
+
+    myListArea.appendChild(newListItem);
+
+}
+
+function resetInput(inputToReset) {
+    inputToReset.value = "";
+}
+
+function printView() {
+    var listPage = document.getElementById("listPage");
+    var formArea = document.getElementById("formArea");
+
+    formArea.style.display = "none";
+    listPage.className = "print";
+    myListArea.innerHTML = "";
+    myList.sort();
+
+    for (var i = 0; i < myList.length; i++) {
+        wishList.innerHTML += "<li>" + myList[i] + "</li>";
+    }
+
+}
+    </script>
+</body>
+</html>

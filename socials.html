@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Follow my socials</title>
+    <link rel="stylesheet" href="font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+    
+    body {
+        background-color:rgba(107, 107, 252, 0.253);
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }  
+        
+    .social {
+        display: block;
+    }
+
+    .social a{
+        display: block;
+        background: rgba(0, 0, 0, 1);
+        padding: 20px;
+        transform: perspective(1000px) rotate(-25deg) skew(25deg) translate(0,0);
+        box-shadow: -20px 20px 10px rgba(0, 0, 0, 0.5);
+        margin: 40px;
+        transition: all 0.5s ease-in-out 0s;
+    }
+        
+    .social a::after{
+        display: block;
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: -10px;
+        height: 20px;
+        width: 100%;
+        transform: rotate(0deg) skew(-45deg);
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    .social a::before {
+        display: block;
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 100%;
+        left: -20px;
+        top: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        transform: rotate(0deg) skewY(-45deg);
+    }
+
+    .social a i{
+        color: rgba(255, 255, 255, 1);
+        font-size: 30pt;
+    }
+
+    .social a:hover{
+        transform: perspective(1000px) rotate(-25deg) skew(25deg) translate(20px, -20px);
+        box-shadow: -50px 50px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    
+#back {
+    line-height: 1em;
+    font-size: 30px;
+    left: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    text-decoration: none;
+    background-color: #009688;
+    position: fixed;
+    left: 16px;
+    top: 5px;
+    border: 0.5px solid white;
+    box-shadow: 4px 4px 5px white;
+}
+
+.fa {
+    padding-top: 13px;
+};
+
+    </style>
+
+</head>
+<body>
+    <a href="index.html" id="back"><i class="fa fa-home"></i></a>
+
+        <div class="social">
+            <a target="_blank" href="https://www.facebook.com/profile.php?id=100069669603894"><i class="fab fa-facebook"></i></a>
+            <a target="_blank" href="https://www.snapchat.com/add/e_barasu2021?share_id=wRg8P6dDSuc&locale=en-ZA"><i class="fab fa-snapchat"></i></a>
+            <a target="_blank" href="https://www.linkedin.com/in/eugene-mark-korku-barasu-5094a7220"><i class="fab fa-linkedin"></i></a>
+            <a target="_blank" href="https://pin.it/2S8Sc3Z"><i class="fab fa-pinterest"></i></a>
+            <a target="_blank" href="https://github.com/Mark-Eugene-Barasu"><i class="fab fa-github"></i></a>
+            <a target="_blank" href="http://eugene-mark-korku-barasu.tumblr.com"><i class="fab fa-tumblr"></i></a>
+            <a target="_blank" href="https://vm.tiktok.com/ZSJKPkMFe/"><i class="fab fa-tiktok"></i></a>
+            <a target="_blank" href="https://twitter.com/Brains_777?s=08"><i class="fab fa-twitter"></i></a>
+            <a target="_blank" href="https://www.instagram.com/markeugene465/"><i class="fab fa-instagram"></i></a>
+            <a target="_blank" href="https://youtube.com/channel/UCJFmmEnHDe6WFw6gAhcnYFg"><i class="fab fa-youtube"></i></a>
+            <a target="_blank" href="https://web.whatsapp.com/send?phone=+27815332769&text=Hello Mark Eugene, I want to congratulate you on successfully understanding the concept and how to link links to websites and anything."><i class="fab fa-whatsapp"></i></a>
+        </div>
+        
+</body>
+</html>
