@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Game</title>
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+* {
+    margin: 0px;
+}
+
+html,
+body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    overflow: auto;
+}
+
+#story {
+    width: 100%;
+    color: yellow;
+    height: 80%;
+    background-color: rgb(41, 127, 240);
+    overflow-y: scroll;
+}
+
+#image
+.story:after {
+    height: 22px;
+    width: 120px;
+    position: relative;
+    left: 20px ;
+}
+
+#site-footer,
+.story:after {
+    position: static;
+    bottom: 0;
+    height: 20%;
+}
+
+#question {
+    padding: 10px 0;
+    width: 100%;
+    background-color: #CCC;
+    color: #333;
+}
+
+#answer {
+    padding: 10px 0;
+    width: 100%;
+    background-color: rgb(204, 2, 255);
+    color: rgb(10, 10, 10);
+    text-align: center;
+    display: none;
+}
+
+.storyPart {
+    display: none;
+}
+
+p {
+    margin-top: 1em;
+}
+    </style>
+</head>
+<body>
+
+    <nav id="nav01"></nav>
+
+    <div id="main">
+        <div id="story"></div>
+        <div id="siteFooter">
+            <div id="question"></div>
+            <div id="answer">Enter your answer:
+                <input type="text" id="yourAnswer" />
+                <button type="button" id="submit">Go!</button>
+            </div>
+        </div>
+        <!-- everything under here is hidden using CSS so that we can display it later using JavaScript -->
+        <div class="storyPart" id="answer01">
+            <p>You are the captain of a spaceship named "The Flying Hippo." One day, you're working on tuning up your ship's engines when you get an urgent message on your space phone:</p>
+            <p>"Captain, one of our Mars robots is sick. We need you to go to Mars immediately and retrieve it so that we can fix it and download the results of its important experiments."</p>
+            <p>You remember that you're supposed to go to a meeting of the Space Scouts tonight, and you were really looking forward to it. But, on the other hand, the other Space Scouts would understand that this mission is very important.</p>
+            <p>What do you do? Go to Mars, or stay home?</p>
+            <div id="image"><img src="260px-NASA_Mars_Rover.jpg"></div>
+    
+        </div>
+        <div class="storyPart" id="answer02">
+            <p>Answer Yes when you're ready!</p>
+            <div id="image"><img src="Milky_Way_Night_Sky_Black_Rock_Desert_Nevada.jpg"></div>
+    
+        </div>
+        <div class="storyPart" id="err0">
+            <p>Please answer yes or no.</p>
+            <div id="image"><img src="Mars,_Earth_size_comparison.jpg"></div>
+    
+        </div>
+        <div class="storyPart" id="answer11">
+            <p>Great choice! Mars is lovely this time of year (or, during the time of the year when you'll arrive, about 260 days from now!).</p>
+            <p>You pack up your things and prepare enough food for the journey, then take off!</p>
+            <p>Launch goes smoothly and you sit back, put on your headphones, and prepare for a relaxing trip.</p>
+            <p>A week later, things are going great. There's nothing for you to do except read, listen to music, and watch movies. Just then, you hear a strange sound.</p>
+            <p>"meow."</p>
+            <p>It sounds like Felis, your cat! It must have snuck aboard while you were packing!</p>
+            <p>You're happy to have the company, but you didn't pack enough food for the both of you, and there certainly isn't a grocery store on the way to Mars.</p>
+            <p>You have a choice: risk running out of food on the return trip, or turn around now and go home. What will you do?</p>
+            <div id="image"><img src="640px-Felis_catus-cat_on_snow.jpg"></div>
+    
+        </div>
+        <div class="storyPart" id="answer12">
+            <p>You decide to stay home. They'll get someone else to fly to Mars. Besides, you heard that they're going to have free pizza at the Space Scouts meeting!</p>
+            <div id="image"><img src="Gingerbread_House_Essex_CT.jpg"></div>
+    
+        </div>    
+        <div class="storyPart" id="err1">
+            <p>Please answer Mars or Earth.</p>
+            <div id="image"><img src="Mars,_Earth_size_comparison.jpg"></div>
+    
+        </div>
+        <div class="storyPart" id="answer21">
+            <p>You decide to risk it. The journey is long, and you give sweet Felis half your food, knowing that you may not survive the return trip, but the Flying Hippo can carry the robot home without you, and at least the important experimental data (and
+                Felis, of course) will be safe.</p>
+            <p>When you arrive at Mars, you quickly locate the sick robot. But, you also discover something else: a large ice chest full of delicious sandwiches! The last repair crew to visit the robot must have left this here! You unwrap one of the sandwiches
+                and carefully take a bite. Peanut butter! Your favorite! Felis' favorite too!</p>
+            <p>You pack up the sandwiches and the sick robot and begin the trip home, knowing that there's now more than enough food for both you and Felis.</p>
+            <div id="image"><img src="Smoked_meat_sandwich.jpg"></div>
+    
+        </div>
+        <div class="storyPart" id="answer22">
+            <p>Let someone else get the robot. You turn the Flying Hippo around and head home.</p>
+            <p>When you get back to the spaceport, you open the door to exit your spaceship and your boss is standing outside.</p>
+            <p>You apologize and explain the whole thing to him about how there wouldn't have been enough food.</p>
+            <p>Steam comes out of your boss's mechanical head as he tells you that there are always plenty of sandwiches on Mars, and that you would have been just fine if you had completed your mission. He fires you. You pick up Felis and start walking home.</p>
+            <p>Oh well, at least you still have Felis!</p>
+            <div id="image"><img src="640px-UGC_12158.jpg "></div>
+            
+        </div>
+        <div class="storyPart" id="err2"> 
+            <p>Please answer Risk It or Go Home.</p>
+            <div id="image"><img src="Mars,_Earth_size_comparison.jpg"></div>
+    
+        </div>
+    <footer id="foot01"></footer>
+    </div>
+
+    <script src="projects.js"></script>
+    <script>
+// declare variables
+var image = document.getElementById("image");
+var story = document.getElementById("story");
+var siteFooter = document.getElementById("siteFooter");
+var question = document.getElementById("question");
+var answer = document.getElementById("answer");
+var yourAnswer = document.getElementById("yourAnswer");
+var submit = document.getElementById("submit");
+var answers = [];
+
+/* listen for clicks on the submit button and call the getAnswer() function when they happen. */
+submit.addEventListener("click", getAnswer);
+
+// call the function to ask the first question.
+askQuestion(0);
+
+/* askQuestion() asks a question, based on the number passed to it. */
+function askQuestion(questionNumber) {
+    answer.style.display = "block";
+
+
+    answers.length = questionNumber;
+
+    switch (questionNumber) {
+        case 0:
+            question.innerHTML = "Are you ready to play?";
+            break;
+        case 1:
+            question.innerHTML = "Go to Mars, or stay home?";
+            break;
+        case 2:
+            question.innerHTML = "Risk it, or go home.";
+            break;
+        default:
+            break;
+    }
+
+}
+
+/* getAnswer() gets the answer from the text field and pushes it into the answers array, then calls the continueStory function */
+function getAnswer() {
+    cleanInput = yourAnswer.value.toUpperCase();
+    answers.push(cleanInput);
+    yourAnswer.value = "";
+    continueStory(answers.length - 1);
+}
+
+/* continueStory() displays part of the story or an error based on the value of an item in the answers array. */
+function continueStory(answerNumber) {
+    switch (answerNumber) {
+        case 0:
+            if (answers[0] === "YES") {
+                story.innerHTML = document.getElementById("answer01").innerHTML;
+                askQuestion(1);
+            } else if (answers[0] === "NO") {
+                story.innerHTML = document.getElementById("answer02").innerHTML;
+                askQuestion(0);
+            } else {
+                story.innerHTML = document.getElementById("err0").innerHTML;
+                askQuestion(0);
+            }
+            break;
+        case 1:
+            if (answers[1] === "GO TO MARS") {
+                story.innerHTML = document.getElementById("answer11").innerHTML;
+                askQuestion(2);
+            } else if (answers[1] === "STAY HOME") {
+                story.innerHTML = document.getElementById("answer12").innerHTML;
+                theEnd();
+            } else {
+                story.innerHTML = document.getElementById("err1").innerHTML;
+                askQuestion(1);
+            }
+            break;
+        case 2:
+            if (answers[2] === "RISK IT") {
+                story.innerHTML = document.getElementById("answer21").innerHTML;
+                theEnd();
+            } else if (answers[2] === "GO HOME") {
+                story.innerHTML = document.getElementById("answer22").innerHTML;
+                theEnd();
+            } else {
+                story.innerHTML = document.getElementById("err2").innerHTML;
+                askQuestion(2);
+
+            }
+            break;
+        default:
+            story.innerHTML = "The story is over!";
+
+            break;
+    }
+}
+
+/* theEnd() ends the story and hides the input field */
+function theEnd() {
+    story.innerHTML += "<p>The End.</p>";
+    question.innerHTML = "";
+    answer.style.display = "none";
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eugene Mark Korku Barasu.</title>
+    <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="yes.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="font-awesome.min.css">
+
+    <style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+      }
+      
+      .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+
+      #navButton {
+        position: fixed;
+        z-index: 1;
+        background-color: #009688;
+        overflow: auto;
+      }
+      
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+      
+      .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+      
+      @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+      }
+      
+      #navButton {
+          font-size: 30px;
+          left: 16px;
+          cursor: pointer;
+          border-radius: 5px;
+          color: white;
+          text-align: center;
+          box-shadow: 2px 2px 4px #003833;
+          width: 50px;
+      }
+      
+      @media (max-width: 480px){
+          #navButton {
+              border-radius: 50px;
+              width: 45px;
+              
+          }
+      }
+    </style>
+    <body class="yes-light-grey">      
+      
+      <div title="menu" id="mySidenav" class="sidenav">
+        <a title="close" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a title="about me" href="aboutMe.html"><i class="fa fa-fw fa-address-book-o"></i> About</a>
+        <a title="Projects" href="projects.html"><i class="fa fa-fw fa-briefcase"></i> Projects</a>
+        <a title="contact me on email" href="mailto:mark0630227248@gmail.com"><i class="fa fa-fw fa-vcard-o"></i> Contact</a>
+        <a title="Follow me on social media" href="socials.html"><i class="fa fa-fw fa-handshake-o"></i> My Socials</a>
+        <a title="My picture and awards" href="gallery.html"><i class="fa fa-photo fa-fw"></i> Gallery</a>
+      </div>
+
+      
+      <span title="Open menu" id="navButton" onclick="openNav()">&#9776;</span>
+         
+    <!-- Page Container -->
+    <div id="pageContainer" class="yes-content yes-margin-top" style="max-width:1400px;">
+    
+      <!-- The Grid -->
+      <div class="yes-row-padding">
+      
+        <!-- Left Column -->
+        <div class="yes-third">
+        
+          <div class="yes-white yes-text-grey yes-card-4">
+            <div class="yes-display-container">
+              <img src="bg.jpg" style="width:100%" alt="Avatar">
+              <div class="yes-display-bottomleft yes-container yes-text-black">
+                <h2 title="This is my name" style="color: white; text-shadow: 0 0 5px green;">Eugene Mark Korku Barasu</h2>
+              </div>
+            </div>
+            <div class="yes-container">
+              <p title="Software Developer"><i class="fa fa-briefcase fa-fw yes-margin-right yes-large yes-text-teal"></i>Software Developer</p>
+              <p title="my location"><i class="fa fa-home fa-fw yes-margin-right yes-large yes-text-teal"></i>Umtata, South Africa</p>
+              <p title="email me"><a href="mailto:mark0630227248@gmail.com?subject=Feedback"><i class="fa fa-envelope fa-fw yes-margin-right yes-large yes-text-teal"></i>mark0630227248@gmail.com</a></p>
+              <p title="call me anytime"><a href="tel:+27787898353"><i class="fa fa-phone fa-fw yes-margin-right yes-large yes-text-teal"></i>+27 (0) 78 789 8353</a></p>
+              <p title="Whatsapp me anytime"><a target="_blank" href="https://web.whatsapp.com/send?phone=+27815332769&text=Hello Eugene Mark Barasu, I saw your whatsapp number on your portfolio website.  Please my name is: "><i class="fa fa-whatsapp fa-fw yes-margin-right yes-large yes-text-teal"></i> +27 (0) 81 533 2769</a>
+                  
+              </p>
+                <hr>
+    
+              <p title="skills" class="yes-large"><b><i class="fa fa-asterisk fa-fw yes-margin-right yes-text-teal"></i>Skills</b></p>
+              <p title="Front-End Development Level">Front-End Development</p>
+              <div class="yes-light-grey yes-round-xlarge yes-small">
+                <div class="yes-container yes-center yes-round-xlarge yes-teal" style="width:100%">100%</div>
+              </div>
+              <p title="Back-End Development Level">Back-End Development</p>
+              <div class="yes-light-grey yes-round-xlarge yes-small">
+                <div class="yes-container yes-center yes-round-xlarge yes-teal" style="width:90%">
+                  <div class="yes-center yes-text-white">90%</div>
+                </div>
+              </div>
+              <p title="Mobile App Skills">Mobile App Development</p>
+              <div class="yes-light-grey yes-round-xlarge yes-small">
+                <div class="yes-container yes-center yes-round-xlarge yes-teal" style="width:99%">99%</div>
+              </div>
+              <p title="Game Development Skills">Game Development</p>
+              <div class="yes-light-grey yes-round-xlarge yes-small">
+                <div class="yes-container yes-center yes-round-xlarge yes-teal" style="width:85%">85%</div>
+              </div>
+              <br>
+    
+              <p title="The different languages I speak" class="yes-large yes-text-theme"><b><i class="fa fa-globe fa-fw yes-margin-right yes-text-teal"></i>Languages</b></p>
+              <p>English</p>
+              <div class="yes-light-grey yes-round-xlarge">
+                <div title="English" class="yes-round-xlarge yes-teal" style="height:24px;width:100%"></div>
+              </div>
+              <p>Asante Twi</p>
+              <div class="yes-light-grey yes-round-xlarge">
+                <div title="Asante Twi" class="yes-round-xlarge yes-teal" style="height:24px;width:90%"></div>
+              </div>
+              <p>French</p>
+              <div class="yes-light-grey yes-round-xlarge">
+                <div title="French" class="yes-round-xlarge yes-teal" style="height:24px;width:55%"></div>
+              </div>
+              <p>Xhosa</p>
+              <div class="yes-light-grey yes-round-xlarge">
+                <div title="Xhosa" class="yes-round-xlarge yes-teal" style="height:24px;width:25%"></div>
+              </div>
+              <br>
+            </div>
+          </div><br>
+    
+        <!-- End Left Column -->
+        </div>
+    
+        <!-- Right Column -->
+        <div class="yes-twothird">
+        
+          <div class="yes-container yes-card yes-white yes-margin-bottom">
+            <h2 title="Work Experiences" class="yes-text-grey yes-padding-16"><i class="fa fa-suitcase fa-fw yes-margin-right yes-xxlarge yes-text-teal"></i>Work Experience</h2>
+            <div class="yes-container">
+              <h5 title="Still Mastering Front-End Web Dev." class="yes-opacity"><b>Front End Developer (Self)</b></h5>
+              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>March 2020 - <span class="yes-tag yes-teal yes-round">Current</span></h6>
+              <p>I devoted more time to take online courses to fully master my HTML, CSS, JavaScript, SQL, PHP,  jQuery, W3.CSS, Bootstrap. <i class="fa fa-clock-o fa-fw"></i> 7:00pm - 5:00am.<br>
+                I took my time to learn from real life experts in Software Programmers online and also to Self-teach on Advanced Programming.
+                <a style="color: #009688;text-decoration: none;" target="_blank" href="socials.html">Please stock me on my socials.</a>
+              </p>
+              <hr>
+            </div>
+            <div class="yes-container">
+              <h5 title="George Electronics Centre" class="yes-opacity"><b>George Electronics Centre</b></h5>
+              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>October 2020 - <span class="yes-tag yes-teal yes-round">Current</span></h6>
+              <p>I hold an <q>all-round</q> position as an assistant receptionist, assistant technitian, assistant driver. <i class="fa fa-clock-o fa-fw"></i> 8:00am - 5:00pm<br>
+              <i class="fa fa-user fa-fw yes-center yes-text-teal yes-large"></i> <span title="Contact Person">Contact Person: Paa Kwesi Owusu Ansah(Manager)</span> || <a title="Whatsapp Paa Kwesi (Manager)" target="_blank" href="https://web.whatsapp.com/send?phone=+27780350083&text=Hello P.K, I want to inquire about Mark Eugene Barasu who worked with you in several positions. I want to employ him and I'll like to know more about him."><i class="fa fa-whatsapp yes-text-teal yes-large yes-center"></i> +27 (0) 78 035 0083</a> || <a title="Call Elvis (Co-Founder)" href="tel:+27788233277"><i class="fa fa-phone fa-fw yes-large yes-text-teal yes-center"></i>+27 (0) 78 823 3277 (Co-Founder)</a>
+              </p><hr>
+            </div>
+            <div class="yes-container">
+              <h5 title="Mabdev's Restaurant" class="yes-opacity"><b>Mabdevs Restaurant</b></h5>
+              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>Jun 2016 - Mar 2020</h6>
+              <p>I held a position as a delivery man. This was a part time volunteering job during high school vacations. <br>
+              <i class="fa fa-user fa-fw yes-center yes-text-teal yes-large"></i> <span title="Contact Person">Contact Person: Vivian Ama Barasu(Manager)</span> || <a title="Whatsapp the Manager" target="_blank" href="https://web.whatsapp.com/send?phone=+27813386326&text=Hello Mabdevs Restaurant, I want to inquire about Mark Eugene Barasu who worked with you as a delivery man. I want to employ him and I'll like to know more about him."><i class="fa fa-whatsapp yes-text-teal yes-large yes-center"></i> +27 (0) 81 338 6326</a> || <a title="Call Manager of Mabdev's Restaurant" href="tel:+27781383039"><i class="fa fa-phone fa-fw yes-large yes-text-teal yes-center"></i>+27 (0) 78 138 3039</a>
+              </p><hr>
+            </div>
+            <div class="yes-container">
+              <h5 title="TATT Fish Farm Limited" class="yes-opacity"><b>TATT Farm Limited</b></h5>
+              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>June 2016 - August 2016</h6>
+              <p>This was my first work experience after I completed 9<sup>th</sup> grade (in June 2017). <br>
+              <i class="fa fa-users yes-center yes-text-teal yes-large fa-fw"></i> <span title="Contact Person">Contact Person: Godfred Larbie(Co-Founder)</span> || <a title="Call Co-Founder of TATT Farm Lmtd." target="_blank" href="tel:+233506807339"><i class="fa fa-comments yes-text-teal yes-center yes-large fa-fw"></i> +233 (0) 50 680 7339</a> || <i class="fa fa-map-marker yes-text-teal yes-large yes-center fa-fw"></i> Ghana
+            </p>
+              <br>
+            </div>
+
+          </div>
+    
+          <div class="yes-container yes-card yes-white">
+            <h2 title="Education" class="yes-text-grey yes-padding-16"><i class="fa fa-certificate fa-fw yes-margin-right yes-xxlarge yes-text-teal"></i>Education</h2>
+            <div class="yes-container">
+              <h5 class="yes-opacity"><b>Advanced Programming. (Self Taught)</b></h5>
+              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>Forever</h6>
+              <p>Web Development! All I need to know in one place. I have made and completed <strong><a href="projects.html">many projects</a>.</strong>
+              </p>
+              <hr>
+            </div>
+            <div class="yes-container">
+              <h5 class="yes-opacity"><b>Online Programming Courses</b></h5>
+              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>2020 - 2021</h6>
+              <p>HTML, CSS, JavaScript, SQL, PHP, jQuery, Bootstrap. I studied all these from <strong><a href="http://www.w3schools.com">W3SCHOOLS</a></strong> and other YouTube tutorials from experts.</p>
+              <hr>
+            </div>
+            <div class="yes-container">
+              <h5 class="yes-opacity"><strong>Holy Cross High School</strong></h5>
+              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>2017 - 2019</h6>
+              <p>I did programming courses (HTML5, CSS3 & JavaScript ) while in high school at <strong><a href="http://www.codecollege.co.za">Code College </a></strong>(2018).<br/>
+              See my certifications in my gallery (click on the menu to find Gallery).</p>           </div>
+          </div>
+    
+        <!-- End Right Column -->
+        </div>
+        
+      <!-- End Grid -->
+      </div>
+      
+      <!-- End Page Container -->
+    </div>
+    
+    <footer class="yes-container yes-teal yes-center yes-margin-top" title="Social Media Links">
+      <p>Find me on social media.</p>
+      <a title="follow me on Facebook" target="_blank" href="https://www.facebook.com/profile.php?id=100069669603894"><i class="fa fa-facebook-official yes-hover-opacity"></i></a>&nbsp;&nbsp;
+      <a title="follow me on Snapchat" target="_blank" href="https://www.snapchat.com/add/e_barasu2021?share_id=wRg8P6dDSuc&locale=en-ZA"><i class="fa fa-snapchat yes-hover-opacity"></i></a>&nbsp;&nbsp;
+      <a title="follow me on Linkedin" target="_blank" href="https://www.linkedin.com/in/eugene-mark-korku-barasu-5094a7220"><i class="fa fa-linkedin yes-hover-opacity"></i></a>&nbsp;&nbsp;
+      <a title="follow me on Pinterest" target="_blank" href="https://pin.it/2S8Sc3Z"><i class="fa fa-pinterest-p yes-hover-opacity"></i></a>&nbsp;&nbsp;
+      <a title="follow me on Github" target="_blank" href="https://github.com/Mark-Eugene-Barasu"><i class="fa fa-github yes-hover-opacity"></i></a>&nbsp;&nbsp;
+      <a title="follow me on Tumblr" target="_blank" href="http://eugene-mark-korku-barasu.tumblr.com"><i class="fa fa-tumblr yes-hover-opacity"></i></a>&nbsp;&nbsp;
+      <a title="follow me on Twitter" target="_blank" href="https://twitter.com/Brains_777?s=08"><i class="fa fa-twitter yes-hover-opacity"></i></a>&nbsp;&nbsp;
+      <a title="follow me on Instagram" target="_blank" href="https://www.instagram.com/markeugene465/"><i class="fa fa-instagram yes-hover-opacity"></i></a>&nbsp;&nbsp;
+      <a title="follow me on YouTube" target="_blank" href="https://youtube.com/channel/UCJFmmEnHDe6WFw6gAhcnYFg"><i class="fa fa-youtube yes-hover-opacity"></i></a>&nbsp;&nbsp;
+      <a title="Chat with me on Whatsapp" target="_blank" href="https://web.whatsapp.com/send?phone=+27815332769&text=Hello Mark Eugene, I want to congratulate you on successfully understanding the concept and how to link links to websites and anything."><i class="fa fa-whatsapp yes-hover-opacity"></i></a>&nbsp;&nbsp;
+      <a title="follow me on tiktok" target="_blank" href="https://vm.tiktok.com/ZSJKPkMFe/"><i class="fab fa-tiktok yes-hover-opacity"></i></a>
+      
+      <hr>
+
+
+            <!--All code here was done by Me with few references to real life experts-->
+      <p title="Email me anytime.">&copy; Eugene Mark Korku Barasu. <br><a href="mailto:mark0630227248@gmail.com" target="_blank">
+        Email me:<i class="fa fa-envelope yes-xxlarge yes-hover-opacity"></i></a>
+        </p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

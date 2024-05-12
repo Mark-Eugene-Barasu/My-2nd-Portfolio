@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunch Game</title>
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+body {
+    font-family: sans-serif;
+}
+
+#instructions {
+    background-color: rgb(248, 141, 2);
+    padding: 6px;
+    margin: 6px;
+}
+
+#orderForm {
+    width: 75%;
+    margin: 20px auto;
+}
+
+#receipt {
+    background-color: #0df804;
+    color: rgb(255, 0, 0);
+    padding: 6px;
+}
+
+    </style>
+</head>
+<body>
+
+    <nav id="nav01"></nav>
+
+    <div id="main">
+        <h1>Your FAVORITE Lunch Game!</h1>
+
+        <div id="instructions">
+            <p>You get a weekly allowance of R<span id="money"></span> to buy lunch. Sandwiches are always between R1 and R5, but you never know the price until you get to school.</p>
+            <p>Your goal is to be able to buy lunch every day of the week.</p>
+        </div>
+        <div id="orderForm">
+            <label>How many sandwiches do you want per day?
+                <br />
+                <input type="number" id="numSandwiches" />
+            </label>
+            <button type="button" id="placeOrder">Place Order</button>
+        </div>
+        <div id="receipt"></div>
+    <footer id="foot01"></footer>
+    </div>
+
+    <script src="projects.js"></script>
+    <script>
+// declare globals
+var money = 20;
+var lunches = 0;
+
+//display lunch budget
+document.getElementById("money").innerHTML = money;
+
+//listen for order
+document.getElementById("placeOrder").addEventListener("click", buyLunches);
+
+/*
+buys specified number of sandwiches per day at current prices
+*/
+function buyLunches() {
+    resetForm();
+    var day = 0;
+    while (money > 0) {
+        day++;
+        var priceToday = getSandwichPrice();
+        var numberOfSandwiches = document.getElementById("numSandwiches").value;
+        var totalPrice = priceToday * numberOfSandwiches;
+
+
+        if (money >= totalPrice) {
+            money = money - totalPrice;
+            lunches++;
+            document.getElementById("receipt").innerHTML += "<p>On day " + day + ", sandwiches are: R" + priceToday + ". You have R" + money.toFixed(2) + " left.</p>";
+
+        } else {
+            document.getElementById("receipt").innerHTML += "<p>Today, sandwiches are: R" + priceToday + ". You don't have enough money. Maybe your sister will give you some of her sandwich.</p>";
+            money = 0;
+        }
+
+    }
+    document.getElementById("receipt").innerHTML += "<p>You bought " + lunches + " lunches this week.</p>";
+
+}
+
+/*
+gets the current price of sandwiches
+*/
+function getSandwichPrice() {
+    var sandwichPrice = (Math.random() * (5 - 1) + 1).toFixed(2);
+    return sandwichPrice;
+}
+
+/*
+resets the game so that a new order can be placed
+*/
+function resetForm() {
+    money = 20;
+    lunches = 0;
+    document.getElementById("receipt").innerHTML = "";
+
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="font-awesome.min.css">
+    
+    <title>Word Replacement Game</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+    font-family: "Comic Sans MS";
+}
+
+#inputWords {
+    float: left;
+    width: 45%;
+}
+
+@media (max-width:480px){
+    #inputWords {
+        text-align: center;
+        width: 100%;
+    }
+    
+    #story {
+        width: 100%;
+        clear:left;
+    }
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+li {
+    line-height: 2em;
+    text-transform: uppercase;
+    margin-top: 8px;
+}
+
+input[type=text] {
+    border-width: 0 0 1px 0;
+    border-color: #333;
+}
+
+#buttonDiv {
+    text-align: center;
+}
+
+#replaceButton {
+    margin-top: 30px;
+    width: 200px;
+}
+
+#story {
+    margin-top: 12px;
+    width: 45%;
+    border: 1px dashed blue;
+    padding: 8px;
+    float: left;
+}
+
+footer {
+    clear: left;
+}
+
+.replacement {
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+    </style>
+</head>
+<body>
+
+    <nav id="nav01"></nav>
+
+    <div id="main">
+        <h1>Word Replacement Game</h1>
+        <p>(hint: fill in the words in the blank spaces to make the story lines. After, click the button at the end.)</p>
+        <div id="inputWords">
+            <ul>
+                <li><input type="text" id="adj1" /><br/>Adjective</li>
+                <li><input type="text" id="verbIng" /><br>Verb (ending in "-ing")</li>
+                <li><input type="text" id="roomInHouse" /><br>Room in a house</li>
+                <li><input type="text" id="color" /><br>Color</li>
+                <li><input type="text" id="nounPlural" /><br>Plural noun</li>
+                <li><input type="text" id="pastVerb" /><br>Verb (past tense)</li>
+                <li><input type="text" id="beverage" /><br>Beverage</li>
+                <li><input type="text" id="musicType" /><br>Type of music</li>
+                <li><input type="text" id="diffRoom" /><br>Different Room in a house</li>
+                <li><input type="text" id="exclamation" /><br>Exclamation</li>
+                <li><input type="text" id="pastVerb2" /><br>Verb (past tense)</li>
+                <li><input type="text" id="adjDance" /><br>Adjective</li>
+                <li><input type="text" id="animal" /><br>Animal</li>
+                <li><input type="text" id="city" /><br>City</li>
+                <li><input type="text" id="verb" /><br>Verb</li>
+            </ul>
+            <div id="buttonDiv">
+                <button id="replaceButton">Replace it!</button>
+            </div>
+        </div>
+        <div id="story"></div>
+    <footer id="foot01"></footer>
+    </div>
+
+    <script src="projects.js"></script>
+    <script>
+        var replaceButton = document.getElementById("replaceButton");
+replaceButton.addEventListener("click", replaceIt);
+
+function replaceIt() {
+    var storyDiv = document.getElementById("story");
+    var adj1 = "<span class='replacement'>" + document.getElementById("adj1").value + "</span>";
+    var verbIng = "<span class='replacement'>" + document.getElementById("verbIng").value + "</span>";
+    var roomInHouse = "<span class='replacement'>" + document.getElementById("roomInHouse").value + "</span>";
+    var color = "<span class='replacement'>" + document.getElementById("color").value + "</span>";
+    var nounPlural = "<span class='replacement'>" + document.getElementById("nounPlural").value + "</span>";
+    var pastVerb = "<span class='replacement'>" + document.getElementById("pastVerb").value + "</span>";
+    var beverage = "<span class='replacement'>" + document.getElementById("beverage").value + "</span>";
+    var musicType = "<span class='replacement'>" + document.getElementById("musicType").value + "</span>";
+    var diffRoom = "<span class='replacement'>" + document.getElementById("diffRoom").value + "</span>";
+    var exclamation = "<span class='replacement'>" + document.getElementById("exclamation").value + "</span>";
+    var pastVerb2 = "<span class='replacement'>" + document.getElementById("pastVerb2").value + "</span>";
+    var adjDance = "<span class='replacement'>" + document.getElementById("adjDance").value + "</span>";
+    var animal = "<span class='replacement'>" + document.getElementById("animal").value + "</span>";
+    var city = "<span class='replacement'>" + document.getElementById("city").value + "</span>";
+    var verb = "<span class='replacement'>" + document.getElementById("verb").value + "</span>";
+
+    var theStory = "<h1>Mark-Eugene's Dance Party</h1>";
+    theStory += "Once upon a time on a " + adj1 + " day,";
+    theStory += "Mark-Eugene was " + verbIng;
+    theStory += " in his " + roomInHouse;
+    theStory += ", reading a book about " + color;
+    theStory += " " + nounPlural + ".<br><br>";
+    theStory += "As he " + pastVerb + " his " + beverage;
+    theStory += ", he heard " + musicType;
+    theStory += " music playing in the " + diffRoom + ".<br><br>";
+    theStory += exclamation + "! he exclaimed, as he ";
+    theStory += pastVerb2 + " down the stairs to join the ";
+    theStory += adjDance + " party.<br><br>";
+    theStory += "Mark-Eugene danced the " + animal;
+    theStory += " Dance, the " + city + " Shake,";
+    theStory += "and took the prize for dancing the best Electric " + verb + ".<br><br>";
+
+    storyDiv.innerHTML = theStory;
+
+}
+    </script>
+</body>
+</html>

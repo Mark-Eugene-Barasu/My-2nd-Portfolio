@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lemonade Game</title>
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+#Sunday,
+#Monday,
+#Tuesday,
+#Wednesday,
+#Thursday,
+#Friday,
+#Saturday {
+    width: 18%;
+    height: 200px;
+    float: left;
+    border: 1px solid black;
+    padding: 2px;
+    font-family: sans-serif;
+    font-size: 19px;
+}
+
+.Sunny {
+    background-color: rgb(248, 102, 5);
+}
+
+.Raining {
+    background-color: rgb(6, 124, 250);
+}
+
+.Cloudy {
+    background-color: rgb(60, 57, 128);
+    color: #fff;
+}
+
+.Thunderstorm {
+    background-color: rgb(56, 55, 55);
+    color: #fff;
+}
+
+.Partly-Cloudy {
+    background-color: rgb(108, 106, 238);
+}
+
+.Partly-Sunny {
+    background-color: yellow;
+}
+
+.Snowing {
+    background-color: rgb(252, 251, 248);
+}
+
+.Foggy {
+    background-color: rgb(5, 240, 248);
+}
+
+#orderForm {
+    width: 75%;
+    margin: 20px auto;
+}
+
+#result {
+    background-color: #8ef804;
+    color: rgb(255, 0, 221);
+    padding: 6px;
+}
+    </style>
+</head>
+<body>
+
+    <nav id="nav01"></nav>
+
+    <div id="main">
+        <div id="7DayWeather"></div>
+        <br clear="all">
+        <div id="orderForm">
+        <div id="glasses">
+            <label>How many glasses of lemonade do you want to make this week?
+                <br />
+                <input type="number" id="numGlasses" placeholder="hint: think big!" />
+            </label>
+        </div>
+        <div id="price">
+            <label>How much will you charge for a glass of lemonade this week?
+                <br />
+                <input type="number" id="glassPrice" placeholder="more than .5" />
+            </label>
+        </div>
+        <button type="button" id="OpenTheStand">Open The Stand!</button>
+        </div>
+        <div id="result">
+        </div>
+    <footer id="foot01"></footer>
+    </div>
+
+    <script src="projects.js"></script>
+    <script>
+// create days of week array
+var days = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
+
+// define types of weather
+var weather = ["Sunny", "Partly-Sunny", "Partly-Cloudy", "Cloudy", "Raining", "Snowing", "Thunderstorm", "Foggy"];
+
+// set min and max temps
+var maxTemp = 110;
+var minTemp = 32;
+
+// cost (to you) of a cup of lemonade
+var lemonadeCost = 0.5;
+
+// array for storing daily temps
+var dailyTemp = [];
+
+// listen for order
+document.getElementById("OpenTheStand").addEventListener("click", openTheStand);
+
+// make the week's weather
+generateWeather();
+
+/**
+generates weather for the week
+**/
+function generateWeather() {
+    var weatherToday;
+    var tempToday;
+    for (var i = 0; i < days.length; i++) {
+        weatherToday = weather[Math.floor(Math.random() * weather.length)];
+        tempToday = Math.floor(Math.random() * (maxTemp - minTemp) + minTemp);
+        dailyTemp[i] = tempToday;
+        document.getElementById("7DayWeather").innerHTML += "<div id='" + days[i] + "' class='" + weatherToday + "'><b>Forecast for " + days[i] + ":</b><br><br>" + weatherToday + " and " + tempToday + " degrees.</div>";
+    }
+}
+
+/**
+calculates glasses of lemonade sold
+**/
+function openTheStand() {
+    var glassesSold = 0; // daily
+    var totalGlasses = 0; // weekly
+    var glassesLeft = 0; // left to sell
+
+    // clear out previous results
+    resetForm();
+
+    // get input
+    var numGlasses = Number(document.getElementById("numGlasses").value);
+    var glassPrice = Number(document.getElementById("glassPrice").value);
+
+
+    for (var i = 0; i < days.length; i++) {
+
+        // glasses sold depends on temp and price
+        glassesSold = Math.floor(dailyTemp[i] / glassPrice);
+
+        // how many glasses do we have now?
+        glassesLeft = numGlasses - totalGlasses;
+
+        // we can't sell more than we have
+        if (glassesSold > glassesLeft) {
+            glassesSold = glassesLeft;
+        }
+
+        // increase the weekly total
+        totalGlasses = glassesSold + totalGlasses;
+
+        // display daily total
+        document.getElementById("result").innerHTML += "<p>" + days[i] + ", you sold " + glassesSold + " glasses of lemonade.</p>";
+
+    }
+
+    displayResults(numGlasses, glassPrice, totalGlasses);
+
+}
+
+/**
+calculates results and displays a report
+**/
+function displayResults(weeklyInventory, glassPrice, weeklySales) {
+    // calculate results
+    var revenue = weeklySales * glassPrice;
+    var expense = weeklyInventory * lemonadeCost;
+    var leftOver = weeklyInventory - weeklySales;
+    var profit = revenue - expense;
+
+    // print out the weekly report
+    document.getElementById("result").innerHTML += "<p>You sold a total of " + weeklySales + " glasses of lemonade this week.</p>";
+    document.getElementById("result").innerHTML += "<p>Total revenue: R" + revenue + ".</p>";
+    document.getElementById("result").innerHTML += "<p>You have " + leftOver + " glasses of lemonade left over.</p>";
+    document.getElementById("result").innerHTML += "<p>Each glass costs you R" + lemonadeCost + ". Your profit was R" + profit + ".";
+}
+
+/**
+resets the game so that a new order can be placed
+**/
+function resetForm() {
+    document.getElementById("result").innerHTML = "";
+
+}
+    </script>
+</body>
+</html>

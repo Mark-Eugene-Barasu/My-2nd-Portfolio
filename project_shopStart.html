@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid #000000;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #1cff08;
+}
+
+tr:nth-child(odd) {
+    background-color: #ff08ce;
+}
+    </style>
+</head>
+<body onload="display_all">
+
+    <nav id="nav01"></nav>
+
+    <div id="main">
+        <h1>Shop Start</h1>
+        <p>Buy your goods.</p>
+    <p id="demo"></p>
+    <br/><br/>
+    <br/>   
+    <button id="CheckOutButton" type="button">Checkout!</button>
+    <p id="total"></p>
+    <footer id="foot01"></footer>
+    </div>
+
+    <script src="projects.js"></script>
+    <script>
+    var nums = [1, 2, 3, 4];
+var items = ["Coke", "Kit Kat", "Bar One", "Fanta"];
+var prices = [7.5, 9.5, 8.5, 7.5];
+var quantities = [0, 0, 0, 0];
+var totals = [0.0, 0.0, 0.0, 0.0];
+var totalOrderAmt = 0;
+
+function add_selection(x) {
+    console.log(x);
+    quantities[x] = quantities[x] + 1;
+    totals[x] = prices[x] * quantities[x];
+    totalOrderAmt += prices[x];
+
+    display_all();
+}
+
+function subtract_selection(x) {
+    if (quantities[x] > 0) {
+        console.log(x);
+        quantities[x] = quantities[x] - 1;
+        totals[x] = prices[x] * quantities[x];
+        totalOrderAmt -= prices[x];
+
+
+        display_all();
+
+    }
+
+}
+
+function displayTotal() {
+    document.getElementById("total").innerHTML = "";
+    document.getElementById("total").innerHTML += "<br/>Total price of items is R" + totalOrderAmt.toFixed(2);
+
+}
+
+
+function display_all() {
+
+
+    var myTable = "<table><th style='width: 100px; color: yellow; text-align: right;'>Num</th>";
+    myTable += "<th style='width: 100px; color: yellow; text-align: right;'>Item</th>";
+    myTable += "<th style='width: 100px; color: yellow; text-align: right;'>Price</th>";
+    myTable += "<th style='width: 100px; color: yellow; text-align: right;'>Quantity</th>";
+    myTable += "<th style='width: 100px; color: yellow; text-align: right;'>Total</th>";
+    myTable += "<th style='width: 100px; color: yellow; text-align: right;'>Add</th>";
+    myTable += "<th style='width: 100px; color: yellow; text-align: right;'>Remove</th>";
+
+    for (var i = 0; i < items.length; i++) {
+        myTable += "<tr><td style='width: 100px; text-align: right;'>" + nums[i] + "</td>";
+        myTable += "<td style='width: 100px; text-align: right;'>" + items[i] + "</td>";
+        myTable += "<td style='width: 100px; text-align: right;'>" + prices[i] + "</td>";
+        myTable += "<td style='width: 100px; text-align: right;'>" + quantities[i] + "</td>";
+        myTable += "<td style='width: 100px; text-align: right;'>" + totals[i] + "</td>";
+        myTable += "<td><button onclick='add_selection(" + i + ")'>Add</button></td>";
+        myTable += "<td><button onclick='subtract_selection(" + i + ")'>Remove</button></td>";
+    }
+    document.getElementById("CheckOutButton").addEventListener("click", displayTotal);
+
+    function CheckOut() {
+        myTable += "</table>";
+        myTable += "<br/><br/><br/>Total: " + totalOrderAmt + "</p>";
+
+    }
+    document.getElementById("demo").innerHTML = myTable;
+
+}
+
+window.onload = function() {
+    display_all();
+
+}
+    </script>
+</body>
+</html>
