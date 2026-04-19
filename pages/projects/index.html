@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Projects</title>
     
-<link rel="stylesheet" href="../../assets/css/yes.css">
-  <link rel="stylesheet" href="../../assets/css/modern.css">
+
+<link rel="stylesheet" href="../../assets/css/simple-modern.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
@@ -20,7 +21,17 @@
 
 <body>
 
-    <nav id="nav01"></nav>
+
+  <nav title="menu" id="mySidenav" class="sidenav" aria-label="Portfolio navigation">
+    <a title="close" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a title="home" href="../../index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a title="about" href="../../pages/about.html"><i class="fa fa-fw fa-user"></i> About</a>
+    <a title="gallery" href="../../pages/gallery.html"><i class="fa fa-fw fa-image"></i> Gallery</a>
+    <a title="socials" href="../../pages/socials.html"><i class="fa fa-fw fa-share"></i> Socials</a>
+  </nav>
+
+  <button title="Open menu" id="navButton" onclick="openNav()">&#9776;</button>
+
 
     <div id="main">
     <h1>Welcome, here are few of my projects</h1>

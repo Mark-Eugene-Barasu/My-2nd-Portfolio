@@ -14,41 +14,37 @@ function initAnimations() {
   gsap.registerPlugin(ScrollTrigger);
 
   // Global stagger for sections
+
   gsap.utils.toArray('.gsap-stagger').forEach((section) => {
     gsap.from(section.querySelectorAll('.gsap-child'), {
-      duration: 0.8,
-      y: 80,
+      duration: 0.6,
+      y: 40,
       opacity: 0,
-      stagger: 0.1,
-      ease: 'back.out(1.7)', // Elastic bounce
+      stagger: 0.05,
+      ease: 'power2.out',
       scrollTrigger: {
         trigger: section,
-        start: 'top 85%',
+        start: 'top 90%',
         toggleActions: 'play none none reverse'
       }
     });
   });
+
 
   // Hero title glitch + stagger words
   const heroTitle = document.querySelector('.hero-title');
   if (heroTitle) {
     const words = heroTitle.innerHTML.split(' ');
     heroTitle.innerHTML = words.map(word => `<span class="gsap-word">${word}</span>`).join(' ');
-    gsap.from('.gsap-word', {
-      duration: 1,
-      scale: 0,
-      rotation: 180,
-      opacity: 0,
-      stagger: 0.05,
-      ease: 'elastic.out(1,0.3)'
-    });
-    gsap.to(heroTitle, {
-      glitch: true, // Custom via keyframes
-      duration: 0.1,
-      repeat: -1,
-      yoyo: true,
-      ease: 'power2.inOut'
-    });
+
+  gsap.from('.gsap-word', {
+    duration: 0.6,
+    y: 30,
+    opacity: 0,
+    stagger: 0.08,
+    ease: 'power2.out'
+  });
+
   }
 
   // Stats counters
@@ -189,17 +185,44 @@ function initDarkMode() {
 // Smooth Scroll + Mobile Menu Enhance
 function initSmoothScroll() {
   // Existing openNav/closeNav compatible
-  window.openNav = () => {
-    gsap.to('#mySidenav', { duration: 0.5, width: '280px', ease: 'power2.out' });
-    gsap.to('#pageContainer', { duration: 0.3, opacity: 0.3 });
-    gsap.to('#navButton', { duration: 0.3, scale: 0 });
-  };
+/* Modest Nav Logic - Desktop Bar, Mobile Hamburger */
+const isMobile = window.innerWidth < 768;
+if (isMobile) {
+  // Keep hamburger for mobile
 
-  window.closeNav = () => {
-    gsap.to('#mySidenav', { duration: 0.4, width: 0, ease: 'power2.in' });
-    gsap.to('#pageContainer', { duration: 0.3, opacity: 1 });
-    gsap.to('#navButton', { duration: 0.3, scale: 1 });
-  };
+window.openNav = () => {
+  document.body.style.overflow = 'hidden';
+  gsap.to('#mySidenav', { duration: 0.4, width: '280px', ease: 'power2.out' });
+  gsap.to('#pageContainer', { duration: 0.3, opacity: 0.7 });
+};
+window.closeNav = () => {
+  document.body.style.overflow = 'auto';
+  gsap.to('#mySidenav', { duration: 0.4, width: 0, ease: 'power2.in' });
+  gsap.to('#pageContainer', { duration: 0.3, opacity: 1 });
+};
+
+} else {
+  // Desktop bar always visible
+  const navBar = document.querySelector('.modern-nav') || createNavBar();
+  document.body.prepend(navBar);
+}
+
+// Create modest nav bar
+function createNavBar() {
+  const nav = document.createElement('nav');
+  nav.className = 'modern-nav';
+  nav.innerHTML = `
+    <ul>
+      <a href="index.html" class="active"><i class="fa fa-home"></i> Home</a>
+      <a href="pages/about.html"><i class="fa fa-user"></i> About</a>
+      <a href="pages/projects/index.html"><i class="fa fa-briefcase"></i> Projects</a>
+      <a href="pages/gallery.html"><i class="fa fa-image"></i> Gallery</a>
+      <a href="pages/socials.html"><i class="fa fa-share-alt"></i> Socials</a>
+    </ul>
+  `;
+  return nav;
+}
+
 
   // Lazy load images
   if ('IntersectionObserver' in window) {
