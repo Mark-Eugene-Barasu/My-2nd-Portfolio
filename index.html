@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eugene Mark Korku Barasu.</title>
-    <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="yes.css">
+    <link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/yes.css">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="assets/vendor/font-awesome.min.css">
 
     <style>
     html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
@@ -77,15 +77,16 @@
           }
       }
     </style>
-    <body class="yes-light-grey">      
+</head>
+<body class="yes-light-grey">      
       
       <div title="menu" id="mySidenav" class="sidenav">
         <a title="close" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a title="about me" href="aboutMe.html"><i class="fa fa-fw fa-address-book-o"></i> About</a>
-        <a title="Projects" href="projects.html"><i class="fa fa-fw fa-briefcase"></i> Projects</a>
+        <a title="about me" href="pages/about.html"><i class="fa fa-fw fa-address-book-o"></i> About</a>
+        <a title="Projects" href="pages/projects/index.html"><i class="fa fa-fw fa-briefcase"></i> Projects</a>
         <a title="contact me on email" href="mailto:mark0630227248@gmail.com"><i class="fa fa-fw fa-vcard-o"></i> Contact</a>
-        <a title="Follow me on social media" href="socials.html"><i class="fa fa-fw fa-handshake-o"></i> My Socials</a>
-        <a title="My picture and awards" href="gallery.html"><i class="fa fa-photo fa-fw"></i> Gallery</a>
+        <a title="Follow me on social media" href="pages/socials.html"><i class="fa fa-fw fa-handshake-o"></i> My Socials</a>
+        <a title="My picture and awards" href="pages/gallery.html"><i class="fa fa-photo fa-fw"></i> Gallery</a>
       </div>
 
       
@@ -102,7 +103,7 @@
         
           <div class="yes-white yes-text-grey yes-card-4">
             <div class="yes-display-container">
-              <img src="bg.jpg" style="width:100%" alt="Avatar">
+              <img src="assets/images/bg.jpg" style="width:100%" alt="Avatar">
               <div class="yes-display-bottomleft yes-container yes-text-black">
                 <h2 title="This is my name" style="color: white; text-shadow: 0 0 5px green;">Eugene Mark Korku Barasu</h2>
               </div>
@@ -172,7 +173,7 @@
               <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>March 2020 - <span class="yes-tag yes-teal yes-round">Current</span></h6>
               <p>I devoted more time to take online courses to fully master my HTML, CSS, JavaScript, SQL, PHP,  jQuery, W3.CSS, Bootstrap. <i class="fa fa-clock-o fa-fw"></i> 7:00pm - 5:00am.<br>
                 I took my time to learn from real life experts in Software Programmers online and also to Self-teach on Advanced Programming.
-                <a style="color: #009688;text-decoration: none;" target="_blank" href="socials.html">Please stock me on my socials.</a>
+                <a style="color: #009688;text-decoration: none;" target="_blank" href="pages/socials.html">Please stock me on my socials.</a>
               </p>
               <hr>
             </div>
@@ -194,7 +195,7 @@
               <h5 title="Mabdev's Restaurant" class="yes-opacity"><b>Mabdevs Restaurant</b></h5>
               <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>Jun 2016 - Mar 2020</h6>
               <p>I held a position as a delivery man. This was a part time volunteering job during high school vacations. <br>
-              <p>I created a Website for this company, Please feel free to check it out<a href="http://https://mark-eugene-barasu.github.io/food-ecommerce/">Mabdev's Restaurant</a></p>
+              <p>I created a Website for this company, Please feel free to check it out<a href="https://mark-eugene-barasu.github.io/food-ecommerce/">Mabdev's Restaurant</a></p>
               <i class="fa fa-user fa-fw yes-center yes-text-teal yes-large"></i> <span title="Contact Person">Contact Person: Vivian Ama Barasu(Manager)</span> || <a title="Whatsapp the Manager" target="_blank" href="https://web.whatsapp.com/send?phone=+27813386326&text=Hello Mabdevs Restaurant, I want to inquire about Mark Eugene Barasu who worked with you as a delivery man. I want to employ him and I'll like to know more about him."><i class="fa fa-whatsapp yes-text-teal yes-large yes-center"></i> +27 (0) 81 338 6326</a> || <a title="Call Manager of Mabdev's Restaurant" href="tel:+27781383039"><i class="fa fa-phone fa-fw yes-large yes-text-teal yes-center"></i>+27 (0) 78 138 3039</a>
               </p><hr>
             </div>
@@ -229,7 +230,7 @@
             <div class="yes-container">
               <h5 class="yes-opacity"><b>Advanced Programming. (Self Taught)</b></h5>
               <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>Forever</h6>
-              <p>Web Development! All I need to know in one place. I have made and completed <strong><a href="projects.html">many projects</a>.</strong>
+              <p>Web Development! All I need to know in one place. I have made and completed <strong><a href="pages/projects/index.html">many projects</a>.</strong>
               </p>
               <hr>
             </div>
@@ -277,6 +278,6 @@
         Email me:<i class="fa fa-envelope yes-xxlarge yes-hover-opacity"></i></a>
         </p>
     </footer>
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
