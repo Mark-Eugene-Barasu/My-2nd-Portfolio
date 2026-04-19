@@ -22,655 +22,14 @@
     referrerpolicy="no-referrer"
   >
 
-  <style>
-    :root {
-      --brand: #009688;
-      --brand-dark: #00695f;
-      --ink: #1f2937;
-      --muted: #5f6b7a;
-      --surface: rgba(255, 255, 255, 0.96);
-      --surface-strong: #ffffff;
-      --line: rgba(15, 23, 42, 0.08);
-      --shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
-      --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
-      --radius: 22px;
-    }
-
-    html,
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: "Roboto", sans-serif;
-    }
-
-    body.portfolio-body {
-      margin: 0;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at top left, rgba(0, 150, 136, 0.18), transparent 30%),
-        radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 28%),
-        linear-gradient(180deg, #eff8f7 0%, #eef2f7 45%, #f8fafc 100%);
-      min-height: 100vh;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    #pageContainer {
-      transition: opacity 0.3s ease;
-    }
-
-    .page-shell {
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 88px 14px 24px;
-    }
-
-    .sidenav {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 20;
-      top: 0;
-      left: 0;
-      background: rgba(8, 15, 26, 0.96);
-      backdrop-filter: blur(10px);
-      overflow-x: hidden;
-      transition: 0.35s ease;
-      padding-top: 72px;
-      box-shadow: 18px 0 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .sidenav a {
-      padding: 14px 24px 14px 34px;
-      text-decoration: none;
-      font-size: 1rem;
-      color: #d8e1eb;
-      display: block;
-      transition: 0.2s ease;
-      border-left: 3px solid transparent;
-      letter-spacing: 0.02em;
-    }
-
-    .sidenav a:hover {
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.05);
-      border-left-color: var(--brand);
-    }
-
-    .sidenav .closebtn {
-      position: absolute;
-      top: 16px;
-      right: 18px;
-      font-size: 36px;
-      margin-left: 50px;
-      line-height: 1;
-      color: #ffffff;
-    }
-
-    #navButton {
-      position: fixed;
-      top: 18px;
-      left: 18px;
-      z-index: 21;
-      border: none;
-      width: 54px;
-      height: 54px;
-      padding: 0;
-      border-radius: 18px;
-      background: linear-gradient(135deg, var(--brand), #00bfa5);
-      color: #ffffff;
-      font-size: 28px;
-      line-height: 1;
-      cursor: pointer;
-      box-shadow: 0 16px 34px rgba(0, 150, 136, 0.28);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, width 0.2s ease;
-    }
-
-    #navButton:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 36px rgba(0, 150, 136, 0.34);
-    }
-
-    .hero-panel {
-      position: relative;
-      overflow: hidden;
-      border-radius: 30px;
-      background:
-        linear-gradient(135deg, rgba(4, 33, 39, 0.92), rgba(0, 150, 136, 0.88)),
-        url("assets/images/papers.co-ne78-coding-screen-digital-art-25-wallpaper.jpg") center/cover;
-      color: #ffffff;
-      box-shadow: var(--shadow);
-      margin-bottom: 18px;
-    }
-
-    .hero-panel::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(6, 16, 27, 0.15), transparent 60%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.9fr);
-      gap: 24px;
-      align-items: end;
-      padding: 36px 32px;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin: 0 0 12px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.14);
-      font-size: 0.92rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .hero-title {
-      margin: 0 0 12px;
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      font-weight: 700;
-      line-height: 1.08;
-      color: #ffffff;
-    }
-
-    .hero-summary {
-      max-width: 760px;
-      margin: 0 0 20px;
-      font-size: 1.03rem;
-      line-height: 1.75;
-      color: rgba(255, 255, 255, 0.92);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .hero-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-    }
-
-    .hero-button--primary {
-      background: #ffffff;
-      color: #06262a;
-    }
-
-    .hero-button--secondary {
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      background: rgba(255, 255, 255, 0.08);
-      color: #ffffff;
-    }
-
-    .hero-button:hover {
-      transform: translateY(-2px);
-    }
-
-    .hero-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    .hero-points li {
-      padding: 9px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      font-size: 0.94rem;
-      color: rgba(255, 255, 255, 0.95);
-    }
-
-    .hero-stats {
-      display: grid;
-      gap: 12px;
-    }
-
-    .hero-stat {
-      padding: 18px 18px 16px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(8px);
-    }
-
-    .hero-stat strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 1.7rem;
-      line-height: 1;
-      color: #ffffff;
-    }
-
-    .hero-stat span {
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 0.92rem;
-    }
-
-    .column-card,
-    .section-card {
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .profile-cover {
-      position: relative;
-      min-height: 320px;
-      background:
-        linear-gradient(180deg, rgba(7, 18, 30, 0.08), rgba(7, 18, 30, 0.78)),
-        url("assets/images/bg.jpg") center/cover no-repeat;
-    }
-
-    .profile-badge {
-      position: absolute;
-      top: 18px;
-      left: 18px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.14);
-      color: #ffffff;
-      font-size: 0.88rem;
-      backdrop-filter: blur(6px);
-    }
-
-    .profile-name {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 22px 22px 24px;
-      background: linear-gradient(180deg, transparent, rgba(5, 17, 27, 0.82));
-    }
-
-    .profile-name h2 {
-      margin: 0 0 6px;
-      color: #ffffff;
-      font-weight: 700;
-      text-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    .profile-name p {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.86);
-    }
-
-    .profile-body {
-      padding: 22px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: #f8fafc;
-      border: 1px solid rgba(148, 163, 184, 0.16);
-    }
-
-    .contact-item i {
-      width: 18px;
-      margin-top: 3px;
-      color: var(--brand);
-      text-align: center;
-    }
-
-    .contact-item a,
-    .contact-item span {
-      color: var(--ink);
-      text-decoration: none;
-      word-break: break-word;
-    }
-
-    .contact-item a:hover {
-      color: var(--brand-dark);
-    }
-
-    .section-subtitle {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 22px 0 14px;
-      color: var(--ink);
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    .skill-group,
-    .language-group {
-      display: grid;
-      gap: 14px;
-    }
-
-    .skill-item,
-    .language-item {
-      display: grid;
-      gap: 8px;
-    }
-
-    .skill-header,
-    .language-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      color: var(--muted);
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-
-    .progress-track {
-      width: 100%;
-      height: 12px;
-      border-radius: 999px;
-      background: #e5e7eb;
-      overflow: hidden;
-    }
-
-    .progress-bar {
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--brand), #16c7b2);
-    }
-
-    .section-card {
-      padding: 12px 0;
-      margin-bottom: 18px;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 0;
-      padding: 8px 24px 2px;
-      color: var(--ink);
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-
-    .section-heading i {
-      color: var(--brand);
-    }
-
-    .section-intro {
-      margin: 4px 24px 10px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .timeline-item {
-      position: relative;
-      padding: 0 24px 8px 52px;
-      margin: 0 0 6px;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: 25px;
-      top: 11px;
-      bottom: -10px;
-      width: 2px;
-      background: rgba(0, 150, 136, 0.18);
-    }
-
-    .timeline-item:last-child::before {
-      display: none;
-    }
-
-    .timeline-dot {
-      position: absolute;
-      left: 18px;
-      top: 8px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--brand);
-      box-shadow: 0 0 0 5px rgba(0, 150, 136, 0.14);
-    }
-
-    .timeline-item h5 {
-      margin: 0 0 4px;
-      color: var(--ink);
-      font-weight: 700;
-      font-size: 1.08rem;
-    }
-
-    .timeline-item h6 {
-      margin: 0 0 10px;
-      color: var(--brand-dark);
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-
-    .timeline-item p {
-      margin: 0 0 12px;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .timeline-item a {
-      color: var(--brand-dark);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .timeline-item a:hover {
-      text-decoration: underline;
-    }
-
-    .contact-inline {
-      display: block;
-      margin-top: 8px;
-      color: var(--ink);
-      line-height: 1.7;
-    }
-
-    .footer-panel {
-      margin: 22px 14px 0;
-      padding: 26px 18px 28px;
-      border-radius: 24px 24px 0 0;
-      background: linear-gradient(135deg, #00796b, #009688);
-      box-shadow: 0 -8px 30px rgba(0, 121, 107, 0.16);
-    }
-
-    .footer-panel p {
-      margin: 0;
-      color: #f8fffe;
-    }
-
-    .footer-title {
-      margin-bottom: 16px !important;
-      font-size: 1.05rem;
-      font-weight: 500;
-    }
-
-    .footer-socials {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .footer-socials a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-      text-decoration: none;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .footer-socials a:hover {
-      transform: translateY(-3px);
-      background: rgba(255, 255, 255, 0.22);
-    }
-
-    .footer-contact {
-      margin-top: 14px;
-      font-size: 0.98rem;
-    }
-
-    .footer-contact a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .footer-contact a:hover {
-      text-decoration: underline;
-    }
-
-    @media screen and (max-height: 450px) {
-      .sidenav {
-        padding-top: 15px;
-      }
-
-      .sidenav a {
-        font-size: 18px;
-      }
-    }
-
-    @media (max-width: 992px) {
-      .hero-content {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-stats {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 768px) {
-      .page-shell {
-        padding-top: 82px;
-      }
-
-      #navButton {
-        top: 14px;
-        left: 14px;
-        width: 50px;
-        height: 50px;
-        border-radius: 16px;
-      }
-
-      .hero-content {
-        padding: 28px 22px;
-      }
-
-      .section-heading {
-        font-size: 1.55rem;
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-
-      .section-intro {
-        margin-left: 20px;
-        margin-right: 20px;
-      }
-
-      .timeline-item {
-        padding-left: 46px;
-        padding-right: 20px;
-      }
-
-      .timeline-item::before {
-        left: 21px;
-      }
-
-      .timeline-dot {
-        left: 14px;
-      }
-
-      .profile-body {
-        padding: 20px;
-      }
-
-      .footer-panel {
-        margin-left: 10px;
-        margin-right: 10px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero-title {
-        font-size: 2rem;
-      }
-
-      .hero-summary {
-        font-size: 0.98rem;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .hero-button {
-        justify-content: center;
-      }
-
-      .hero-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-item {
-        padding: 11px 12px;
-      }
-
-      .profile-cover {
-        min-height: 280px;
-      }
-    }
-  </style>
+<link rel="stylesheet" href="assets/css/modern.css">
+  <!-- GSAP CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- Modern JS -->
+  <script defer src="assets/js/modern.js"></script>
 </head>
 
 <body class="portfolio-body">
@@ -686,11 +45,12 @@
   <button title="Open menu" id="navButton" onclick="openNav()" aria-label="Open navigation menu">&#9776;</button>
 
   <main id="pageContainer" class="page-shell">
-    <section class="hero-panel yes-card-4">
+<section class="hero-panel yes-card-4" style="position: relative;">
+  <canvas id="particles"></canvas>
       <div class="hero-content">
-        <div>
-          <p class="hero-eyebrow"><i class="fas fa-code"></i> Software Developer Portfolio</p>
-          <h1 class="hero-title">Eugene Mark Korku Barasu</h1>
+        <div class="gsap-stagger">
+          <p class="hero-eyebrow gsap-child"><i class="fas fa-code"></i> Software Developer Portfolio</p>
+          <h1 class="hero-title gsap-stagger">Eugene Mark Korku Barasu</h1>
           <p class="hero-summary">
             Full-stack developer with a strong self-taught background in web development, a growing foundation in
             mechanical engineering, and hands-on experience across front-end, back-end, mobile, and game development.
@@ -717,17 +77,17 @@
           </ul>
         </div>
 
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <strong>2020</strong>
+<div class="hero-stats gsap-stagger">
+          <div class="hero-stat gsap-child">
+            <strong data-target="2020">0</strong>
             <span>Active self-taught development journey since March 2020</span>
           </div>
-          <div class="hero-stat">
-            <strong>100%</strong>
-            <span>Confidence in front-end development and UI implementation</span>
+          <div class="hero-stat gsap-child">
+            <strong data-target="100">0</strong>
+            <span>% Confidence in front-end development and UI implementation</span>
           </div>
-          <div class="hero-stat">
-            <strong>Multi-Skilled</strong>
+          <div class="hero-stat gsap-child">
+            <strong data-target="Multi-Skilled">Multi-Skilled</strong>
             <span>Development, technical work, mechanical experience, and real-world adaptability</span>
           </div>
         </div>
@@ -786,37 +146,37 @@
               <span>Skills</span>
             </div>
 
-            <div class="skill-group">
-              <div class="skill-item" title="Front-End Development Level">
+<div class="skill-group gsap-stagger">
+              <div class="skill-item gsap-child" title="Front-End Development Level">
                 <div class="skill-header">
                   <span>Front-End Development</span>
-                  <strong>100%</strong>
+                  <strong>0%</strong>
                 </div>
-                <div class="progress-track"><div class="progress-bar" style="width: 100%"></div></div>
+                <div class="progress-track"><div class="progress-bar" style="width: 0%" data-target="100%"></div></div>
               </div>
 
-              <div class="skill-item" title="Back-End Development Level">
+              <div class="skill-item gsap-child" title="Back-End Development Level">
                 <div class="skill-header">
                   <span>Back-End Development</span>
-                  <strong>90%</strong>
+                  <strong>0%</strong>
                 </div>
-                <div class="progress-track"><div class="progress-bar" style="width: 90%"></div></div>
+                <div class="progress-track"><div class="progress-bar" style="width: 0%" data-target="90%"></div></div>
               </div>
 
-              <div class="skill-item" title="Mobile App Skills">
+              <div class="skill-item gsap-child" title="Mobile App Skills">
                 <div class="skill-header">
                   <span>Mobile App Development</span>
-                  <strong>99%</strong>
+                  <strong>0%</strong>
                 </div>
-                <div class="progress-track"><div class="progress-bar" style="width: 99%"></div></div>
+                <div class="progress-track"><div class="progress-bar" style="width: 0%" data-target="99%"></div></div>
               </div>
 
-              <div class="skill-item" title="Game Development Skills">
+              <div class="skill-item gsap-child" title="Game Development Skills">
                 <div class="skill-header">
                   <span>Game Development</span>
-                  <strong>85%</strong>
+                  <strong>0%</strong>
                 </div>
-                <div class="progress-track"><div class="progress-bar" style="width: 85%"></div></div>
+                <div class="progress-track"><div class="progress-bar" style="width: 0%" data-target="85%"></div></div>
               </div>
             </div>
 
@@ -825,37 +185,37 @@
               <span>Languages</span>
             </div>
 
-            <div class="language-group">
-              <div class="language-item" title="English">
+<div class="language-group gsap-stagger">
+              <div class="language-item gsap-child" title="English">
                 <div class="language-header">
                   <span>English</span>
-                  <strong>100%</strong>
+                  <strong>0%</strong>
                 </div>
-                <div class="progress-track"><div class="progress-bar" style="width: 100%"></div></div>
+                <div class="progress-track"><div class="progress-bar" style="width: 0%" data-target="100%"></div></div>
               </div>
 
-              <div class="language-item" title="Asante Twi">
+              <div class="language-item gsap-child" title="Asante Twi">
                 <div class="language-header">
                   <span>Asante Twi</span>
-                  <strong>90%</strong>
+                  <strong>0%</strong>
                 </div>
-                <div class="progress-track"><div class="progress-bar" style="width: 90%"></div></div>
+                <div class="progress-track"><div class="progress-bar" style="width: 0%" data-target="90%"></div></div>
               </div>
 
-              <div class="language-item" title="French">
+              <div class="language-item gsap-child" title="French">
                 <div class="language-header">
                   <span>French</span>
-                  <strong>55%</strong>
+                  <strong>0%</strong>
                 </div>
-                <div class="progress-track"><div class="progress-bar" style="width: 55%"></div></div>
+                <div class="progress-track"><div class="progress-bar" style="width: 0%" data-target="55%"></div></div>
               </div>
 
-              <div class="language-item" title="Xhosa">
+              <div class="language-item gsap-child" title="Xhosa">
                 <div class="language-header">
                   <span>Xhosa</span>
-                  <strong>25%</strong>
+                  <strong>0%</strong>
                 </div>
-                <div class="progress-track"><div class="progress-bar" style="width: 25%"></div></div>
+                <div class="progress-track"><div class="progress-bar" style="width: 0%" data-target="25%"></div></div>
               </div>
             </div>
           </div>
@@ -1085,6 +445,6 @@
     </p>
   </footer>
 
-  <script src="assets/js/script.js"></script>
+
 </body>
 </html>
