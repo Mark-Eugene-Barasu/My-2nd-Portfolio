@@ -1,283 +1,1090 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eugene Mark Korku Barasu.</title>
-    <link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/yes.css">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="assets/vendor/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eugene Mark Korku Barasu</title>
+  <meta
+    name="description"
+    content="Portfolio of Eugene Mark Korku Barasu, a software developer based in Umtata, South Africa, showcasing skills, work experience, education, and projects."
+  >
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/yes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
-    <style>
-    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+  <style>
+    :root {
+      --brand: #009688;
+      --brand-dark: #00695f;
+      --ink: #1f2937;
+      --muted: #5f6b7a;
+      --surface: rgba(255, 255, 255, 0.96);
+      --surface-strong: #ffffff;
+      --line: rgba(15, 23, 42, 0.08);
+      --shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+      --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --radius: 22px;
+    }
+
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Roboto", sans-serif;
+    }
+
+    body.portfolio-body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(0, 150, 136, 0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 28%),
+        linear-gradient(180deg, #eff8f7 0%, #eef2f7 45%, #f8fafc 100%);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    #pageContainer {
+      transition: opacity 0.3s ease;
+    }
+
+    .page-shell {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 88px 14px 24px;
+    }
+
     .sidenav {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      background: rgba(8, 15, 26, 0.96);
+      backdrop-filter: blur(10px);
+      overflow-x: hidden;
+      transition: 0.35s ease;
+      padding-top: 72px;
+      box-shadow: 18px 0 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidenav a {
+      padding: 14px 24px 14px 34px;
+      text-decoration: none;
+      font-size: 1rem;
+      color: #d8e1eb;
+      display: block;
+      transition: 0.2s ease;
+      border-left: 3px solid transparent;
+      letter-spacing: 0.02em;
+    }
+
+    .sidenav a:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+      border-left-color: var(--brand);
+    }
+
+    .sidenav .closebtn {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-size: 36px;
+      margin-left: 50px;
+      line-height: 1;
+      color: #ffffff;
+    }
+
+    #navButton {
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      z-index: 21;
+      border: none;
+      width: 54px;
+      height: 54px;
+      padding: 0;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--brand), #00bfa5);
+      color: #ffffff;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 16px 34px rgba(0, 150, 136, 0.28);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, width 0.2s ease;
+    }
+
+    #navButton:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 36px rgba(0, 150, 136, 0.34);
+    }
+
+    .hero-panel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(4, 33, 39, 0.92), rgba(0, 150, 136, 0.88)),
+        url("assets/images/papers.co-ne78-coding-screen-digital-art-25-wallpaper.jpg") center/cover;
+      color: #ffffff;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(6, 16, 27, 0.15), transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.9fr);
+      gap: 24px;
+      align-items: end;
+      padding: 36px 32px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 12px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.08;
+      color: #ffffff;
+    }
+
+    .hero-summary {
+      max-width: 760px;
+      margin: 0 0 20px;
+      font-size: 1.03rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .hero-button--primary {
+      background: #ffffff;
+      color: #06262a;
+    }
+
+    .hero-button--secondary {
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+
+    .hero-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .hero-points li {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 0.94rem;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .hero-stats {
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-stat {
+      padding: 18px 18px 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-stat strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1.7rem;
+      line-height: 1;
+      color: #ffffff;
+    }
+
+    .hero-stat span {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.92rem;
+    }
+
+    .column-card,
+    .section-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .profile-cover {
+      position: relative;
+      min-height: 320px;
+      background:
+        linear-gradient(180deg, rgba(7, 18, 30, 0.08), rgba(7, 18, 30, 0.78)),
+        url("assets/images/bg.jpg") center/cover no-repeat;
+    }
+
+    .profile-badge {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      font-size: 0.88rem;
+      backdrop-filter: blur(6px);
+    }
+
+    .profile-name {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 22px 22px 24px;
+      background: linear-gradient(180deg, transparent, rgba(5, 17, 27, 0.82));
+    }
+
+    .profile-name h2 {
+      margin: 0 0 6px;
+      color: #ffffff;
+      font-weight: 700;
+      text-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .profile-name p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .profile-body {
+      padding: 22px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+    }
+
+    .contact-item i {
+      width: 18px;
+      margin-top: 3px;
+      color: var(--brand);
+      text-align: center;
+    }
+
+    .contact-item a,
+    .contact-item span {
+      color: var(--ink);
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .contact-item a:hover {
+      color: var(--brand-dark);
+    }
+
+    .section-subtitle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 22px 0 14px;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .skill-group,
+    .language-group {
+      display: grid;
+      gap: 14px;
+    }
+
+    .skill-item,
+    .language-item {
+      display: grid;
+      gap: 8px;
+    }
+
+    .skill-header,
+    .language-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 12px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--brand), #16c7b2);
+    }
+
+    .section-card {
+      padding: 12px 0;
+      margin-bottom: 18px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0;
+      padding: 8px 24px 2px;
+      color: var(--ink);
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .section-heading i {
+      color: var(--brand);
+    }
+
+    .section-intro {
+      margin: 4px 24px 10px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 24px 8px 52px;
+      margin: 0 0 6px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 25px;
+      top: 11px;
+      bottom: -10px;
+      width: 2px;
+      background: rgba(0, 150, 136, 0.18);
+    }
+
+    .timeline-item:last-child::before {
+      display: none;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 18px;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--brand);
+      box-shadow: 0 0 0 5px rgba(0, 150, 136, 0.14);
+    }
+
+    .timeline-item h5 {
+      margin: 0 0 4px;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 1.08rem;
+    }
+
+    .timeline-item h6 {
+      margin: 0 0 10px;
+      color: var(--brand-dark);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .timeline-item p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .timeline-item a {
+      color: var(--brand-dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .timeline-item a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-inline {
+      display: block;
+      margin-top: 8px;
+      color: var(--ink);
+      line-height: 1.7;
+    }
+
+    .footer-panel {
+      margin: 22px 14px 0;
+      padding: 26px 18px 28px;
+      border-radius: 24px 24px 0 0;
+      background: linear-gradient(135deg, #00796b, #009688);
+      box-shadow: 0 -8px 30px rgba(0, 121, 107, 0.16);
+    }
+
+    .footer-panel p {
+      margin: 0;
+      color: #f8fffe;
+    }
+
+    .footer-title {
+      margin-bottom: 16px !important;
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .footer-socials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .footer-socials a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .footer-socials a:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .footer-contact {
+      margin-top: 14px;
+      font-size: 0.98rem;
+    }
+
+    .footer-contact a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-contact a:hover {
+      text-decoration: underline;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidenav {
+        padding-top: 15px;
       }
-      
+
       .sidenav a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-shell {
+        padding-top: 82px;
       }
 
       #navButton {
-        position: fixed;
-        z-index: 1;
-        background-color: #009688;
-        overflow: auto;
+        top: 14px;
+        left: 14px;
+        width: 50px;
+        height: 50px;
+        border-radius: 16px;
       }
-      
-      .sidenav a:hover {
-        color: #f1f1f1;
+
+      .hero-content {
+        padding: 28px 22px;
       }
-      
-      .sidenav .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
+
+      .section-heading {
+        font-size: 1.55rem;
+        padding-left: 20px;
+        padding-right: 20px;
       }
-      
-      @media screen and (max-height: 450px) {
-        .sidenav {padding-top: 15px;}
-        .sidenav a {font-size: 18px;}
+
+      .section-intro {
+        margin-left: 20px;
+        margin-right: 20px;
       }
-      
-      #navButton {
-          font-size: 30px;
-          left: 16px;
-          cursor: pointer;
-          border-radius: 5px;
-          color: white;
-          text-align: center;
-          box-shadow: 2px 2px 4px #003833;
-          width: 50px;
+
+      .timeline-item {
+        padding-left: 46px;
+        padding-right: 20px;
       }
-      
-      @media (max-width: 480px){
-          #navButton {
-              border-radius: 50px;
-              width: 45px;
-              
-          }
+
+      .timeline-item::before {
+        left: 21px;
       }
-    </style>
+
+      .timeline-dot {
+        left: 14px;
+      }
+
+      .profile-body {
+        padding: 20px;
+      }
+
+      .footer-panel {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-summary {
+        font-size: 0.98rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-button {
+        justify-content: center;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-item {
+        padding: 11px 12px;
+      }
+
+      .profile-cover {
+        min-height: 280px;
+      }
+    }
+  </style>
 </head>
-<body class="yes-light-grey">      
-      
-      <div title="menu" id="mySidenav" class="sidenav">
-        <a title="close" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a title="about me" href="pages/about.html"><i class="fa fa-fw fa-address-book-o"></i> About</a>
-        <a title="Projects" href="pages/projects/index.html"><i class="fa fa-fw fa-briefcase"></i> Projects</a>
-        <a title="contact me on email" href="mailto:mark0630227248@gmail.com"><i class="fa fa-fw fa-vcard-o"></i> Contact</a>
-        <a title="Follow me on social media" href="pages/socials.html"><i class="fa fa-fw fa-handshake-o"></i> My Socials</a>
-        <a title="My picture and awards" href="pages/gallery.html"><i class="fa fa-photo fa-fw"></i> Gallery</a>
-      </div>
 
-      
-      <span title="Open menu" id="navButton" onclick="openNav()">&#9776;</span>
-         
-    <!-- Page Container -->
-    <div id="pageContainer" class="yes-content yes-margin-top" style="max-width:1400px;">
-    
-      <!-- The Grid -->
-      <div class="yes-row-padding">
-      
-        <!-- Left Column -->
-        <div class="yes-third">
-        
-          <div class="yes-white yes-text-grey yes-card-4">
-            <div class="yes-display-container">
-              <img src="assets/images/bg.jpg" style="width:100%" alt="Avatar">
-              <div class="yes-display-bottomleft yes-container yes-text-black">
-                <h2 title="This is my name" style="color: white; text-shadow: 0 0 5px green;">Eugene Mark Korku Barasu</h2>
+<body class="portfolio-body">
+  <nav title="menu" id="mySidenav" class="sidenav" aria-label="Portfolio navigation">
+    <a title="close" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a title="about me" href="pages/about.html"><i class="fa fa-fw fa-address-book-o"></i> About</a>
+    <a title="Projects" href="pages/projects/index.html"><i class="fa fa-fw fa-briefcase"></i> Projects</a>
+    <a title="contact me on email" href="mailto:mark0630227248@gmail.com"><i class="fa fa-fw fa-vcard-o"></i> Contact</a>
+    <a title="Follow me on social media" href="pages/socials.html"><i class="fa fa-fw fa-handshake-o"></i> My Socials</a>
+    <a title="My picture and awards" href="pages/gallery.html"><i class="fa fa-photo fa-fw"></i> Gallery</a>
+  </nav>
+
+  <button title="Open menu" id="navButton" onclick="openNav()" aria-label="Open navigation menu">&#9776;</button>
+
+  <main id="pageContainer" class="page-shell">
+    <section class="hero-panel yes-card-4">
+      <div class="hero-content">
+        <div>
+          <p class="hero-eyebrow"><i class="fas fa-code"></i> Software Developer Portfolio</p>
+          <h1 class="hero-title">Eugene Mark Korku Barasu</h1>
+          <p class="hero-summary">
+            Full-stack developer with a strong self-taught background in web development, a growing foundation in
+            mechanical engineering, and hands-on experience across front-end, back-end, mobile, and game development.
+            This homepage now presents your profile in a clearer, more modern, and more professional layout.
+          </p>
+
+          <div class="hero-actions">
+            <a class="hero-button hero-button--primary" href="pages/projects/index.html">
+              <i class="fa fa-briefcase"></i> View Projects
+            </a>
+            <a class="hero-button hero-button--secondary" href="pages/about.html">
+              <i class="fa fa-user"></i> About Me
+            </a>
+            <a class="hero-button hero-button--secondary" href="mailto:mark0630227248@gmail.com?subject=Portfolio%20Enquiry">
+              <i class="fa fa-envelope"></i> Contact Me
+            </a>
+          </div>
+
+          <ul class="hero-points">
+            <li>Front-End Development</li>
+            <li>Back-End Development</li>
+            <li>Mobile App Development</li>
+            <li>Game Development</li>
+          </ul>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>2020</strong>
+            <span>Active self-taught development journey since March 2020</span>
+          </div>
+          <div class="hero-stat">
+            <strong>100%</strong>
+            <span>Confidence in front-end development and UI implementation</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Multi-Skilled</strong>
+            <span>Development, technical work, mechanical experience, and real-world adaptability</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="yes-row-padding">
+      <aside class="yes-third">
+        <section class="yes-white column-card">
+          <div class="profile-cover">
+            <div class="profile-badge">
+              <i class="fas fa-laptop-code"></i> Available for opportunities
+            </div>
+            <div class="profile-name">
+              <h2 title="This is my name">Eugene Mark Korku Barasu</h2>
+              <p>Software Developer based in Umtata, South Africa</p>
+            </div>
+          </div>
+
+          <div class="profile-body">
+            <div class="contact-list">
+              <div class="contact-item" title="Software Developer">
+                <i class="fa fa-briefcase"></i>
+                <span>Software Developer</span>
+              </div>
+
+              <div class="contact-item" title="my location">
+                <i class="fa fa-home"></i>
+                <span>Umtata, South Africa</span>
+              </div>
+
+              <div class="contact-item" title="email me">
+                <i class="fa fa-envelope"></i>
+                <a href="mailto:mark0630227248@gmail.com?subject=Feedback">mark0630227248@gmail.com</a>
+              </div>
+
+              <div class="contact-item" title="call me anytime">
+                <i class="fa fa-phone"></i>
+                <a href="tel:+27787898353">+27 (0) 78 789 8353</a>
+              </div>
+
+              <div class="contact-item" title="Whatsapp me anytime">
+                <i class="fa fa-whatsapp"></i>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://web.whatsapp.com/send?phone=+27815332769&text=Hello Eugene Mark Barasu, I saw your whatsapp number on your portfolio website. Please my name is: "
+                >
+                  +27 (0) 81 533 2769
+                </a>
               </div>
             </div>
-            <div class="yes-container">
-              <p title="Software Developer"><i class="fa fa-briefcase fa-fw yes-margin-right yes-large yes-text-teal"></i>Software Developer</p>
-              <p title="my location"><i class="fa fa-home fa-fw yes-margin-right yes-large yes-text-teal"></i>Umtata, South Africa</p>
-              <p title="email me"><a href="mailto:mark0630227248@gmail.com?subject=Feedback"><i class="fa fa-envelope fa-fw yes-margin-right yes-large yes-text-teal"></i>mark0630227248@gmail.com</a></p>
-              <p title="call me anytime"><a href="tel:+27787898353"><i class="fa fa-phone fa-fw yes-margin-right yes-large yes-text-teal"></i>+27 (0) 78 789 8353</a></p>
-              <p title="Whatsapp me anytime"><a target="_blank" href="https://web.whatsapp.com/send?phone=+27815332769&text=Hello Eugene Mark Barasu, I saw your whatsapp number on your portfolio website.  Please my name is: "><i class="fa fa-whatsapp fa-fw yes-margin-right yes-large yes-text-teal"></i> +27 (0) 81 533 2769</a>
-                  
-              </p>
-                <hr>
-    
-              <p title="skills" class="yes-large"><b><i class="fa fa-asterisk fa-fw yes-margin-right yes-text-teal"></i>Skills</b></p>
-              <p title="Front-End Development Level">Front-End Development</p>
-              <div class="yes-light-grey yes-round-xlarge yes-small">
-                <div class="yes-container yes-center yes-round-xlarge yes-teal" style="width:100%">100%</div>
-              </div>
-              <p title="Back-End Development Level">Back-End Development</p>
-              <div class="yes-light-grey yes-round-xlarge yes-small">
-                <div class="yes-container yes-center yes-round-xlarge yes-teal" style="width:90%">
-                  <div class="yes-center yes-text-white">90%</div>
+
+            <div class="section-subtitle" title="skills">
+              <i class="fa fa-asterisk yes-text-teal"></i>
+              <span>Skills</span>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-item" title="Front-End Development Level">
+                <div class="skill-header">
+                  <span>Front-End Development</span>
+                  <strong>100%</strong>
                 </div>
+                <div class="progress-track"><div class="progress-bar" style="width: 100%"></div></div>
               </div>
-              <p title="Mobile App Skills">Mobile App Development</p>
-              <div class="yes-light-grey yes-round-xlarge yes-small">
-                <div class="yes-container yes-center yes-round-xlarge yes-teal" style="width:99%">99%</div>
+
+              <div class="skill-item" title="Back-End Development Level">
+                <div class="skill-header">
+                  <span>Back-End Development</span>
+                  <strong>90%</strong>
+                </div>
+                <div class="progress-track"><div class="progress-bar" style="width: 90%"></div></div>
               </div>
-              <p title="Game Development Skills">Game Development</p>
-              <div class="yes-light-grey yes-round-xlarge yes-small">
-                <div class="yes-container yes-center yes-round-xlarge yes-teal" style="width:85%">85%</div>
+
+              <div class="skill-item" title="Mobile App Skills">
+                <div class="skill-header">
+                  <span>Mobile App Development</span>
+                  <strong>99%</strong>
+                </div>
+                <div class="progress-track"><div class="progress-bar" style="width: 99%"></div></div>
               </div>
-              <br>
-    
-              <p title="The different languages I speak" class="yes-large yes-text-theme"><b><i class="fa fa-globe fa-fw yes-margin-right yes-text-teal"></i>Languages</b></p>
-              <p>English</p>
-              <div class="yes-light-grey yes-round-xlarge">
-                <div title="English" class="yes-round-xlarge yes-teal" style="height:24px;width:100%"></div>
+
+              <div class="skill-item" title="Game Development Skills">
+                <div class="skill-header">
+                  <span>Game Development</span>
+                  <strong>85%</strong>
+                </div>
+                <div class="progress-track"><div class="progress-bar" style="width: 85%"></div></div>
               </div>
-              <p>Asante Twi</p>
-              <div class="yes-light-grey yes-round-xlarge">
-                <div title="Asante Twi" class="yes-round-xlarge yes-teal" style="height:24px;width:90%"></div>
-              </div>
-              <p>French</p>
-              <div class="yes-light-grey yes-round-xlarge">
-                <div title="French" class="yes-round-xlarge yes-teal" style="height:24px;width:55%"></div>
-              </div>
-              <p>Xhosa</p>
-              <div class="yes-light-grey yes-round-xlarge">
-                <div title="Xhosa" class="yes-round-xlarge yes-teal" style="height:24px;width:25%"></div>
-              </div>
-              <br>
             </div>
-          </div><br>
-    
-        <!-- End Left Column -->
-        </div>
-    
-        <!-- Right Column -->
-        <div class="yes-twothird">
-        
-          <div class="yes-container yes-card yes-white yes-margin-bottom">
-            <h2 title="Work Experiences" class="yes-text-grey yes-padding-16"><i class="fa fa-suitcase fa-fw yes-margin-right yes-xxlarge yes-text-teal"></i>Work Experience</h2>
-            <div class="yes-container">
-              <h5 title="Still Mastering Front-End Web Dev." class="yes-opacity"><b>Full-Stack Developer (Self-Taught)</b></h5>
-              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>March 2020 - <span class="yes-tag yes-teal yes-round">Current</span></h6>
-              <p>I devoted more time to take online courses to fully master my HTML, CSS, JavaScript, SQL, PHP,  jQuery, W3.CSS, Bootstrap. <i class="fa fa-clock-o fa-fw"></i> 7:00pm - 5:00am.<br>
-                I took my time to learn from real life experts in Software Programmers online and also to Self-teach on Advanced Programming.
-                <a style="color: #009688;text-decoration: none;" target="_blank" href="pages/socials.html">Please stock me on my socials.</a>
-              </p>
-              <hr>
+
+            <div class="section-subtitle" title="The different languages I speak">
+              <i class="fa fa-globe yes-text-teal"></i>
+              <span>Languages</span>
             </div>
-            <div class="yes-container">
-              <h5 title="Jack Daniel Motor Ltd." class="yes-opacity"><b>Jack Daniel Motor Ltd.</b></h5>
-              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>1st July - <span class="yes-tag yes-teal yes-round">Current</span></h6>
-              <p>I hold a position as a gearbox(transmission) specialist, suspension technitian, and general car servicing specialist. I also do overhauling of all types of Mercedes Benz engines <i class="fa fa-clock-o fa-fw"></i> 7:30am - 5:00pm<br>
-              <i class="fa fa-user fa-fw yes-center yes-text-teal yes-large"></i> <span title="Contact Person">Contact Person: Jacob Daniel Kanton (CEO and Founder)</span> || <a title="Whatsapp Jacob Daniel Kanton (Manager and CEO)" target="_blank" href="https://web.whatsapp.com/send?phone=+27718062800&text=Hello Mr.Kanton, I want to inquire about Mark Eugene Barasu who worked with you in several positions. I want to employ him and I'll like to know more about him."><i class="fa fa-whatsapp yes-text-teal yes-large yes-center"></i> +27 (0) 71 806 2800</a> || <a title="" href="tel:+27718062800"><i class="fa fa-phone fa-fw yes-large yes-text-teal yes-center"></i>+27 (0) 71 806 2800</a>
-              </p><hr>
+
+            <div class="language-group">
+              <div class="language-item" title="English">
+                <div class="language-header">
+                  <span>English</span>
+                  <strong>100%</strong>
+                </div>
+                <div class="progress-track"><div class="progress-bar" style="width: 100%"></div></div>
+              </div>
+
+              <div class="language-item" title="Asante Twi">
+                <div class="language-header">
+                  <span>Asante Twi</span>
+                  <strong>90%</strong>
+                </div>
+                <div class="progress-track"><div class="progress-bar" style="width: 90%"></div></div>
+              </div>
+
+              <div class="language-item" title="French">
+                <div class="language-header">
+                  <span>French</span>
+                  <strong>55%</strong>
+                </div>
+                <div class="progress-track"><div class="progress-bar" style="width: 55%"></div></div>
+              </div>
+
+              <div class="language-item" title="Xhosa">
+                <div class="language-header">
+                  <span>Xhosa</span>
+                  <strong>25%</strong>
+                </div>
+                <div class="progress-track"><div class="progress-bar" style="width: 25%"></div></div>
+              </div>
             </div>
-            <div class="yes-container">
-              <h5 title="George Electronics Centre" class="yes-opacity"><b>George Electronics Centre</b></h5>
-              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>October 2020 - June 2022</h6>
-              <p>I held an <q>all-round</q> position as an assistant receptionist, assistant technitian, assistant driver. <i class="fa fa-clock-o fa-fw"></i> 8:00am - 5:00pm<br>
-              <i class="fa fa-user fa-fw yes-center yes-text-teal yes-large"></i> <span title="Contact Person">Contact Person: Paa Kwesi Owusu Ansah(Manager)</span> || <a title="Whatsapp Paa Kwesi (Manager)" target="_blank" href="https://web.whatsapp.com/send?phone=+27780350083&text=Hello P.K, I want to inquire about Mark Eugene Barasu who worked with you in several positions. I want to employ him and I'll like to know more about him."><i class="fa fa-whatsapp yes-text-teal yes-large yes-center"></i> +27 (0) 78 035 0083</a> || <a title="Call Elvis (Co-Founder)" href="tel:+27788233277"><i class="fa fa-phone fa-fw yes-large yes-text-teal yes-center"></i>+27 (0) 78 823 3277 (Co-Founder)</a>
-              </p><hr>
-            </div>
-            <div class="yes-container">
-              <h5 title="Mabdev's Restaurant" class="yes-opacity"><b>Mabdevs Restaurant</b></h5>
-              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>Jun 2016 - Mar 2020</h6>
-              <p>I held a position as a delivery man. This was a part time volunteering job during high school vacations. <br>
-              <p>I created a Website for this company, Please feel free to check it out<a href="https://mark-eugene-barasu.github.io/food-ecommerce/">Mabdev's Restaurant</a></p>
-              <i class="fa fa-user fa-fw yes-center yes-text-teal yes-large"></i> <span title="Contact Person">Contact Person: Vivian Ama Barasu(Manager)</span> || <a title="Whatsapp the Manager" target="_blank" href="https://web.whatsapp.com/send?phone=+27813386326&text=Hello Mabdevs Restaurant, I want to inquire about Mark Eugene Barasu who worked with you as a delivery man. I want to employ him and I'll like to know more about him."><i class="fa fa-whatsapp yes-text-teal yes-large yes-center"></i> +27 (0) 81 338 6326</a> || <a title="Call Manager of Mabdev's Restaurant" href="tel:+27781383039"><i class="fa fa-phone fa-fw yes-large yes-text-teal yes-center"></i>+27 (0) 78 138 3039</a>
-              </p><hr>
-            </div>
-            <div class="yes-container">
-              <h5 title="TATT Fish Farm Limited" class="yes-opacity"><b>TATT Farm Limited</b></h5>
-              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>June 2016 - August 2016</h6>
-              <p>This was my first work experience after I completed 9<sup>th</sup> grade (in June 2017). <br>
-              <i class="fa fa-users yes-center yes-text-teal yes-large fa-fw"></i> <span title="Contact Person">Contact Person: Godfred Larbie(Co-Founder)</span> || <a title="Call Co-Founder of TATT Farm Lmtd." target="_blank" href="tel:+233506807339"><i class="fa fa-comments yes-text-teal yes-center yes-large fa-fw"></i> +233 (0) 50 680 7339</a> || <i class="fa fa-map-marker yes-text-teal yes-large yes-center fa-fw"></i> Ghana
+          </div>
+        </section>
+      </aside>
+
+      <section class="yes-twothird">
+        <section class="yes-white section-card">
+          <h2 title="Work Experiences" class="section-heading">
+            <i class="fa fa-suitcase"></i>
+            Work Experience
+          </h2>
+          <p class="section-intro">
+            A mix of self-driven software learning, hands-on technical roles, and practical workplace experience that
+            reflects adaptability, discipline, and a strong growth mindset.
+          </p>
+
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h5 title="Still Mastering Front-End Web Dev.">Full-Stack Developer (Self-Taught)</h5>
+            <h6><i class="fa fa-calendar fa-fw yes-margin-right"></i>March 2020 - <span class="yes-tag yes-teal yes-round">Current</span></h6>
+            <p>
+              I devoted consistent time to mastering HTML, CSS, JavaScript, SQL, PHP, jQuery, W3.CSS, and Bootstrap.
+              I also learned from experienced programmers online while continuing to teach myself advanced programming
+              concepts through practical projects and constant revision.
+              <a target="_blank" rel="noopener noreferrer" href="pages/socials.html">Please stalk me on my socials.</a>
             </p>
-              <br>
-            </div>
+          </div>
 
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h5 title="Jack Daniel Motor Ltd.">Jack Daniel Motor Ltd.</h5>
+            <h6><i class="fa fa-calendar fa-fw yes-margin-right"></i>1st July - <span class="yes-tag yes-teal yes-round">Current</span></h6>
+            <p>
+              I hold a position as a gearbox (transmission) specialist, suspension technician, and general car servicing
+              specialist. I also do overhauling of different Mercedes-Benz engines.
+            </p>
+            <div class="contact-inline">
+              <i class="fa fa-user yes-text-teal"></i>
+              <span title="Contact Person">Contact Person: Jacob Daniel Kanton (CEO and Founder)</span><br>
+              <a
+                title="Whatsapp Jacob Daniel Kanton (Manager and CEO)"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://web.whatsapp.com/send?phone=+27718062800&text=Hello Mr.Kanton, I want to inquire about Mark Eugene Barasu who worked with you in several positions. I want to employ him and I'll like to know more about him."
+              >
+                <i class="fa fa-whatsapp yes-text-teal"></i> +27 (0) 71 806 2800
+              </a>
+              &nbsp;|&nbsp;
+              <a href="tel:+27718062800">
+                <i class="fa fa-phone yes-text-teal"></i> +27 (0) 71 806 2800
+              </a>
+            </div>
           </div>
-    
-          <div class="yes-container yes-card yes-white">
-            <h2 title="Education" class="yes-text-grey yes-padding-16"><i class="fa fa-certificate fa-fw yes-margin-right yes-xxlarge yes-text-teal"></i>Education</h2>
-            <div class="yes-container">
-              <h5 class="yes-opacity"><b>Code College</b></h5>
-              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>April 2026 - current</h6>
-              <p>I'm currently doing a Full-Stack Web Development course at <strong><a href="http://www.codecollege.co.za">Code College</a></strong>.
-              I'm current doing Python, Git, GitHub, in addition to the HTML, CSS, JavaScript, SQL, PHP, jQuery, Bootstrap modules I have already completed in with <strong><a href="http://www.codecollege.co.za">Code College</a></strong> & </a></strong><strong><a href="http://www.w3schools.com">W3SCHOOLS</a></strong> that I've been doing since 2018 till current years and always refreshing my knowledge to keep up with the advancements in each of these technologies. <br>
-              </p>
-              <hr>
-            </div><div class="yes-container">
-              <h5 class="yes-opacity"><b>Thekwini City College</b></h5>
-              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>Jan 2026 - Dec 2026</h6>
-              <p>I'm studying for a Diploma in Mechanical Engineering at <strong><a href="http://www.thekwinicitycollege.co.za">Thekwini City College</a></strong>. I am currently in my first year and I am doing well. my modules include: Engineering Science, Engineering Mathematics, Mechanotechnics, Strength and Properties of Materials, Electrotechnics, Workshop Practice, and Mechanical Technology. <br>
-              I am also doing programming courses online to keep up with my passion for programming.
-              </p>
-              <hr>
+
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h5 title="George Electronics Centre">George Electronics Centre</h5>
+            <h6><i class="fa fa-calendar fa-fw yes-margin-right"></i>October 2020 - June 2022</h6>
+            <p>
+              I held an all-round position as an assistant receptionist, assistant technician, and assistant driver.
+            </p>
+            <div class="contact-inline">
+              <i class="fa fa-user yes-text-teal"></i>
+              <span title="Contact Person">Contact Person: Paa Kwesi Owusu Ansah (Manager)</span><br>
+              <a
+                title="Whatsapp Paa Kwesi (Manager)"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://web.whatsapp.com/send?phone=+27780350083&text=Hello P.K, I want to inquire about Mark Eugene Barasu who worked with you in several positions. I want to employ him and I'll like to know more about him."
+              >
+                <i class="fa fa-whatsapp yes-text-teal"></i> +27 (0) 78 035 0083
+              </a>
+              &nbsp;|&nbsp;
+              <a title="Call Elvis (Co-Founder)" href="tel:+27788233277">
+                <i class="fa fa-phone yes-text-teal"></i> +27 (0) 78 823 3277 (Co-Founder)
+              </a>
             </div>
-            <div class="yes-container">
-              <h5 class="yes-opacity"><b>Advanced Programming. (Self Taught)</b></h5>
-              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>Forever</h6>
-              <p>Web Development! All I need to know in one place. I have made and completed <strong><a href="pages/projects/index.html">many projects</a>.</strong>
-              </p>
-              <hr>
-            </div>
-            <div class="yes-container">
-              <h5 class="yes-opacity"><b>Online Programming Courses</b></h5>
-              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>2020 - 2021</h6>
-              <p>HTML, CSS, JavaScript, SQL, PHP, jQuery, Bootstrap. I studied all these from <strong><a href="http://www.w3schools.com">W3SCHOOLS</a></strong> and other YouTube tutorials from experts.</p>
-              <hr>
-            </div>
-            <div class="yes-container">
-              <h5 class="yes-opacity"><strong>Holy Cross High School</strong></h5>
-              <h6 class="yes-text-teal"><i class="fa fa-calendar fa-fw yes-margin-right"></i>2017 - 2019</h6>
-              <p>I did programming courses (HTML5, CSS3 & JavaScript ) while in high school at <strong><a href="http://www.codecollege.co.za">Code College </a></strong>(2018).<br/>
-              See my certifications in my gallery (click on the menu to find Gallery).</p>           </div>
           </div>
-    
-        <!-- End Right Column -->
-        </div>
-        
-      <!-- End Grid -->
-      </div>
-      
-      <!-- End Page Container -->
+
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h5 title="Mabdev's Restaurant">Mabdevs Restaurant</h5>
+            <h6><i class="fa fa-calendar fa-fw yes-margin-right"></i>Jun 2016 - Mar 2020</h6>
+            <p>
+              I held a position as a delivery man. This was a part-time volunteering role during high school vacations.
+            </p>
+            <p>
+              I created a website for this company.
+              <a target="_blank" rel="noopener noreferrer" href="https://mark-eugene-barasu.github.io/food-ecommerce/">View Mabdev's Restaurant</a>
+            </p>
+            <div class="contact-inline">
+              <i class="fa fa-user yes-text-teal"></i>
+              <span title="Contact Person">Contact Person: Vivian Ama Barasu (Manager)</span><br>
+              <a
+                title="Whatsapp the Manager"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://web.whatsapp.com/send?phone=+27813386326&text=Hello Mabdevs Restaurant, I want to inquire about Mark Eugene Barasu who worked with you as a delivery man. I want to employ him and I'll like to know more about him."
+              >
+                <i class="fa fa-whatsapp yes-text-teal"></i> +27 (0) 81 338 6326
+              </a>
+              &nbsp;|&nbsp;
+              <a title="Call Manager of Mabdev's Restaurant" href="tel:+27781383039">
+                <i class="fa fa-phone yes-text-teal"></i> +27 (0) 78 138 3039
+              </a>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h5 title="TATT Fish Farm Limited">TATT Farm Limited</h5>
+            <h6><i class="fa fa-calendar fa-fw yes-margin-right"></i>June 2016 - August 2016</h6>
+            <p>
+              This was my first work experience after I completed 9<sup>th</sup> grade.
+            </p>
+            <div class="contact-inline">
+              <i class="fa fa-users yes-text-teal"></i>
+              <span title="Contact Person">Contact Person: Godfred Larbie (Co-Founder)</span><br>
+              <a title="Call Co-Founder of TATT Farm Ltd." href="tel:+233506807339">
+                <i class="fa fa-comments yes-text-teal"></i> +233 (0) 50 680 7339
+              </a>
+              &nbsp;|&nbsp;
+              <span><i class="fa fa-map-marker yes-text-teal"></i> Ghana</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="yes-white section-card">
+          <h2 title="Education" class="section-heading">
+            <i class="fa fa-certificate"></i>
+            Education
+          </h2>
+          <p class="section-intro">
+            A combination of formal education and long-term self-learning in software development, supported by regular
+            online study and project-based practice.
+          </p>
+
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h5><b>Code College</b></h5>
+            <h6><i class="fa fa-calendar fa-fw yes-margin-right"></i>April 2026 - current</h6>
+            <p>
+              I'm currently doing a Full-Stack Web Development course at
+              <strong><a target="_blank" rel="noopener noreferrer" href="http://www.codecollege.co.za">Code College</a></strong>.
+              I am currently doing Python, Git, and GitHub, in addition to HTML, CSS, JavaScript, SQL, PHP, jQuery,
+              and Bootstrap modules already completed through
+              <strong><a target="_blank" rel="noopener noreferrer" href="http://www.codecollege.co.za">Code College</a></strong>
+              and
+              <strong><a target="_blank" rel="noopener noreferrer" href="http://www.w3schools.com">W3Schools</a></strong>.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h5><b>Thekwini City College</b></h5>
+            <h6><i class="fa fa-calendar fa-fw yes-margin-right"></i>Jan 2026 - Dec 2026</h6>
+            <p>
+              I'm studying for a Diploma in Mechanical Engineering at
+              <strong><a target="_blank" rel="noopener noreferrer" href="http://www.thekwinicitycollege.co.za">Thekwini City College</a></strong>.
+              My modules include Engineering Science, Engineering Mathematics, Mechanotechnics, Strength and Properties
+              of Materials, Electrotechnics, Workshop Practice, and Mechanical Technology.
+            </p>
+            <p>I am also continuing programming courses online to stay aligned with my passion for software development.</p>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h5><b>Advanced Programming (Self Taught)</b></h5>
+            <h6><i class="fa fa-calendar fa-fw yes-margin-right"></i>Forever</h6>
+            <p>
+              Web development all in one place. I have made and completed
+              <strong><a href="pages/projects/index.html">many projects</a></strong>.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h5><b>Online Programming Courses</b></h5>
+            <h6><i class="fa fa-calendar fa-fw yes-margin-right"></i>2020 - 2021</h6>
+            <p>
+              HTML, CSS, JavaScript, SQL, PHP, jQuery, and Bootstrap studied from
+              <strong><a target="_blank" rel="noopener noreferrer" href="http://www.w3schools.com">W3Schools</a></strong>
+              and other YouTube tutorials from experts.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h5><strong>Holy Cross High School</strong></h5>
+            <h6><i class="fa fa-calendar fa-fw yes-margin-right"></i>2017 - 2019</h6>
+            <p>
+              I did programming courses in HTML5, CSS3, and JavaScript while in high school at
+              <strong><a target="_blank" rel="noopener noreferrer" href="http://www.codecollege.co.za">Code College</a></strong> (2018).
+              See my certifications in my gallery from the navigation menu.
+            </p>
+          </div>
+        </section>
+      </section>
     </div>
-    
-    <footer class="yes-container yes-teal yes-center yes-margin-top" title="Social Media Links">
-      <p>Find me on social media.</p>
-      <a title="follow me on Facebook" target="_blank" href="https://www.facebook.com/profile.php?id=100069669603894"><i class="fa fa-facebook-official yes-hover-opacity"></i></a>&nbsp;&nbsp;
-      <a title="follow me on Snapchat" target="_blank" href="https://www.snapchat.com/add/e_barasu2021?share_id=wRg8P6dDSuc&locale=en-ZA"><i class="fa fa-snapchat yes-hover-opacity"></i></a>&nbsp;&nbsp;
-      <a title="follow me on Linkedin" target="_blank" href="https://www.linkedin.com/in/eugene-mark-korku-barasu-5094a7220"><i class="fa fa-linkedin yes-hover-opacity"></i></a>&nbsp;&nbsp;
-      <a title="follow me on Pinterest" target="_blank" href="https://pin.it/2S8Sc3Z"><i class="fa fa-pinterest-p yes-hover-opacity"></i></a>&nbsp;&nbsp;
-      <a title="follow me on Github" target="_blank" href="https://github.com/Mark-Eugene-Barasu"><i class="fa fa-github yes-hover-opacity"></i></a>&nbsp;&nbsp;
-      <a title="follow me on Tumblr" target="_blank" href="http://eugene-mark-korku-barasu.tumblr.com"><i class="fa fa-tumblr yes-hover-opacity"></i></a>&nbsp;&nbsp;
-      <a title="follow me on Twitter" target="_blank" href="https://twitter.com/Brains_777?s=08"><i class="fa fa-twitter yes-hover-opacity"></i></a>&nbsp;&nbsp;
-      <a title="follow me on Instagram" target="_blank" href="https://www.instagram.com/markeugene465/"><i class="fa fa-instagram yes-hover-opacity"></i></a>&nbsp;&nbsp;
-      <a title="follow me on YouTube" target="_blank" href="https://youtube.com/channel/UCJFmmEnHDe6WFw6gAhcnYFg"><i class="fa fa-youtube yes-hover-opacity"></i></a>&nbsp;&nbsp;
-      <a title="Chat with me on Whatsapp" target="_blank" href="https://web.whatsapp.com/send?phone=+27815332769&text=Hello Mark Eugene, I want to congratulate you on successfully understanding the concept and how to link links to websites and anything."><i class="fa fa-whatsapp yes-hover-opacity"></i></a>&nbsp;&nbsp;
-      <a title="follow me on tiktok" target="_blank" href="https://vm.tiktok.com/ZSJKPkMFe/"><i class="fab fa-tiktok yes-hover-opacity"></i></a>
-      
-      <hr>
+  </main>
 
+  <footer class="yes-center footer-panel" title="Social Media Links">
+    <p class="footer-title">Find me on social media.</p>
 
-            <!--All code here was done by Me with few references to real life experts-->
-      <p title="Email me anytime.">&copy; Eugene Mark Korku Barasu. <br><a href="mailto:mark0630227248@gmail.com" target="_blank">
-        Email me:<i class="fa fa-envelope yes-xxlarge yes-hover-opacity"></i></a>
-        </p>
-    </footer>
-    <script src="assets/js/script.js"></script>
+    <div class="footer-socials">
+      <a title="follow me on Facebook" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=100069669603894"><i class="fab fa-facebook"></i></a>
+      <a title="follow me on Snapchat" target="_blank" rel="noopener noreferrer" href="https://www.snapchat.com/add/e_barasu2021?share_id=wRg8P6dDSuc&locale=en-ZA"><i class="fab fa-snapchat"></i></a>
+      <a title="follow me on Linkedin" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/eugene-mark-korku-barasu-5094a7220"><i class="fab fa-linkedin"></i></a>
+      <a title="follow me on Pinterest" target="_blank" rel="noopener noreferrer" href="https://pin.it/2S8Sc3Z"><i class="fab fa-pinterest-p"></i></a>
+      <a title="follow me on Github" target="_blank" rel="noopener noreferrer" href="https://github.com/Mark-Eugene-Barasu"><i class="fab fa-github"></i></a>
+      <a title="follow me on Tumblr" target="_blank" rel="noopener noreferrer" href="http://eugene-mark-korku-barasu.tumblr.com"><i class="fab fa-tumblr"></i></a>
+      <a title="follow me on Twitter" target="_blank" rel="noopener noreferrer" href="https://twitter.com/Brains_777?s=08"><i class="fab fa-twitter"></i></a>
+      <a title="follow me on Instagram" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/markeugene465/"><i class="fab fa-instagram"></i></a>
+      <a title="follow me on YouTube" target="_blank" rel="noopener noreferrer" href="https://youtube.com/channel/UCJFmmEnHDe6WFw6gAhcnYFg"><i class="fab fa-youtube"></i></a>
+      <a title="Chat with me on Whatsapp" target="_blank" rel="noopener noreferrer" href="https://web.whatsapp.com/send?phone=+27815332769&text=Hello Mark Eugene, I want to congratulate you on successfully understanding the concept and how to link links to websites and anything."><i class="fab fa-whatsapp"></i></a>
+      <a title="follow me on tiktok" target="_blank" rel="noopener noreferrer" href="https://vm.tiktok.com/ZSJKPkMFe/"><i class="fab fa-tiktok"></i></a>
+    </div>
+
+    <hr>
+
+    <p class="footer-contact" title="Email me anytime.">
+      &copy; Eugene Mark Korku Barasu.<br>
+      <a href="mailto:mark0630227248@gmail.com" target="_blank" rel="noopener noreferrer">
+        Email me <i class="fa fa-envelope yes-large"></i>
+      </a>
+    </p>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
