@@ -5,172 +5,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Mark</title>
-    <link rel="stylesheet" href="../assets/vendor/font-awesome.min.css" type="text/css" media="all" />
-    <style>
-html {
-    height: 100%;
-}
-body{
-    font-weight: 700;
-    background: url(../assets/images/papers.co-ne78-coding-screen-digital-art-25-wallpaper.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100% 100%;
-    background-attachment: fixed;
-}
-
-.container {
-    text-align: center;
-    width: 60%;
-    margin: 70px 20%;
-    background: rgba(0, 71, 64, 0.651);
-    padding: 0 20px;
-    border-radius: 20px;
-    border-top: 1.5px solid white;
-    border-bottom: 1.5px solid white;
-}
-
-#img {
-    height: 70px;
-    width: 70px;
-    background: url(../assets/images/bg.jpg)no-repeat;
-    background-size: cover;
-    background-position: center;
-    border-radius: 50px;
-    position: relative;
-    top: -30px;
-    border-top: 2.5px solid rgb(255, 255, 255);
-}
-
-.container h1{
-    color: white;
-    margin-top: 10px;
-}
-
-.container p {
-    color: white;
-    margin-top: 50px;
-    font-size: large;
-}
-
-#btn {
-    background-color: transparent;
-    background: no-repeat;
-    outline: none;
-    border: 1px solid white;
-    color: white;
-    width: 50%;
-    padding: 7px 15px;
-    font-size: large;
-    cursor: pointer;
-    transition: 0.3s ease;
-    margin-bottom: 30px;
-    border-radius: 20px;
-}
-
-#btn:hover {
-    background: white;
-    color: black;
-}
-
-#hidder {
-    height: 0px;
-    overflow: hidden;
-}
-
-#back {
-    line-height: 1em;
-    font-size: 30px;
-    left: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    color: white;
-    text-align: center;
-    width: 60px;
-    height: 60px;
-    text-decoration: none;
-    background-color: #009688;
-    position: fixed;
-    left: 16px;
-    top: 5px;
-    border: 0.5px solid white;
-    box-shadow: 4px 4px 5px white;
-}
-
-.fa {
-    padding-top: 13px;
-}
-
-    </style>
+<link rel="stylesheet" href="../assets/css/yes.css">
+  <link rel="stylesheet" href="../assets/css/modern.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- GSAP & Particles -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script defer src="../assets/js/modern.js"></script>
 </head>
-<body>
-    <a title="Go home" href="../index.html" id="back"><i class="fa fa-home"></i><i class="fa fa-hand-o-left"></i></i></a>
-    <div class="container">
-        <main>
-            
-            <img title="My Profile Picture" id="img" src="../assets/images/bg.jpg" alt="me"/>
+<body class="portfolio-body">
+  <nav title="menu" id="mySidenav" class="sidenav" aria-label="Portfolio navigation">
+    <a title="close" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a title="about me" href="../index.html#about"><i class="fa fa-fw fa-address-book-o"></i> Home</a>
+    <a title="Projects" href="../pages/projects/index.html"><i class="fa fa-fw fa-briefcase"></i> Projects</a>
+  </nav>
 
-            <h1>About Eugene-Mark..</h1>
-            <p>I am a <span id="age_now"></span> year old Software Development 
-                enthusiast who has always been thrilled with computers and
-                programming since tender age. I started my journey of Web Development when <br>
-                I was fortunate to be selected as one of the best students in high school to 
-                join <a style="color: cornflowerblue;text-decoration: none;" target="_blank" href="http://www.codecollege.co.za">CODE COLLEGE</a> intro to programming. 
-            </p>
-            <blockquote style="color: yellow;">That was where I found my skill, passion and interest in Software Programming as my career.
-            </blockquote> 
-            <img src="../assets/images/programming.gif" alt="programming">
-            <div id="hidder">
-                <p style="padding-top: 0px;">    
-                    Despite the lack of funding for my tertiary education I endeavoured to study Programming from 
-                    the experts in this field directly. <br><br> I also took online courses to master the following:
-                    <ul style="color: chartreuse;">
-                        <li style="color: red;">HTML5 (The language for building web pages)</li>
-                        <li style="color: orange;">CSS (The language for styling web pages)</li>
-                        <li style="color: yellow;">JavaScript (The language for programming web pages)</li>
-                        <li style="color: rgb(100, 201, 0);">SQL (A language for accessing databases)</li>
-                        <li style="color: blue;">PHP (A web server programming language)</li>
-                        <li style="color: blueviolet;">jQuery (A JavaScript library for develping web pages)</li>
-                        <li style="color: violet;">W3.CSS (A mordern CSS framework for faster and better responsive web sites)</li>
-                        <li style="color: deeppink;">Bootstrap (A CSS framework for designing better web pages)</li>
-                    </ul>
-                    <img src="../assets/images/programming.gif" alt="programming">
-                </p>
-                <p>
-                    Because we keep improving technology day in and out I never stop learning new skills to improve my talent in programming. <br><br>
-                    <ins>SPECIAL SKILLS;</ins> <br/>
-                    <span>GOOD LISTENER, TEAM PLAYER, HARD WORKING & RELIABLE, COMMUNICATION,
-                    GOOD UNDERSTANDING OF I.T & CONNECTIVITY, TIME MANAGEMENT, 
-                    LOVE TRAVELLING, SOLVING COMPLEX PROBLEMS, SMART THINKER,
-                    ARTISTIC, CREATIVE, LEADERSHIP.</span>
-                </p>
-            </div>
-            <button onclick="hide();" id="btn">Read More</button>
-        </main>
+  <button title="Open menu" id="navButton" onclick="openNav()" aria-label="Open navigation menu">&#9776;</button>
 
+  <main id="pageContainer" class="page-shell">
+    <section class="hero-panel yes-card-4" style="position: relative;">
+      <canvas id="particles-js"></canvas>
+      <div class="hero-content">
+        <div class="gsap-stagger">
+          <p class="hero-eyebrow gsap-child"><i class="fas fa-user"></i> About Eugene Mark Korku Barasu</p>
+          <h1 class="hero-title">My Story</h1>
+          <p class="hero-summary gsap-child">
+            I'm a <span id="age_now"></span> year old self-taught software developer passionate about coding since high school. Selected for Code College intro programming, I've mastered HTML/CSS/JS/PHP/SQL through projects and online learning.
+          </p>
+          <ul class="hero-points gsap-stagger">
+            <li class="gsap-child">Full-Stack Web Dev</li>
+            <li class="gsap-child">Mechanical Engineering Student</li>
+            <li class="gsap-child">Trailblazer Award Winner</li>
+            <li class="gsap-child">Problem Solver Extraordinaire</li>
+          </ul>
+          <div class="hero-actions gsap-stagger">
+            <a class="hero-button hero-button--primary gsap-child" href="../pages/projects/index.html">
+              <i class="fa fa-briefcase"></i> My Projects
+            </a>
+            <a class="hero-button hero-button--secondary gsap-child" href="../index.html#contact">
+              <i class="fa fa-envelope"></i> Get In Touch
+            </a>
+          </div>
+        </div>
+        <div class="hero-stats gsap-stagger">
+          <div class="hero-stat gsap-child">
+            <strong data-target="4+">0</strong>
+            <span>Years Coding Passion</span>
+          </div>
+          <div class="hero-stat gsap-child">
+            <strong data-target="50+">0</strong>
+            <span>Projects Built</span>
+          </div>
+          <div class="hero-stat gsap-child">
+            <strong data-target="10+">0</strong>
+            <span>Awards Won</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="yes-row-padding">
+      <section class="yes-twothird gsap-stagger">
+        <section class="yes-white section-card">
+          <h2 class="section-heading gsap-child">
+            <i class="fa fa-rocket"></i> My Journey
+          </h2>
+          <blockquote class="gsap-child" style="color: var(--accent); font-style: italic; font-size: 1.3rem; margin: 20px 0;">
+            "That was where I found my skill, passion and interest in Software Programming as my career."
+          </blockquote>
+          <div class="timeline-item gsap-child">
+            <span class="timeline-dot"></span>
+            <h5>Code College Discovery</h5>
+            <p>Selected as top high school student for intro programming – sparked lifelong coding passion.</p>
+          </div>
+          <div id="skills-list" class="gsap-stagger">
+            <h3 class="section-subtitle gsap-child" style="color: var(--brand);"><i class="fa fa-code"></i> Mastered Skills</h3>
+            <ul class="hero-points gsap-child" style="color: chartreuse;">
+              <li style="color: red;">HTML5 – Building web pages</li>
+              <li style="color: orange;">CSS – Styling masterpieces</li>
+              <li style="color: yellow;">JavaScript – Interactive magic</li>
+              <li style="color: lime;">SQL – Database wizardry</li>
+              <li style="color: blue;">PHP – Server-side power</li>
+              <li style="color: blueviolet;">jQuery – DOM domination</li>
+              <li style="color: violet;">W3.CSS/Bootstrap – Responsive frameworks</li>
+            </ul>
+          </div>
+          <div class="gsap-stagger">
+            <h3 class="section-subtitle gsap-child"><i class="fa fa-star"></i> Special Traits</h3>
+            <p class="gsap-child" style="line-height: 1.8;">Good listener, team player, hardworking, reliable communicator, IT connectivity expert, time manager, traveler, complex problem solver, smart thinker, artistic, creative leader.</p>
+          </div>
+        </section>
+      </section>
     </div>
-    
+  </main>
 
+  <footer class="yes-center footer-panel">
+    <div class="footer-socials">
+      <a href="https://github.com/Mark-Eugene-Barasu"><i class="fab fa-github"></i></a>
+      <a href="mailto:mark0630227248@gmail.com"><i class="fa fa-envelope"></i></a>
+    </div>
+  </footer>
 
-    <script>
+  <script>
     let age_now = document.getElementById("age_now");
-    age_now.innerHTML = `${Number(new Date().getFullYear()) - 2000}`;
-
-    function hide(){
-
-        const btn = document.getElementById("btn");
-
-        if (btn.innerHTML === "Read More") {
-            document.getElementById("hidder").style.height = "fit-content";
-            btn.innerHTML = `Read Less`;
-        } else {
-            document.getElementById("hidder").style.height = "0px";
-            btn.innerHTML = `Read More`;
-        };
-
-    };
-
-
-    </script>
+    age_now.innerHTML = `${new Date().getFullYear() - 2000}`;
+  </script>
 </body>
 </html>

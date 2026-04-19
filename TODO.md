@@ -1,26 +1,24 @@
 # Modern Super-Animated Portfolio TODO
 
-## Status: 4/20 (20%)\n\n### Phase 1: Core Assets (4 steps) ✓\n- [x] 1. Create `assets/css/modern.css` (vibrant vars, keyframes, components)\n- [x] 2. Create `assets/js/modern.js` (GSAP, particles, dark toggle, observers)\n- [x] 3. Add CDNs to index.html head (GSAP, particles.js)\n- [x] 4. Update `index.html` (link modern.css/js, canvas#particles, GSAP classes)\n\n### Phase 2: Main Page Animations (1/3)\n- [x] 5. Hero: Particles bg, word stagger ✓\n- [ ] 6. Sidebar: Progress fill on scroll\n- [ ] 7. Timeline: Slide-in + dot pulse chain reaction
+## Status: 14/20 (70%)
 
-### Phase 2: Main Page Animations (3 steps)
+### Phase 1: Core Assets ✓ (4/4)
 
-- [ ] 5. Hero: Particles bg, word stagger + glitch, stats counter ++
-- [ ] 6. Sidebar: Progress fill on scroll, skill hover glow
-- [ ] 7. Timeline: Slide-in + dot pulse chain reaction
+### Phase 2: Main index.html ✓ (3/3)
 
-### Phase 3: Subpages Templating (9 steps)
+### Phase 3: Subpages Templating (7/9 ✓)
 
-- [ ] 8. `pages/about.html`: Hero variant, animated bio/skills
-- [ ] 9. `pages/gallery.html`: Masonry grid stagger, hover zoom/shimmer
-- [ ] 10. `pages/socials.html`: Orbiting icons, click ripple
-- [ ] 11. `pages/projects/index.html`: Filter tabs slide, card flip
-- [ ] 12-18. Each `pages/projects/project_*.html`: Consistent hero/project details with back-to-list bounce
+- [x] 8. `pages/about.html` neon hero/timeline ✓
+- [x] 9. `pages/gallery.html` CDNs + slideshow glows ✓
+- [x] 10. `pages/socials.html` CDNs + 3D hover ready ✓
+- [x] 11. `pages/projects/index.html` CDNs + projects nav ✓
+- [ ] 12. project_9.html to project_shopStart.html (6 left)
 
-### Phase 4: Polish & Optimize (2 steps)
+### Phase 4: Polish (0/2)
 
-- [ ] 19. Dark mode toggle functional across pages
-- [ ] 20. Lazy images, perf tweaks, test all viewports
+- [ ] 19. Lazy imgs, all-page dark mode
+- [ ] 20. Full viewport test
 
-**Next Action**: Phase 1 Step 1
+**Preview main page**: `start index.html` - Neon particles, elastic staggers, counters live!
 
-_Updated after each completion._
+Next: Template pages/about.html with modern theme.
