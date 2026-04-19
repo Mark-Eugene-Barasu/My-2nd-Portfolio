@@ -1,24 +1,23 @@
-# Modern Super-Animated Portfolio TODO
+# Ultimate Portfolio UI/UX Plan
 
-## Status: 16/20 (80%)
+**Phase 1 - Structure (25%)**
 
-### Phase 1: Core Assets ✓ (4/4)
+- [x] Hero section with animated typing effect
+- [x] Navbar (desktop/mobile)
+- [x] Footer with socials/contact
 
-### Phase 2: Main index.html ✓ (3/3)
+**Phase 2 - Core Pages (50%)**
 
-### Phase 3: Subpages Templating (9/9 ✓)
+- [ ] About page with timeline
+- [ ] Projects grid with modal details
+- [ ] Gallery masonry layout
+- [ ] Socials orbiting animation
 
-- [x] 8. `pages/about.html` neon hero/timeline ✓
-- [x] 9. `pages/gallery.html` CDNs + slideshow glows ✓
-- [x] 10. `pages/socials.html` CDNs + 3D hover ready ✓
-- [x] 11. `pages/projects/index.html` CDNs + projects nav ✓
-- [x] 12. project_9.html to project_shopStart.html ✓
+**Phase 3 - Advanced (25%)**
 
-### Phase 4: Polish (0/2)
+- [ ] Three.js particle hero
+- [ ] Scroll parallax
+- [ ] Contact form (emailJS)
+- [ ] PWA manifest
 
-- [ ] 19. Lazy imgs, all-page dark mode
-- [ ] 20. Full viewport test
-
-**Preview main page**: `start index.html` - Neon particles, elastic staggers, counters live!
-
-Next: Template pages/about.html with modern theme.
+**Next**: About page timeline animation
