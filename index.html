@@ -6,11 +6,9 @@
   <title>Eugene Mark Korku Barasu - Portfolio</title>
   <meta name="description" content="Full-stack developer portfolio with projects, skills, experience from Umtata, South Africa">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; overflow-x: hidden; }
-    
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/portfolio-theme.css">
+    <style>
     /* Header */
     header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
     nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
@@ -142,8 +140,8 @@
     <h2 class="section-title fade-in">Projects</h2>
     <div class="projects-grid">
       <div class="project-card fade-in">
-        <div class="project-image" style="background: linear-gradient(45deg, #3776AB, #306998);">
-          <i class="fab fa-django"></i>
+        <div class="project-image" style="background: linear-gradient(45deg, #092E20, #0B5345); color: white;">
+          <i class="fas fa-globe"></i> Django
         </div>
         <div class="project-info">
           <h4>Django REST Blog API</h4>
@@ -263,7 +261,7 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="5" required></textarea>
       </div>
-      <button type="submit" class="cta">Send Message</button>
+      <button type="submit" style="align-items: center;" class="cta">Send Message</button>
     </form>
   </section>
 
