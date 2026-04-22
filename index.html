@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/portfolio-theme.css">
   <link rel="stylesheet" href="assets/css/darkmode.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
     <style>
     /* Header */
     header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
@@ -339,52 +340,23 @@
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
     // Form submission — calls Django backend
-    const API = 'http://127.0.0.1:8000/api';
+    // const API = 'http://127.0.0.1:8000/api';
 
     document.querySelector('.contact-form').addEventListener('submit', async (e) => {
       e.preventDefault();
-      const btn = e.target.querySelector('button[type="submit"]');
-      const original = btn.textContent;
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-
-      try {
-        const res = await fetch(`${API}/contact/`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name:    document.getElementById('name').value,
-            email:   document.getElementById('email').value,
-            message: document.getElementById('message').value,
-          })
-        });
-        const data = await res.json();
-        if (res.ok) {
-          btn.textContent = '✓ Sent!';
-          btn.style.background = '#28a745';
-          e.target.reset();
-          setTimeout(() => { btn.textContent = original; btn.style.background = ''; btn.disabled = false; }, 3000);
-        } else {
-          const errors = Object.values(data).flat().join(' ');
-          alert('Error: ' + errors);
-          btn.textContent = original;
-          btn.disabled = false;
-        }
-      } catch {
-        alert('Could not reach the server. Please try again later.');
-        btn.textContent = original;
-        btn.disabled = false;
-      }
+      alert('Thank you for your message! Backend is currently offline.');
+      e.target.reset();
     });
 
-    // Page view tracking
-    fetch(`${API}/analytics/track/`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ page: 'home' })
-    }).catch(() => {});
+    // Page view tracking (disabled)
+    // fetch(`${API}/analytics/track/`, {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ page: 'home' })
+    // }).catch(() => {});
   </script>
   <script src="assets/js/darkmode.js"></script>
+  <script src="assets/js/animate.js"></script>
 </body>
 </html>
 
