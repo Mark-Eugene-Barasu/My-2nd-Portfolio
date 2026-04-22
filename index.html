@@ -338,12 +338,51 @@
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Form submission
-    document.querySelector('.contact-form').addEventListener('submit', (e) => {
+    // Form submission — calls Django backend
+    const API = 'http://127.0.0.1:8000/api';
+
+    document.querySelector('.contact-form').addEventListener('submit', async (e) => {
       e.preventDefault();
-      alert('Thank you for your message! I\'ll get back to you soon.');
-      e.target.reset();
+      const btn = e.target.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(`${API}/contact/`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name:    document.getElementById('name').value,
+            email:   document.getElementById('email').value,
+            message: document.getElementById('message').value,
+          })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          btn.textContent = '✓ Sent!';
+          btn.style.background = '#28a745';
+          e.target.reset();
+          setTimeout(() => { btn.textContent = original; btn.style.background = ''; btn.disabled = false; }, 3000);
+        } else {
+          const errors = Object.values(data).flat().join(' ');
+          alert('Error: ' + errors);
+          btn.textContent = original;
+          btn.disabled = false;
+        }
+      } catch {
+        alert('Could not reach the server. Please try again later.');
+        btn.textContent = original;
+        btn.disabled = false;
+      }
     });
+
+    // Page view tracking
+    fetch(`${API}/analytics/track/`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ page: 'home' })
+    }).catch(() => {});
   </script>
   <script src="assets/js/darkmode.js"></script>
 </body>
