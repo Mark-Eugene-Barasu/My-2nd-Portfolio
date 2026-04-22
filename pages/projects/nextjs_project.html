@@ -1,74 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextJS Ecommerce Store - Eugene Mark Korku Barasu</title>
-<link rel="stylesheet" href="../../assets/css/portfolio-theme.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NextJS Ecommerce Store - Eugene Mark Korku Barasu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/portfolio-theme.css">
+  <link rel="stylesheet" href="../../assets/css/darkmode.css">
+  <style>
+    header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+    nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+    .logo { font-size: 1.5rem; font-weight: 800; color: white; text-decoration: none; }
+    .nav-links { display: flex; list-style: none; gap: 2rem; }
+    .nav-links a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: #ff6b6b; }
+    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 4px; }
+    .hamburger span { width: 25px; height: 3px; background: white; transition: 0.3s; }
+
+    .project-hero { background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); color: white; padding: 6rem 2rem; text-align: center; }
+    .project-hero .eyebrow { font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.8; margin-bottom: 1rem; }
+    .project-hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 1rem; }
+    .project-hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem; }
+    .tech-tags { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .tech-tags span { background: rgba(255,255,255,0.15); color: white; padding: 0.4rem 1rem; border-radius: 25px; font-size: 0.85rem; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; }
+    .btn-primary { background: #ff6b6b; color: white; box-shadow: 0 6px 20px rgba(255,107,107,0.4); }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,107,107,0.6); }
+    .btn-secondary { background: rgba(255,255,255,0.15); color: white; border: 2px solid rgba(255,255,255,0.4); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.25); transform: translateY(-3px); }
+
+    .content { max-width: 1000px; margin: 0 auto; padding: 5rem 2rem; display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; }
+    .card { background: white; border-radius: 20px; padding: 2.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+    .card h2 { font-size: 1.5rem; color: #2c3e50; margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 3px solid #61DAFB; }
+    .card h3 { font-size: 1.1rem; color: #2c3e50; margin: 1.5rem 0 0.8rem; }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .feature-list li { display: flex; align-items: center; gap: 0.7rem; color: #444; }
+    .feature-list li i { color: #28a745; font-size: 0.9rem; width: 16px; }
+    pre { background: #1e1e2e; color: #cdd6f4; padding: 1.5rem; border-radius: 12px; font-size: 0.82rem; overflow-x: auto; line-height: 1.7; margin-top: 0.5rem; }
+
+    .sidebar-card { background: white; border-radius: 20px; padding: 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.08); margin-bottom: 1.5rem; }
+    .sidebar-card h3 { font-size: 1rem; color: #2c3e50; margin-bottom: 1rem; font-weight: 700; }
+    .sidebar-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .sidebar-tags span { background: #f0f2ff; color: #667eea; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; }
+    .project-img { width: 100%; border-radius: 15px; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+
+    footer { background: #2c3e50; color: white; text-align: center; padding: 2.5rem 2rem; }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; font-size: 1.3rem; }
+    .footer-links a { color: white; transition: color 0.3s; }
+    .footer-links a:hover { color: #ff6b6b; }
+
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(102,126,234,0.97); flex-direction: column; padding: 1rem; }
+      .nav-links.active { display: flex; }
+      .content { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <nav id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="../../../index.html"><i class="fa fa-home"></i> Home</a>
-    <a href="../../index.html"><i class="fa fa-briefcase"></i> All Projects</a>
-  </nav>
-  <button onclick="openNav()">&#9776;</button>
 
-  <main class="page-shell">
-    <section class="hero-panel">
-      <div class="hero-content">
-        <h1>NextJS 14 Ecommerce Store</h1>
-        <p>Bootcamp MERN project with App Router, Server Actions, Stripe payments.</p>
-        <div class="project-tech">
-          <span class="tech-tag">NextJS 14</span>
-          <span class="tech-tag">React 18</span>
-          <span class="tech-tag">TailwindCSS</span>
-          <span class="tech-tag">MongoDB</span>
-          <span class="tech-tag">NextAuth</span>
+  <header>
+    <nav>
+      <a href="../../index.html" class="logo">EMKB</a>
+      <ul class="nav-links">
+        <li><a href="../../index.html#home">Home</a></li>
+        <li><a href="../../index.html#about">About</a></li>
+        <li><a href="../../index.html#projects">Projects</a></li>
+        <li><a href="../../pages/stacks.html">Stacks</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+  </header>
+
+  <div class="project-hero">
+    <p class="eyebrow"><i class="fab fa-react"></i> &nbsp; MERN / NextJS &nbsp; · &nbsp; Bootcamp Project</p>
+    <h1>NextJS 14 Ecommerce Store</h1>
+    <p>A full-stack ecommerce app with SSR, cart management, MongoDB backend, and Tailwind UI — built with the MERN stack and Next.js App Router.</p>
+    <div class="tech-tags">
+      <span>NextJS 14</span><span>React 18</span><span>TailwindCSS</span><span>MongoDB</span><span>NextAuth</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo (Vercel)</a>
+      <a href="https://github.com/Mark-Eugene-Barasu/nextjs-ecommerce" class="btn btn-secondary"><i class="fab fa-github"></i> View Code</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <div>
+      <div class="card">
+        <h2>Features</h2>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Server-side rendering with React Server Components</li>
+          <li><i class="fas fa-check-circle"></i> Shopping cart with persistent state</li>
+          <li><i class="fas fa-check-circle"></i> Stripe payment integration</li>
+          <li><i class="fas fa-check-circle"></i> NextAuth user authentication</li>
+          <li><i class="fas fa-check-circle"></i> Product search &amp; category filtering</li>
+          <li><i class="fas fa-check-circle"></i> Responsive Tailwind UI</li>
+          <li><i class="fas fa-check-circle"></i> MongoDB with Mongoose ODM</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>App Router Structure</h2>
+        <pre><code>/app
+├── layout.tsx          # Root layout + providers
+├── page.tsx            # Homepage
+├── products/
+│   ├── page.tsx        # Product listing (SSR)
+│   └── [id]/page.tsx   # Product detail
+├── cart/
+│   └── page.tsx        # Cart page
+├── checkout/
+│   └── page.tsx        # Stripe checkout
+└── api/
+    ├── auth/[...nextauth]/route.ts
+    └── products/route.ts</code></pre>
+
+        <h3>Server Component Example</h3>
+        <pre><code>// app/products/page.tsx
+import { getProducts } from '@/lib/db';
+import ProductCard from '@/components/ProductCard';
+
+export default async function ProductsPage() {
+  const products = await getProducts();
+  return (
+    &lt;div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-8"&gt;
+      {products.map(p =&gt; (
+        &lt;ProductCard key={p._id} product={p} /&gt;
+      ))}
+    &lt;/div&gt;
+  );
+}</code></pre>
+      </div>
+    </div>
+
+    <div>
+      <div class="sidebar-card">
+        <h3>Tech Stack</h3>
+        <div class="sidebar-tags">
+          <span>Next.js 14</span><span>React 18</span><span>TypeScript</span><span>MongoDB</span><span>Mongoose</span><span>TailwindCSS</span><span>NextAuth</span><span>Stripe</span>
         </div>
       </div>
-    </section>
-
-    <div class="yes-row-padding">
-      <section class="yes-twothird">
-        <section class="yes-white section-card">
-          <h2>Features</h2>
-          <ul>
-            <li>✅ Server-side rendering</li>
-            <li>✅ Shopping cart + checkout</li>
-            <li>✅ Stripe payments</li>
-            <li>✅ User authentication</li>
-            <li>✅ Product search/filter</li>
-            <li>✅ Responsive design</li>
-          </ul>
-          
-          <h3>App Router Structure</h3>
-          <pre><code>/app
-├── layout.tsx
-├── page.tsx
-├── products/
-│   ├── page.tsx
-│   └── [id]/page.tsx
-└── cart/
-    └── page.tsx</code></pre>
-
-          <div class="project-links">
-            <a href="#" class="hero-button">Live Demo (Vercel)</a>
-            <a href="https://github.com/Mark-Eugene-Barasu/nextjs-ecommerce" class="hero-button secondary">View Code</a>
-          </div>
-        </section>
-      </section>
-      
-      <section class="yes-third">
-        <img src="../../assets/images/papers.co-ne78-coding-screen-digital-art-25-wallpaper.jpg" alt="NextJS Dashboard" class="project-screenshot">
-      </section>
+      <div class="sidebar-card">
+        <h3>Stack</h3>
+        <div class="sidebar-tags"><span>MERN / NextJS</span></div>
+        <br>
+        <h3>Type</h3>
+        <div class="sidebar-tags"><span>Full-Stack</span><span>Ecommerce</span></div>
+        <br>
+        <h3>Database</h3>
+        <div class="sidebar-tags"><span>MongoDB</span></div>
+        <br>
+        <h3>Deployment</h3>
+        <div class="sidebar-tags"><span>Vercel</span></div>
+      </div>
+      <img src="../../assets/images/papers.co-ne78-coding-screen-digital-art-25-wallpaper.jpg" alt="NextJS Dashboard" class="project-img">
     </div>
-  </main>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://github.com/Mark-Eugene-Barasu"><i class="fab fa-github"></i></a>
+      <a href="https://twitter.com/Brains_777"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/eugene-mark-korku-barasu-5094a7220"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:mark0630227248@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://web.whatsapp.com/send?phone=+27815332769"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2024 Eugene Mark Korku Barasu. All rights reserved.</p>
+  </footer>
 
   <script>
-    function openNav() { document.getElementById("mySidenav").style.width = "250px"; }
-    function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
+    document.querySelector('.hamburger').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
   </script>
+  <script src="../../assets/js/darkmode.js"></script>
 </body>
 </html>

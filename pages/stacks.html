@@ -1,478 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Stacks - Eugene Mark Korku Barasu</title>
-<link rel="stylesheet" href="../assets/css/portfolio-theme.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Stacks - Eugene Mark Korku Barasu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/portfolio-theme.css">
+  <link rel="stylesheet" href="../assets/css/darkmode.css">
+  <style>
+    header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+    nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+    .logo { font-size: 1.5rem; font-weight: 800; color: white; text-decoration: none; }
+    .nav-links { display: flex; list-style: none; gap: 2rem; }
+    .nav-links a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: #ff6b6b; }
+    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 4px; }
+    .hamburger span { width: 25px; height: 3px; background: white; transition: 0.3s; }
 
-<style>
-  /* Header */
-  header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-  }
+    .page-hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 5rem 2rem; text-align: center; }
+    .page-hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; margin-bottom: 1rem; }
+    .page-hero p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
 
-  nav {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-  }
+    .stacks-container { max-width: 1000px; margin: 0 auto; padding: 5rem 2rem; display: flex; flex-direction: column; gap: 3rem; }
 
-  .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-  }
+    .stack-card { background: white; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+    .stack-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
 
-  .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-  }
+    .stack-header { padding: 2rem 2.5rem; display: flex; align-items: center; gap: 1.5rem; }
+    .stack-icon { font-size: 3rem; }
+    .stack-header-text h2 { font-size: 1.8rem; color: #2c3e50; margin-bottom: 0.3rem; }
+    .stack-header-text .badge { background: #28a745; color: white; font-size: 0.72rem; padding: 0.25rem 0.7rem; border-radius: 20px; font-weight: 600; }
 
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
+    .stack-body { padding: 0 2.5rem 2.5rem; }
+    .stack-body p { color: #555; margin-bottom: 1.2rem; font-size: 1rem; }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .tech-tags span { background: #f0f2ff; color: #667eea; padding: 0.3rem 0.9rem; border-radius: 20px; font-size: 0.82rem; font-weight: 500; }
 
-  .nav-links a:hover {
-    color: #ff6b6b;
-  }
+    .stack-body pre { background: #1e1e2e; color: #cdd6f4; padding: 1.5rem; border-radius: 12px; font-size: 0.85rem; overflow-x: auto; margin-bottom: 1.5rem; line-height: 1.6; }
 
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 4px;
-  }
+    .stack-footer { padding: 0 2.5rem 2.5rem; }
+    .btn { display: inline-block; background: #ff6b6b; color: white; padding: 0.75rem 1.8rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; box-shadow: 0 6px 20px rgba(255,107,107,0.35); }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,107,107,0.5); }
 
-  .hamburger span {
-    width: 25px;
-    height: 3px;
-    background: white;
-    transition: 0.3s;
-  }
+    .divider { height: 4px; }
 
-  /* Hero */
-  .hero {
-    background: linear-gradient(rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), url('assets/images/bg.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-  }
+    footer { background: #2c3e50; color: white; text-align: center; padding: 2.5rem 2rem; }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; font-size: 1.3rem; }
+    .footer-links a { color: white; transition: color 0.3s; }
+    .footer-links a:hover { color: #ff6b6b; }
 
-  .hero-content h1 {
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 800;
-    margin-bottom: 1rem;
-    animation: fadeInUp 1s ease;
-  }
-
-  .hero-content p {
-    font-size: 1.3rem;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    animation: fadeInUp 1s ease 0.2s both;
-  }
-
-  .cta {
-    display: inline-block;
-    background: #ff6b6b;
-    color: white;
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    animation: fadeInUp 1s ease 0.4s both;
-    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
-  }
-
-  .cta:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(50px);
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(102,126,234,0.97); flex-direction: column; padding: 1rem; }
+      .nav-links.active { display: flex; }
+      .stack-header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
     }
+  </style>
+</head>
+<body>
 
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  <header>
+    <nav>
+      <a href="../index.html" class="logo">EMKB</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#home">Home</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="stacks.html" class="active">Stacks</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+  </header>
 
-  /* Sections */
-  section {
-    padding: 6rem 0;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  <div class="page-hero">
+    <h1>Mastered Tech Stacks</h1>
+    <p>Three full-stack technologies mastered through an intensive coding bootcamp — from backend APIs to frontend UIs and enterprise systems.</p>
+  </div>
 
-  .section-title {
-    font-size: 3.5rem;
-    text-align: center;
-    margin-bottom: 4rem;
-    color: #2c3e50;
-    position: relative;
-  }
+  <div class="stacks-container">
 
-  .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: #ff6b6b;
-    border-radius: 2px;
-  }
-
-  /* About */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .about-img {
-    text-align: center;
-  }
-
-  .about-img img {
-    max-width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-  }
-
-  .about-text h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #2c3e50;
-  }
-
-  .about-text p {
-    margin-bottom: 1.5rem;
-    color: #666;
-  }
-
-  /* Projects */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-  }
-
-  .project-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease;
-  }
-
-  .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-  }
-
-  .project-image {
-    height: 200px;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 4rem;
-  }
-
-  .project-info {
-    padding: 2rem;
-  }
-
-  .project-info h4 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-  }
-
-  .project-tech {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .tech-tag {
-    background: #f8f9fa;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    color: #666;
-  }
-
-  .project-link {
-    color: #ff6b6b;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  /* Skills */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-  }
-
-  .skill-item {
-    text-align: center;
-    padding: 2rem;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease;
-  }
-
-  .skill-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-  }
-
-  .skill-icon {
-    font-size: 4rem;
-    color: #ff6b6b;
-    margin-bottom: 1rem;
-  }
-
-  .skill-name {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Contact */
-  .contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: white;
-    padding: 3rem;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  }
-
-  .form-group {
-    margin-bottom: 2rem;
-  }
-
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #2c3e50;
-  }
-
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 1rem;
-    border: 2px solid #f0f0f0;
-    border-radius: 10px;
-    font-family: inherit;
-    transition: border-color 0.3s;
-  }
-
-  .form-group input:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: #ff6b6b;
-  }
-
-  /* Socials */
-  .socials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-    gap: 1rem;
-    max-width: 600px;
-    margin: 2rem auto;
-  }
-
-  .social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 60px;
-    color: white;
-    text-decoration: none;
-    border-radius: 15px;
-    font-size: 1.5rem;
-    transition: all 0.4s ease;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  .social-link:hover {
-    transform: translateY(-10px) scale(1.1);
-    box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
-  }
-
-  /* Footer */
-  footer {
-    background: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 3rem 2rem 1rem;
-  }
-
-  .footer-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 2rem 0;
-  }
-
-  .footer-links a {
-    color: #ff6b6b;
-    text-decoration: none;
-    margin: 0 1rem;
-  }
-
-  /* Mobile */
-  @media (max-width: 768px) {
-    .hamburger {
-      display: flex;
-    }
-
-    .nav-links {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background: rgba(102, 126, 234, 0.95);
-      flex-direction: column;
-      padding: 1rem;
-    }
-
-    .nav-links.active {
-      display: flex;
-    }
-
-    .about-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .projects-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  /* Animations */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-  }
-
-  .fade-in.appear {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
-  </head>
-<body class="portfolio-body">
-  <nav title="menu" id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="../../index.html"><i class="fa fa-home"></i> Home</a>
-    <a href="../../pages/about.html"><i class="fa fa-user"></i> About</a>
-    <a href="../../pages/projects/index.html"><i class="fa fa-briefcase"></i> Projects</a>
-  </nav>
-  <button id="navButton" onclick="openNav()">&#9776;</button>
-
-  <main id="pageContainer" class="page-shell gsap-stagger">
-    <section class="hero-panel">
-      <div class="hero-content">
-        <h1 class="hero-title gsap-child">Mastered Tech Stacks</h1>
-        <p class="hero-summary gsap-child">Python/Django, MERN/NextJS, PostgreSQL + Spring Framework from coding bootcamp</p>
+    <!-- Stack 1: Python / Django -->
+    <div class="stack-card">
+      <div class="stack-header" style="border-bottom: 4px solid #3776AB;">
+        <i class="fab fa-python stack-icon" style="color:#3776AB;"></i>
+        <div class="stack-header-text">
+          <h2>Python / Django</h2>
+          <span class="badge">✓ Bootcamp Mastered</span>
+        </div>
       </div>
-    </section>
+      <div class="stack-body">
+        <p>Django's "batteries-included" philosophy makes it ideal for building secure, scalable REST APIs fast. Combined with Django REST Framework, it handles authentication, ORM queries, serialization, and pagination out of the box.</p>
+        <div class="tech-tags">
+          <span>Python 3.11</span><span>Django 5</span><span>Django REST Framework</span><span>JWT Auth</span><span>PostgreSQL ORM</span><span>Admin Panel</span><span>Pagination</span>
+        </div>
+        <pre><code># views.py — List & Create posts
+from rest_framework import generics
+from .models import Post
+from .serializers import PostSerializer
 
-    <div class="yes-row-padding">
-      <section>
-        <section class="yes-white section-card gsap-child">
-          <h2 class="section-heading"><i class="fab fa-python"></i> Python / Django</h2>
-          <p>Full-featured backend framework for rapid API development.</p>
-          <div class="tech-features">
-            <span>REST APIs</span> <span>ORM</span> <span>Authentication</span> <span>Admin Panel</span>
-          </div>
-          <pre><code>from django.urls import path
-from . import views
-urlpatterns = [path('api/posts/', views.PostList.as_view())]</code></pre>
-          <a href="../projects/django_project.html" class="hero-button">View Django Project</a>
-        </section>
-      </section>
-
-      <section>
-        <section class="yes-white section-card gsap-child">
-          <h2 class="section-heading"><i class="fab fa-react"></i> MERN / NextJS</h2>
-          <p>Modern fullstack JS with React Server Components, SSR, API routes.</p>
-          <div class="tech-features">
-            <span>React 18</span> <span>Next App Router</span> <span>TailwindCSS</span> <span>MongoDB</span>
-          </div>
-          <pre><code>'use client'
-import { useState } from 'react';
-export default function Counter() { ... }</code></pre>
-          <a href="../projects/nextjs_project.html" class="hero-button">View NextJS Project</a>
-        </section>
-      </section>
-
-      <section>
-        <section class="yes-white section-card gsap-child">
-          <h2 class="section-heading"><i class="fas fa-leaf"></i> Spring Boot + PostgreSQL</h2>
-          <p>Java enterprise backend with JPA/Hibernate ORM.</p>
-          <div class="tech-features">
-            <span>Spring Boot</span> <span>JPA</span> <span>REST Controllers</span> <span>Security</span>
-          </div>
-          <pre><code>@RestController
-@RequestMapping("/api/customers")
-public class CustomerController {
-  @Autowired private CustomerService service;
-}</code></pre>
-          <a href="../projects/spring_project.html" class="hero-button">View Spring Project</a>
-        </section>
-      </section>
+class PostListCreate(generics.ListCreateAPIView):
+    queryset = Post.objects.all().order_by('-created_at')
+    serializer_class = PostSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]</code></pre>
+      </div>
+      <div class="stack-footer">
+        <a href="projects/django_project.html" class="btn"><i class="fas fa-globe"></i> View Django Project</a>
+      </div>
     </div>
-  </main>
+
+    <!-- Stack 2: MERN / NextJS -->
+    <div class="stack-card">
+      <div class="stack-header" style="border-bottom: 4px solid #61DAFB;">
+        <i class="fab fa-react stack-icon" style="color:#61DAFB;"></i>
+        <div class="stack-header-text">
+          <h2>MERN / NextJS</h2>
+          <span class="badge">✓ Bootcamp Mastered</span>
+        </div>
+      </div>
+      <div class="stack-body">
+        <p>The MERN stack with Next.js App Router gives full-stack JavaScript from database to UI. Server Components, Server Actions, and SSR make it production-ready with great performance and SEO out of the box.</p>
+        <div class="tech-tags">
+          <span>React 18</span><span>Next.js 14 App Router</span><span>Node.js</span><span>MongoDB</span><span>TailwindCSS</span><span>NextAuth</span><span>Server Actions</span>
+        </div>
+        <pre><code>// app/products/page.tsx — Server Component
+import { getProducts } from '@/lib/db';
+
+export default async function ProductsPage() {
+  const products = await getProducts();
+  return (
+    &lt;div className="grid grid-cols-3 gap-4"&gt;
+      {products.map(p =&gt; &lt;ProductCard key={p._id} product={p} /&gt;)}
+    &lt;/div&gt;
+  );
+}</code></pre>
+      </div>
+      <div class="stack-footer">
+        <a href="projects/nextjs_project.html" class="btn"><i class="fab fa-react"></i> View NextJS Project</a>
+      </div>
+    </div>
+
+    <!-- Stack 3: Spring + PostgreSQL -->
+    <div class="stack-card">
+      <div class="stack-header" style="border-bottom: 4px solid #6DB33F;">
+        <i class="fab fa-java stack-icon" style="color:#6DB33F;"></i>
+        <div class="stack-header-text">
+          <h2>Spring Boot + PostgreSQL</h2>
+          <span class="badge">✓ Bootcamp Mastered</span>
+        </div>
+      </div>
+      <div class="stack-body">
+        <p>Spring Boot is the industry standard for Java enterprise backends. With JPA/Hibernate handling the ORM layer and Spring Security for auth, it pairs perfectly with PostgreSQL for robust, type-safe data management.</p>
+        <div class="tech-tags">
+          <span>Java 21</span><span>Spring Boot 3.2</span><span>Spring Security</span><span>JPA / Hibernate</span><span>PostgreSQL</span><span>REST Controllers</span><span>Bean Validation</span>
+        </div>
+        <pre><code>// CustomerController.java
+@RestController
+@RequestMapping("/api/v1/customers")
+public class CustomerController {
+
+    @Autowired private CustomerService service;
+
+    @GetMapping
+    public ResponseEntity&lt;List&lt;Customer&gt;&gt; getAll() {
+        return ResponseEntity.ok(service.findAll());
+    }
+
+    @PostMapping
+    public ResponseEntity&lt;Customer&gt; create(
+        @Valid @RequestBody Customer customer) {
+        return ResponseEntity.status(201).body(service.save(customer));
+    }
+}</code></pre>
+      </div>
+      <div class="stack-footer">
+        <a href="projects/spring_project.html" class="btn"><i class="fab fa-java"></i> View Spring Project</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://github.com/Mark-Eugene-Barasu"><i class="fab fa-github"></i></a>
+      <a href="https://twitter.com/Brains_777"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/eugene-mark-korku-barasu-5094a7220"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:mark0630227248@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://web.whatsapp.com/send?phone=+27815332769"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2024 Eugene Mark Korku Barasu. All rights reserved.</p>
+  </footer>
 
   <script>
-    function openNav() { document.getElementById("mySidenav").style.width = "250px"; }
-    function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
-    gsap.registerPlugin(ScrollTrigger);
+    document.querySelector('.hamburger').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
   </script>
+  <script src="../assets/js/darkmode.js"></script>
 </body>
 </html>

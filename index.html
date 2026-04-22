@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/portfolio-theme.css">
+  <link rel="stylesheet" href="assets/css/darkmode.css">
     <style>
     /* Header */
     header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
@@ -100,6 +101,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="pages/stacks.html">Stacks</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="hamburger">
@@ -114,7 +116,8 @@
   <section id="home" class="hero">
     <div class="hero-content">
       <h1>Eugene Mark Korku Barasu</h1>
-      <p>Self-taught Full-Stack Developer | Mechanical Engineering Student | Trailblazer Award Winner</p>
+      <p>Full-Stack Developer | Python/Django &nbsp;·&nbsp; MERN/NextJS &nbsp;·&nbsp; Spring + PostgreSQL</p>
+      <p style="font-size:1rem; opacity:0.85; margin-top:-1rem;">Mechanical Engineering Student · Trailblazer Award Winner · Umtata, South Africa</p>
       <a href="#projects" class="cta">View My Projects</a>
     </div>
   </section>
@@ -145,6 +148,7 @@
         </div>
         <div class="project-info">
           <h4>Django REST Blog API</h4>
+          <p style="color:#666; font-size:0.9rem; margin-bottom:0.8rem;">A full-featured REST API for a blog platform with authentication, CRUD posts, and admin panel — built with Django REST Framework.</p>
           <div class="project-tech">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">Django</span>
@@ -159,6 +163,7 @@
         </div>
         <div class="project-info">
           <h4>NextJS Ecommerce Store</h4>
+          <p style="color:#666; font-size:0.9rem; margin-bottom:0.8rem;">A full-stack ecommerce app with SSR, cart management, MongoDB backend, and Tailwind UI — built with the MERN stack and Next.js App Router.</p>
           <div class="project-tech">
             <span class="tech-tag">NextJS</span>
             <span class="tech-tag">MERN</span>
@@ -173,6 +178,7 @@
         </div>
         <div class="project-info">
           <h4>Spring Boot CRM</h4>
+          <p style="color:#666; font-size:0.9rem; margin-bottom:0.8rem;">A customer relationship management system with REST controllers, JPA/Hibernate ORM, Spring Security, and a PostgreSQL database.</p>
           <div class="project-tech">
             <span class="tech-tag">Java</span>
             <span class="tech-tag">Spring</span>
@@ -201,46 +207,69 @@
   <!-- Skills -->
   <section id="skills" class="section">
     <h2 class="section-title fade-in">Skills</h2>
-    <div class="skills-grid">
-        <div class="skill-item fade-in">
-          <div class="skill-icon">
-            <i class="fab fa-python"></i>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:2rem; margin-bottom:3rem;">
+
+      <!-- Stack 1 -->
+      <div class="skill-item fade-in" style="text-align:left; padding:2rem;">
+        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+          <i class="fab fa-python" style="font-size:2.5rem; color:#3776AB;"></i>
+          <div>
+            <h3 style="margin:0; color:#2c3e50;">Python / Django</h3>
+            <span style="background:#28a745; color:white; font-size:0.7rem; padding:0.2rem 0.6rem; border-radius:20px; font-weight:600;">✓ Bootcamp Mastered</span>
           </div>
-        <h3>Python / Django</h3>
-        <p>Bootcamp Mastered</p>
-      </div>
-      <div class="skill-item fade-in">
-        <div class="skill-icon">
-          <i class="fab fa-react"></i>
         </div>
-        <h3>MERN / NextJS</h3>
-        <p>Bootcamp Mastered</p>
-      </div>
-      <div class="skill-item fade-in">
-        <div class="skill-icon">
-          <i class="fas fa-database"></i>
+        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+          <span class="tech-tag">Python</span><span class="tech-tag">Django REST Framework</span><span class="tech-tag">ORM</span><span class="tech-tag">Authentication</span><span class="tech-tag">Admin Panel</span>
         </div>
-        <h3>PostgreSQL</h3>
-        <p>Bootcamp Mastered</p>
       </div>
-      <div class="skill-item fade-in">
-        <div class="skill-icon">
-          <i class="fab fa-java"></i>
+
+      <!-- Stack 2 -->
+      <div class="skill-item fade-in" style="text-align:left; padding:2rem;">
+        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+          <i class="fab fa-react" style="font-size:2.5rem; color:#61DAFB;"></i>
+          <div>
+            <h3 style="margin:0; color:#2c3e50;">MERN / NextJS</h3>
+            <span style="background:#28a745; color:white; font-size:0.7rem; padding:0.2rem 0.6rem; border-radius:20px; font-weight:600;">✓ Bootcamp Mastered</span>
+          </div>
         </div>
-        <h3>Spring Framework</h3>
-        <p>Bootcamp Mastered</p>
+        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+          <span class="tech-tag">React 18</span><span class="tech-tag">Next.js App Router</span><span class="tech-tag">Node.js</span><span class="tech-tag">MongoDB</span><span class="tech-tag">TailwindCSS</span>
+        </div>
       </div>
-      <div class="skill-item fade-in">
-        <div class="skill-icon">
-          <i class="fab fa-html5"></i>
+
+      <!-- Stack 3 -->
+      <div class="skill-item fade-in" style="text-align:left; padding:2rem;">
+        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+          <i class="fab fa-java" style="font-size:2.5rem; color:#6DB33F;"></i>
+          <div>
+            <h3 style="margin:0; color:#2c3e50;">Spring + PostgreSQL</h3>
+            <span style="background:#28a745; color:white; font-size:0.7rem; padding:0.2rem 0.6rem; border-radius:20px; font-weight:600;">✓ Bootcamp Mastered</span>
+          </div>
         </div>
+        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+          <span class="tech-tag">Java</span><span class="tech-tag">Spring Boot</span><span class="tech-tag">JPA/Hibernate</span><span class="tech-tag">REST Controllers</span><span class="tech-tag">PostgreSQL</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional skills -->
+    <div class="skills-grid">
+      <div class="skill-item fade-in">
+        <div class="skill-icon"><i class="fab fa-html5"></i></div>
         <h3>HTML5 / CSS3 / JS</h3>
       </div>
       <div class="skill-item fade-in">
-        <div class="skill-icon">
-          <i class="fab fa-php"></i>
-        </div>
+        <div class="skill-icon"><i class="fab fa-php"></i></div>
         <h3>PHP / SQL</h3>
+      </div>
+      <div class="skill-item fade-in">
+        <div class="skill-icon"><i class="fab fa-git-alt" style="color:#F05032;"></i></div>
+        <h3>Git / GitHub</h3>
+      </div>
+      <div class="skill-item fade-in">
+        <div class="skill-icon"><i class="fas fa-robot" style="color:#a855f7;"></i></div>
+        <h3>AI Prompt Engineer</h3>
+        <p style="color:#666; font-size:0.85rem;">ChatGPT · Claude · Amazon Q</p>
       </div>
     </div>
   </section>
@@ -316,6 +345,7 @@
       e.target.reset();
     });
   </script>
+  <script src="assets/js/darkmode.js"></script>
 </body>
 </html>
 
