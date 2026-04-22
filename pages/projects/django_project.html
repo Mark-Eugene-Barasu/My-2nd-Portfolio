@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django REST Blog API - Eugene Mark Korku Barasu</title>
+    <link rel="stylesheet" href="../../assets/css/simple-modern.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <nav id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../../index.html"><i class="fa fa-home"></i> Home</a>
+    <a href="../../index.html"><i class="fa fa-briefcase"></i> All Projects</a>
+  </nav>
+  <button onclick="openNav()">&#9776;</button>
+
+  <main class="page-shell">
+    <section class="hero-panel">
+      <div class="hero-content">
+        <h1>Django REST Blog API</h1>
+        <p>Bootcamp project: Full CRUD blog API with PostgreSQL, authentication, pagination.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Python 3.11</span>
+          <span class="tech-tag">Django 5.0</span>
+          <span class="tech-tag">DRF</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">JWT Auth</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="yes-row-padding">
+      <section class="yes-twothird">
+        <section class="yes-white section-card">
+          <h2>Features</h2>
+          <ul>
+            <li>✅ User registration/login with JWT</li>
+            <li>✅ Post CRUD operations</li>
+            <li>✅ Comment system</li>
+            <li>✅ Pagination & filtering</li>
+            <li>✅ Rate limiting</li>
+            <li>✅ PostgreSQL with Django ORM</li>
+          </ul>
+          
+          <h3>Sample API Endpoints</h3>
+          <pre><code>POST /api/auth/register/
+POST /api/auth/login/
+GET  /api/posts/?page=1
+POST /api/posts/
+GET  /api/posts/{id}/</code></pre>
+
+          <div class="project-links">
+            <a href="#" class="hero-button">Live Demo (Coming Soon)</a>
+            <a href="https://github.com/Mark-Eugene-Barasu/django-blog-api" class="hero-button secondary">View Code</a>
+          </div>
+        </section>
+      </section>
+      
+      <section class="yes-third">
+        <img src="../../assets/images/code-text-colorful-symbols-programming-11570018517ehhiwfnwii.jpg" alt="Django Code" class="project-screenshot">
+      </section>
+    </div>
+  </main>
+
+  <script>
+    function openNav() { document.getElementById("mySidenav").style.width = "250px"; }
+    function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
+  </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Boot CRM - Eugene Mark Korku Barasu</title>
+    <link rel="stylesheet" href="../../assets/css/simple-modern.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <nav id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../../index.html"><i class="fa fa-home"></i> Home</a>
+    <a href="../../index.html"><i class="fa fa-briefcase"></i> All Projects</a>
+  </nav>
+  <button onclick="openNav()">&#9776;</button>
+
+  <main class="page-shell">
+    <section class="hero-panel">
+      <div class="hero-content">
+        <h1>Spring Boot CRM System</h1>
+        <p>Enterprise Customer Relationship Management with PostgreSQL + JPA.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Java 21</span>
+          <span class="tech-tag">Spring Boot 3.2</span>
+          <span class="tech-tag">Spring Security</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">JPA/Hibernate</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="yes-row-padding">
+      <section class="yes-twothird">
+        <section class="yes-white section-card">
+          <h2>Features</h2>
+          <ul>
+            <li>✅ Customer management CRUD</li>
+            <li>✅ Role-based authentication</li>
+            <li>✅ PostgreSQL database</li>
+            <li>✅ REST API endpoints</li>
+            <li>✅ Input validation</li>
+            <li>✅ JPA repositories</li>
+          </ul>
+          
+          <h3>Sample Controller</h3>
+          <pre><code>@RestController
+@RequestMapping("/api/v1/customers")
+public class CustomerController {
+    
+    @GetMapping
+    public ResponseEntity<List<Customer>> getAll() { ... }
+    
+    @PostMapping
+    public ResponseEntity<Customer> create(@Valid @RequestBody Customer customer) { ... }
+}</code></pre>
+
+          <div class="project-links">
+            <a href="#" class="hero-button">Live Demo</a>
+            <a href="https://github.com/Mark-Eugene-Barasu/spring-boot-crm" class="hero-button secondary">View Code</a>
+          </div>
+        </section>
+      </section>
+      
+      <section class="yes-third">
+        <img src="../../assets/images/IC-Software-Development-Life-Cycle.jpg" alt="Spring Boot Dashboard" class="project-screenshot">
+      </section>
+    </div>
+  </main>
+
+  <script>
+    function openNav() { document.getElementById("mySidenav").style.width = "250px"; }
+    function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextJS Ecommerce Store - Eugene Mark Korku Barasu</title>
+    <link rel="stylesheet" href="../../assets/css/simple-modern.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <nav id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../../../index.html"><i class="fa fa-home"></i> Home</a>
+    <a href="../../index.html"><i class="fa fa-briefcase"></i> All Projects</a>
+  </nav>
+  <button onclick="openNav()">&#9776;</button>
+
+  <main class="page-shell">
+    <section class="hero-panel">
+      <div class="hero-content">
+        <h1>NextJS 14 Ecommerce Store</h1>
+        <p>Bootcamp MERN project with App Router, Server Actions, Stripe payments.</p>
+        <div class="project-tech">
+          <span class="tech-tag">NextJS 14</span>
+          <span class="tech-tag">React 18</span>
+          <span class="tech-tag">TailwindCSS</span>
+          <span class="tech-tag">MongoDB</span>
+          <span class="tech-tag">NextAuth</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="yes-row-padding">
+      <section class="yes-twothird">
+        <section class="yes-white section-card">
+          <h2>Features</h2>
+          <ul>
+            <li>✅ Server-side rendering</li>
+            <li>✅ Shopping cart + checkout</li>
+            <li>✅ Stripe payments</li>
+            <li>✅ User authentication</li>
+            <li>✅ Product search/filter</li>
+            <li>✅ Responsive design</li>
+          </ul>
+          
+          <h3>App Router Structure</h3>
+          <pre><code>/app
+├── layout.tsx
+├── page.tsx
+├── products/
+│   ├── page.tsx
+│   └── [id]/page.tsx
+└── cart/
+    └── page.tsx</code></pre>
+
+          <div class="project-links">
+            <a href="#" class="hero-button">Live Demo (Vercel)</a>
+            <a href="https://github.com/Mark-Eugene-Barasu/nextjs-ecommerce" class="hero-button secondary">View Code</a>
+          </div>
+        </section>
+      </section>
+      
+      <section class="yes-third">
+        <img src="../../assets/images/papers.co-ne78-coding-screen-digital-art-25-wallpaper.jpg" alt="NextJS Dashboard" class="project-screenshot">
+      </section>
+    </div>
+  </main>
+
+  <script>
+    function openNav() { document.getElementById("mySidenav").style.width = "250px"; }
+    function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
+  </script>
+</body>
+</html>
