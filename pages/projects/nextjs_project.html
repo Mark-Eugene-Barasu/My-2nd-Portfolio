@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NextJS Ecommerce Store — Eugene Mark Korku Barasu</title>
+  <meta name="description" content="Full-stack ecommerce platform built with NextJS 14, React Server Components, Stripe payments, and MongoDB. View source code and demo.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/portfolio-theme.css">
@@ -66,7 +67,7 @@
 <body>
 
   <header>
-    <nav>
+    <nav aria-label="Main navigation">
       <a href="../../index.html" class="logo">EMKB</a>
       <ul class="nav-links">
         <li><a href="../../index.html#home">Home</a></li>
@@ -75,7 +76,7 @@
         <li><a href="../../pages/stacks.html">Stacks</a></li>
         <li><a href="../../index.html#contact">Contact</a></li>
       </ul>
-      <div class="hamburger"><span></span><span></span><span></span></div>
+      <div class="hamburger" aria-label="Toggle navigation menu"><span></span><span></span><span></span></div>
     </nav>
   </header>
 
@@ -87,9 +88,10 @@
       <span>NextJS 14</span><span>React 18</span><span>TailwindCSS</span><span>MongoDB</span><span>NextAuth</span>
     </div>
     <div class="hero-btns">
-      <a href="#" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo (Vercel)</a>
-      <a href="https://github.com/Mark-Eugene-Barasu/nextjs-ecommerce" class="btn btn-secondary"><i class="fab fa-github"></i> View Code</a>
+      <a href="https://github.com/Mark-Eugene-Barasu/nextjs-ecommerce" class="btn btn-primary" target="_blank" rel="noopener"><i class="fab fa-github"></i> View Source Code</a>
+      <a href="https://github.com/Mark-Eugene-Barasu/nextjs-ecommerce#readme" class="btn btn-secondary" target="_blank" rel="noopener"><i class="fas fa-book"></i> Documentation</a>
     </div>
+  </div>
 
   <div class="content">
     <div>
@@ -143,6 +145,7 @@ export default async function ProductsPage() {
   );
 }</code></pre>
       </div>
+    </div>
 
     <div>
       <div class="sidebar-card">
@@ -154,6 +157,7 @@ export default async function ProductsPage() {
         <div class="sidebar-tags">
           <span>Next.js 14</span><span>React 18</span><span>TypeScript</span><span>MongoDB</span><span>Mongoose</span><span>TailwindCSS</span><span>NextAuth</span><span>Stripe</span>
         </div>
+      </div>
       <div class="sidebar-card">
         <h3>Stack</h3>
         <div class="sidebar-tags"><span>MERN / NextJS</span></div>
@@ -166,17 +170,19 @@ export default async function ProductsPage() {
         <br>
         <h3>Deployment</h3>
         <div class="sidebar-tags"><span>Vercel</span></div>
+      </div>
       <img src="../../assets/images/papers.co-ne78-coding-screen-digital-art-25-wallpaper.jpg" alt="NextJS Dashboard" class="project-img">
     </div>
+  </div>
 
   <footer>
     <div class="footer-links">
-      <a href="https://github.com/Mark-Eugene-Barasu"><i class="fab fa-github"></i></a>
-      <a href="https://twitter.com/Brains_777"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.linkedin.com/in/eugene-mark-korku-barasu-5094a7220"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:mark0630227248@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/Mark-Eugene-Barasu" aria-label="GitHub Profile" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+      <a href="https://twitter.com/Brains_777" aria-label="Twitter Profile" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/eugene-mark-korku-barasu-5094a7220" aria-label="LinkedIn Profile" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:mark0630227248@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
     </div>
-    <p>&copy; 2024 Eugene Mark Korku Barasu. All rights reserved.</p>
+    <p>&copy; 2025 Eugene Mark Korku Barasu. All rights reserved.</p>
   </footer>
 
   <script>
@@ -188,3 +194,4 @@ export default async function ProductsPage() {
   <script src="../../assets/js/animate.js"></script>
 </body>
 </html>
+
