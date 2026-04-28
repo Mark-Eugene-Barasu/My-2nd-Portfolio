@@ -1,0 +1,27 @@
+{
+  "name": "Eugene Mark Korku Barasu - Full-Stack Developer Portfolio",
+  "short_name": "EMKB Portfolio",
+  "description": "Full-stack developer portfolio showcasing Python/Django, MERN/NextJS, and Spring Boot expertise with role-based authentication.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/images/105358595.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/105358595.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "developer", "technology"],
+  "lang": "en",
+  "dir": "ltr"
+}
