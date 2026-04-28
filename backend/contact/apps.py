@@ -1,13 +1,14 @@
-from django.contrib import admin
-from .models import ContactMessage
+"""
+Contact App Configuration
 
-@admin.register(ContactMessage)
-class ContactMessageAdmin(admin.ModelAdmin):
-    list_display  = ['name', 'email', 'is_read', 'created_at']
-    list_filter   = ['is_read', 'created_at']
-    search_fields = ['name', 'email', 'message']
-    readonly_fields = ['name', 'email', 'message', 'ip_address', 'created_at']
-    ordering      = ['-created_at']
+Django app configuration for the contact form module.
+"""
 
-    def has_add_permission(self, request):
-        return False
+from django.apps import AppConfig
+
+
+class ContactConfig(AppConfig):
+    """Configuration for the contact application."""
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'contact'
+    verbose_name = 'Contact Messages'
