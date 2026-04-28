@@ -1,8 +1,27 @@
+"""
+Django settings for portfolio_api project.
+
+Role-Based Portfolio Backend:
+    - JWT authentication via djangorestframework-simplejwt
+    - Custom User model with role field (ADMIN, RECRUITER, USER)
+    - CORS enabled for frontend integration
+    - PostgreSQL database with environment-based configuration
+    - WhiteNoise for static file serving in production
+
+For recruiters evaluating this backend:
+    - All API endpoints are documented in docs/api-reference.md
+    - Authentication flow: Register -> Login (JWT) -> Authenticated requests
+    - Role-based permissions enforced at view level
+    - Admin dashboard available at /admin/ for user management
+"""
+
 from pathlib import Path
 import environ
+from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# ── Environment Configuration ────────────────────────────────────
 env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env(BASE_DIR / '.env')
 
@@ -10,6 +29,11 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
+# ── Custom User Model ────────────────────────────────────────────
+# Replacing default auth.User with our role-based model
+AUTH_USER_MODEL = 'users.User'
+
+# ── Installed Applications ───────────────────────────────────────
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -17,16 +41,27 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third-party
     'rest_framework',
+    'rest_framework_simplejwt',
+    # Enable token blacklisting for logout
+    'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
-    'contact',
-    'analytics',
+    'django_extensions',  # Useful management commands
+
+    # Portfolio apps (order matters for dependencies)
+    'users',       # Must be before contact/analytics for AUTH_USER_MODEL
+    'contact',     # Contact form with user association
+    'analytics',   # Page view tracking with role segmentation
 ]
 
+# ── Middleware ───────────────────────────────────────────────────
 MIDDLEWARE = [
+    # CORS handling (must be first)
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',   # Static files in production
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -82,7 +117,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# REST Framework
+
 REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.AnonRateThrottle',
