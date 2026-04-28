@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NextJS Ecommerce Store - Eugene Mark Korku Barasu</title>
+  <title>NextJS Ecommerce Store — Eugene Mark Korku Barasu</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/portfolio-theme.css">
@@ -46,6 +46,9 @@
     .sidebar-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .sidebar-tags span { background: #f0f2ff; color: #667eea; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; }
     .project-img { width: 100%; border-radius: 15px; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+    .impact-box { background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-left: 4px solid #2196F3; padding: 1.5rem; border-radius: 0 12px 12px 0; margin-bottom: 1.5rem; }
+    .impact-box h4 { color: #0d47a1; margin-bottom: 0.5rem; font-size: 1rem; }
+    .impact-box p { color: #1565c0; font-size: 0.9rem; line-height: 1.6; margin: 0; }
 
     footer { background: #2c3e50; color: white; text-align: center; padding: 2.5rem 2rem; }
     .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; font-size: 1.3rem; }
@@ -77,9 +80,9 @@
   </header>
 
   <div class="project-hero">
-    <p class="eyebrow"><i class="fab fa-react"></i> &nbsp; MERN / NextJS &nbsp; · &nbsp; Bootcamp Project</p>
+    <p class="eyebrow"><i class="fab fa-react"></i> &nbsp; MERN / NextJS &nbsp; · &nbsp; Full-Stack Ecommerce</p>
     <h1>NextJS 14 Ecommerce Store</h1>
-    <p>A full-stack ecommerce app with SSR, cart management, MongoDB backend, and Tailwind UI — built with the MERN stack and Next.js App Router.</p>
+    <p>A conversion-optimized full-stack ecommerce platform with SSR, Stripe payments, and MongoDB — built for performance and SEO.</p>
     <div class="tech-tags">
       <span>NextJS 14</span><span>React 18</span><span>TailwindCSS</span><span>MongoDB</span><span>NextAuth</span>
     </div>
@@ -87,10 +90,14 @@
       <a href="#" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo (Vercel)</a>
       <a href="https://github.com/Mark-Eugene-Barasu/nextjs-ecommerce" class="btn btn-secondary"><i class="fab fa-github"></i> View Code</a>
     </div>
-  </div>
 
   <div class="content">
     <div>
+      <div class="impact-box">
+        <h4><i class="fas fa-shopping-cart"></i> Business Impact</h4>
+        <p>Server-side rendering improves SEO rankings and page load times — directly increasing organic traffic and conversion rates. Stripe integration enables instant global payments.</p>
+      </div>
+
       <div class="card">
         <h2>Features</h2>
         <ul class="feature-list">
@@ -128,23 +135,25 @@ import ProductCard from '@/components/ProductCard';
 export default async function ProductsPage() {
   const products = await getProducts();
   return (
-    &lt;div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-8"&gt;
-      {products.map(p =&gt; (
-        &lt;ProductCard key={p._id} product={p} /&gt;
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-8">
+      {products.map(p => (
+        <ProductCard key={p._id} product={p} />
       ))}
-    &lt;/div&gt;
+    </div>
   );
 }</code></pre>
       </div>
-    </div>
 
     <div>
+      <div class="sidebar-card">
+        <h3><i class="fas fa-robot" style="color:#a855f7;"></i> AI-Assisted Development</h3>
+        <p style="font-size:0.85rem; color:#666; line-height:1.6;">Component architecture designed with ChatGPT. TypeScript patterns refined with Claude. Stripe integration guided by Amazon Q.</p>
+      </div>
       <div class="sidebar-card">
         <h3>Tech Stack</h3>
         <div class="sidebar-tags">
           <span>Next.js 14</span><span>React 18</span><span>TypeScript</span><span>MongoDB</span><span>Mongoose</span><span>TailwindCSS</span><span>NextAuth</span><span>Stripe</span>
         </div>
-      </div>
       <div class="sidebar-card">
         <h3>Stack</h3>
         <div class="sidebar-tags"><span>MERN / NextJS</span></div>
@@ -157,10 +166,8 @@ export default async function ProductsPage() {
         <br>
         <h3>Deployment</h3>
         <div class="sidebar-tags"><span>Vercel</span></div>
-      </div>
       <img src="../../assets/images/papers.co-ne78-coding-screen-digital-art-25-wallpaper.jpg" alt="NextJS Dashboard" class="project-img">
     </div>
-  </div>
 
   <footer>
     <div class="footer-links">
@@ -168,7 +175,6 @@ export default async function ProductsPage() {
       <a href="https://twitter.com/Brains_777"><i class="fab fa-twitter"></i></a>
       <a href="https://www.linkedin.com/in/eugene-mark-korku-barasu-5094a7220"><i class="fab fa-linkedin"></i></a>
       <a href="mailto:mark0630227248@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://web.whatsapp.com/send?phone=+27815332769"><i class="fab fa-whatsapp"></i></a>
     </div>
     <p>&copy; 2024 Eugene Mark Korku Barasu. All rights reserved.</p>
   </footer>

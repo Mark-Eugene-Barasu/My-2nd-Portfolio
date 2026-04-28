@@ -1,12 +1,19 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import ContactMessage
 from .serializers import ContactMessageSerializer
 
+
 class ContactView(APIView):
+    """
+    POST /api/contact/ — Submit a contact message (public)
+    GET  /api/contact/ — List messages (ADMIN only)
+    """
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
     def post(self, request):
         serializer = ContactMessageSerializer(data=request.data)
@@ -17,7 +24,10 @@ class ContactView(APIView):
             request.META.get('HTTP_X_FORWARDED_FOR', '').split(',')[0].strip()
             or request.META.get('REMOTE_ADDR')
         )
-        msg = serializer.save(ip_address=ip)
+
+        # Associate with authenticated user if available
+        user = request.user if request.user.is_authenticated else None
+        msg = serializer.save(ip_address=ip, user=user)
 
         try:
             send_mail(
@@ -39,3 +49,20 @@ class ContactView(APIView):
             {"detail": "Message received! I'll get back to you soon."},
             status=status.HTTP_201_CREATED
         )
+
+    def get(self, request):
+        """
+        List all contact messages. Restricted to ADMIN users.
+        """
+        if not request.user.is_authenticated or not request.user.is_admin:
+            return Response(
+                {"detail": "Admin access required to view messages."},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
+        messages = ContactMessage.objects.all().order_by('-created_at')
+        serializer = ContactMessageSerializer(messages, many=True)
+        return Response({
+            "count": messages.count(),
+            "messages": serializer.data
+        })

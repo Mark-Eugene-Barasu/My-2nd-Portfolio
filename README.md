@@ -1,44 +1,87 @@
-# This is my second Portfolio website
-## [Please check it out here](https://mark-eugene-barasu.github.io/My-2nd-Portfolio/)
+# Eugene Mark Korku Barasu — Full-Stack Portfolio
 
-It has a toggle effect
-How the toggle button works
-🌙 Moon icon = currently in light mode, click to go dark
+**Live Site**: [https://mark-eugene-barasu.github.io/My-2nd-Portfolio/](https://mark-eugene-barasu.github.io/My-2nd-Portfolio/)
 
-☀️ Sun icon = currently in dark mode, click to go light
+A production-ready portfolio showcasing three full technology stacks: Python/Django, MERN/NextJS, and Java Spring Boot — with role-based authentication, analytics, and AI-augmented development.
 
-Drag anywhere — click and hold to drag it to any corner or position on screen
+## Features
 
-Position is saved — localStorage remembers where you dragged it, so it stays there across page loads
+- **Enterprise Projects**: Django REST API, NextJS Ecommerce, Spring Boot CRM
+- **Role-Based Access**: ADMIN, RECRUITER, and USER roles with JWT authentication
+- **AI Augmentation**: Built with ChatGPT, Claude, and Amazon Q assistance
+- **Dark Mode**: Persistent theme toggle with localStorage
+- **Analytics**: Page view tracking with role-based segmentation
+- **Contact Form**: Backend-connected with admin-only message viewing
 
-Theme is saved — localStorage also remembers your dark/light preference, so it persists as you navigate between pages
+## Architecture
 
-Touch support — works on mobile too
+```
+Frontend (HTML/CSS/JS)  ←→  Django REST API  ←→  PostgreSQL
+     ↓                           ↓
+  Auth.js                   JWT + Roles
+  Dark Mode                 Analytics
+```
 
-backend/
-├── manage.py
-├── requirements.txt
-├── setup.bat          ← run this to install everything
-├── .env               ← fill in your secrets
-├── README.md
-├── portfolio_api/     ← Django project
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── contact/           ← contact form app
-│   ├── models.py      ← saves messages to PostgreSQL
-│   ├── serializers.py ← validates input
-│   ├── views.py       ← saves + sends email
-│   ├── urls.py
-│   └── admin.py       ← manage messages in admin panel
-└── analytics/         ← page tracking app
-    ├── models.py
-    ├── serializers.py
-    ├── views.py       ← track visits + stats
-    ├── urls.py
-    └── admin.py
+## Quick Start
 
+### Frontend
 
+Open `index.html` in a browser or serve with any static file server.
+
+### Backend
+
+```bash
 cd backend
-venv\Scripts\activate
+# Create virtual environment
+python -m venv venv
+venv\Scripts\activate  # Windows
+# OR
+source venv/bin/activate  # macOS/Linux
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Create .env file (see .env.example)
+# Run migrations
+python manage.py migrate
+
+# Create superuser
+python manage.py createsuperuser
+
+# Start server
 python manage.py runserver
+```
+
+## Documentation
+
+- [User Guide](docs/user-guide.md) — How to use the portfolio
+- [Technical Specification](docs/tech-spec.md) — Architecture and security model
+- [API Reference](docs/api-reference.md) — Endpoint documentation
+
+## Technology Stack
+
+| Layer    | Technologies                          |
+| -------- | ------------------------------------- |
+| Frontend | HTML5, CSS3, JavaScript, Font Awesome |
+| Backend  | Python, Django, Django REST Framework |
+| Auth     | JWT (djangorestframework-simplejwt)   |
+| Database | PostgreSQL                            |
+| DevOps   | WhiteNoise, Gunicorn, GitHub Pages    |
+
+## AI Tools Used
+
+- **ChatGPT**: Architecture design, debugging
+- **Claude**: Code review, documentation
+- **Amazon Q**: AWS patterns, security validation
+
+> All AI-generated code is reviewed, tested, and understood before deployment.
+
+## Contact
+
+- Email: [mark0630227248@gmail.com](mailto:mark0630227248@gmail.com)
+- LinkedIn: [Eugene Mark Korku Barasu](https://www.linkedin.com/in/eugene-mark-korku-barasu-5094a7220)
+- GitHub: [Mark-Eugene-Barasu](https://github.com/Mark-Eugene-Barasu)
+
+---
+
+© 2024 Eugene Mark Korku Barasu. All rights reserved. | Umtata, South Africa

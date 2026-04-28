@@ -1,11 +1,20 @@
 from django.db import models
+from django.conf import settings
+
 
 class ContactMessage(models.Model):
-    name       = models.CharField(max_length=100)
-    email      = models.EmailField()
-    message    = models.TextField()
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True, blank=True,
+        related_name='contact_messages',
+        help_text='Authenticated user who sent the message (if any)'
+    )
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
     ip_address = models.GenericIPAddressField(null=True, blank=True)
-    is_read    = models.BooleanField(default=False)
+    is_read = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

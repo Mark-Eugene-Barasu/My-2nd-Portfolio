@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Django REST Blog API - Eugene Mark Korku Barasu</title>
+  <title>Django REST Blog API — Eugene Mark Korku Barasu</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/portfolio-theme.css">
@@ -46,6 +46,9 @@
     .sidebar-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .sidebar-tags span { background: #f0f2ff; color: #667eea; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; }
     .project-img { width: 100%; border-radius: 15px; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+    .impact-box { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-left: 4px solid #28a745; padding: 1.5rem; border-radius: 0 12px 12px 0; margin-bottom: 1.5rem; }
+    .impact-box h4 { color: #1b5e20; margin-bottom: 0.5rem; font-size: 1rem; }
+    .impact-box p { color: #33691e; font-size: 0.9rem; line-height: 1.6; margin: 0; }
 
     footer { background: #2c3e50; color: white; text-align: center; padding: 2.5rem 2rem; }
     .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; font-size: 1.3rem; }
@@ -77,9 +80,9 @@
   </header>
 
   <div class="project-hero">
-    <p class="eyebrow"><i class="fab fa-python"></i> &nbsp; Python / Django &nbsp; · &nbsp; Bootcamp Project</p>
+    <p class="eyebrow"><i class="fab fa-python"></i> &nbsp; Python / Django &nbsp; · &nbsp; Enterprise API</p>
     <h1>Django REST Blog API</h1>
-    <p>A full-featured REST API for a blog platform with JWT authentication, full CRUD, comment system, and pagination — built with Django REST Framework and PostgreSQL.</p>
+    <p>A production-ready REST API for content platforms — with JWT authentication, role-based access control, nested comments, and rate limiting.</p>
     <div class="tech-tags">
       <span>Python 3.11</span><span>Django 5</span><span>DRF</span><span>PostgreSQL</span><span>JWT Auth</span>
     </div>
@@ -87,20 +90,25 @@
       <a href="#" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
       <a href="https://github.com/Mark-Eugene-Barasu/django-blog-api" class="btn btn-secondary"><i class="fab fa-github"></i> View Code</a>
     </div>
-  </div>
 
   <div class="content">
     <div>
+      <div class="impact-box">
+        <h4><i class="fas fa-chart-line"></i> Business Impact</h4>
+        <p>This architecture enables any content platform to launch with secure user management, scalable comment threads, and admin analytics from day one — reducing time-to-market by weeks.</p>
+      </div>
+
       <div class="card">
         <h2>Features</h2>
         <ul class="feature-list">
           <li><i class="fas fa-check-circle"></i> User registration &amp; login with JWT tokens</li>
+          <li><i class="fas fa-check-circle"></i> Role-based access control (ADMIN, RECRUITER, USER)</li>
           <li><i class="fas fa-check-circle"></i> Full CRUD for blog posts</li>
           <li><i class="fas fa-check-circle"></i> Nested comment system</li>
           <li><i class="fas fa-check-circle"></i> Pagination &amp; search filtering</li>
           <li><i class="fas fa-check-circle"></i> Rate limiting &amp; throttling</li>
           <li><i class="fas fa-check-circle"></i> PostgreSQL with Django ORM</li>
-          <li><i class="fas fa-check-circle"></i> Django Admin panel</li>
+          <li><i class="fas fa-check-circle"></i> Django Admin panel with bulk actions</li>
         </ul>
       </div>
 
@@ -132,15 +140,17 @@ class PostListCreate(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)</code></pre>
       </div>
-    </div>
 
     <div>
+      <div class="sidebar-card">
+        <h3><i class="fas fa-robot" style="color:#a855f7;"></i> AI-Assisted Development</h3>
+        <p style="font-size:0.85rem; color:#666; line-height:1.6;">Architecture designed with ChatGPT. Code reviewed with Claude. Security patterns validated via Amazon Q.</p>
+      </div>
       <div class="sidebar-card">
         <h3>Tech Stack</h3>
         <div class="sidebar-tags">
           <span>Python 3.11</span><span>Django 5</span><span>DRF</span><span>PostgreSQL</span><span>JWT</span><span>Gunicorn</span><span>Nginx</span>
         </div>
-      </div>
       <div class="sidebar-card">
         <h3>Stack</h3>
         <div class="sidebar-tags"><span>Python / Django</span></div>
@@ -150,10 +160,8 @@ class PostListCreate(generics.ListCreateAPIView):
         <br>
         <h3>Database</h3>
         <div class="sidebar-tags"><span>PostgreSQL</span></div>
-      </div>
       <img src="../../assets/images/code-text-colorful-symbols-programming-11570018517ehhiwfnwii.jpg" alt="Django Code" class="project-img">
     </div>
-  </div>
 
   <footer>
     <div class="footer-links">
@@ -161,7 +169,6 @@ class PostListCreate(generics.ListCreateAPIView):
       <a href="https://twitter.com/Brains_777"><i class="fab fa-twitter"></i></a>
       <a href="https://www.linkedin.com/in/eugene-mark-korku-barasu-5094a7220"><i class="fab fa-linkedin"></i></a>
       <a href="mailto:mark0630227248@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://web.whatsapp.com/send?phone=+27815332769"><i class="fab fa-whatsapp"></i></a>
     </div>
     <p>&copy; 2024 Eugene Mark Korku Barasu. All rights reserved.</p>
   </footer>

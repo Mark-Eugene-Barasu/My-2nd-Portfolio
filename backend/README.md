@@ -1,96 +1,105 @@
-# Portfolio Backend — Django REST API
+# Portfolio Backend API
 
-Full backend for Eugene Mark Korku Barasu's portfolio website.
-
-## Tech Stack
-- Python 3.11 + Django 5
-- Django REST Framework
-- PostgreSQL
-- django-cors-headers
-- Gunicorn + WhiteNoise (production)
-
-## Features
-| Endpoint | Method | Description |
-|---|---|---|
-| `/api/contact/` | POST | Save contact message + send email |
-| `/api/analytics/track/` | POST | Record a page view |
-| `/api/analytics/stats/` | GET | Get view counts per page |
-| `/admin/` | GET | Django admin dashboard |
-
----
+Django REST API powering the portfolio website with role-based authentication, contact forms, and analytics.
 
 ## Setup
 
-### 1. Prerequisites
-- Python 3.11+
-- PostgreSQL installed and running
-- A Gmail account with an [App Password](https://myaccount.google.com/apppasswords)
+1. **Install dependencies**:
 
-### 2. Create the PostgreSQL database
-```sql
-CREATE DATABASE portfolio_db;
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### 3. Configure environment variables
-Edit `.env` and fill in your values:
-```
-SECRET_KEY=your-django-secret-key
-DB_PASSWORD=your-postgres-password
-EMAIL_HOST_USER=your-email@gmail.com
-EMAIL_HOST_PASSWORD=your-gmail-app-password
-EMAIL_RECEIVER=your-email@gmail.com
-```
+2. **Configure environment**:
+   Create a `.env` file in `backend/` with:
 
-### 4. Run setup (Windows)
+   ```
+   SECRET_KEY=your-secret-key
+   DEBUG=True
+   ALLOWED_HOSTS=localhost,127.0.0.1
+   DB_NAME=portfolio_db
+   DB_USER=postgres
+   DB_PASSWORD=your-password
+   DB_HOST=localhost
+   DB_PORT=5432
+   CORS_ALLOWED_ORIGINS=http://localhost:8000,http://127.0.0.1:5500
+   EMAIL_HOST=smtp.gmail.com
+   EMAIL_PORT=587
+   EMAIL_HOST_USER=your-email@gmail.com
+   EMAIL_HOST_PASSWORD=your-app-password
+   EMAIL_RECEIVER=your-receiver@gmail.com
+   ```
+
+3. **Run migrations**:
+
+   ```bash
+   python manage.py migrate
+   ```
+
+4. **Create superuser**:
+
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+5. **Run server**:
+   ```bash
+   python manage.py runserver
+   ```
+
+## API Overview
+
+| App         | Endpoints          | Purpose                      |
+| ----------- | ------------------ | ---------------------------- |
+| `users`     | `/api/auth/*`      | JWT authentication, profiles |
+| `contact`   | `/api/contact/`    | Contact form submissions     |
+| `analytics` | `/api/analytics/*` | Page view tracking           |
+
+## Apps
+
+### users
+
+Custom User model with role field (ADMIN, RECRUITER, USER). Provides:
+
+- Registration & login with JWT
+- Profile management
+- Password change
+- Admin-only user listing
+
+### contact
+
+Stores contact form submissions. Features:
+
+- Public submission (no auth required)
+- Admin-only message listing
+- User association for authenticated submitters
+- Email notification on submission
+
+### analytics
+
+Tracks page views for portfolio analytics. Features:
+
+- Public tracking endpoint
+- Role segmentation (captures user role if authenticated)
+- Admin-only statistics endpoint with page/role breakdowns
+
+## Role-Based Permissions
+
+| Role      | Can View Admin | Can View Analytics | Can View All Messages |
+| --------- | -------------- | ------------------ | --------------------- |
+| ADMIN     | Yes            | Yes                | Yes                   |
+| RECRUITER | No             | No                 | Own messages only     |
+| USER      | No             | No                 | Own messages only     |
+
+## Management Commands
+
 ```bash
-cd backend
-setup.bat
-```
+# Create admin user
+python manage.py createsuperuser
 
-### 5. Start the server
-```bash
-venv\Scripts\activate
+# Run development server
 python manage.py runserver
-```
 
-Server runs at: http://127.0.0.1:8000
-
----
-
-## Django Admin
-Visit http://127.0.0.1:8000/admin/ to:
-- Read all contact messages
-- Mark messages as read
-- View page analytics
-
----
-
-## Production Deployment (Render / Railway)
-1. Set `DEBUG=False` in `.env`
-2. Add your domain to `ALLOWED_HOSTS`
-3. Add your frontend URL to `CORS_ALLOWED_ORIGINS`
-4. Run `python manage.py collectstatic`
-5. Use `gunicorn portfolio_api.wsgi` as the start command
-
----
-
-## API Usage Examples
-
-### Send a contact message
-```bash
-curl -X POST http://127.0.0.1:8000/api/contact/ \
-  -H "Content-Type: application/json" \
-  -d '{"name":"John","email":"john@example.com","message":"Hello Eugene!"}'
-```
-
-### Track a page view
-```bash
-curl -X POST http://127.0.0.1:8000/api/analytics/track/ \
-  -H "Content-Type: application/json" \
-  -d '{"page":"home"}'
-```
-
-### Get analytics stats
-```bash
-curl http://127.0.0.1:8000/api/analytics/stats/
+# Run tests (when added)
+python manage.py test
 ```
