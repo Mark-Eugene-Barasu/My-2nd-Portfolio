@@ -18,7 +18,7 @@ class ContactViewTests(APITestCase):
     """Tests for contact form endpoint."""
 
     def setUp(self):
-        self.url = reverse('contact:contact')
+        self.url = '/api/contact/'
         self.valid_payload = {
             'name': 'Jane Recruiter',
             'email': 'jane@techcorp.com',
@@ -26,7 +26,7 @@ class ContactViewTests(APITestCase):
         }
 
     def test_contact_submission_unauth(self):
-        """Unauthenticated should get 401 (IsAuthenticatedOrReadOnly)."""
+        """Unauthenticated should get 401."""
         response = self.client.post(
             self.url, self.valid_payload, format='json')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)

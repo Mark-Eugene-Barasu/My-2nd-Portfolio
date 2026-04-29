@@ -6,7 +6,7 @@ Tests for page view tracking and statistics.
 
 from django.test import TestCase
 from django.urls import reverse
-from rest_framework.test import APITestCase, APIClient
+from rest_framework.test import APITestCase
 from rest_framework import status
 from django.contrib.auth import get_user_model
 from .models import PageView
@@ -18,8 +18,7 @@ class TrackPageViewTests(APITestCase):
     """Tests for page view tracking endpoint."""
 
     def setUp(self):
-        self.client = APIClient()
-        self.url = reverse('analytics:track')
+        self.url = '/api/analytics/track/'
         self.valid_payload = {
             'page': '/projects/django_project.html'
         }
@@ -60,8 +59,7 @@ class PageViewStatsTests(APITestCase):
     """Tests for analytics statistics endpoint."""
 
     def setUp(self):
-        self.client = APIClient()
-        self.url = reverse('analytics:stats')
+        self.url = '/api/analytics/stats/'
         self.admin = User.objects.create_user(
             username='admin',
             email='admin@test.com',

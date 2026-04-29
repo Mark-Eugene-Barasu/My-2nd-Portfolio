@@ -10,7 +10,7 @@ Comprehensive test coverage for:
 
 from django.test import TestCase
 from django.urls import reverse
-from rest_framework.test import APITestCase, APIClient
+from rest_framework.test import APITestCase
 from rest_framework import status
 from django.contrib.auth import get_user_model
 
@@ -21,7 +21,7 @@ class RegisterViewTests(APITestCase):
     """Tests for user registration endpoint."""
 
     def setUp(self):
-        self.url = reverse('users:auth-register')
+        self.url = '/api/auth/register/'
         self.valid_payload = {
             'username': 'testuser',
             'email': 'test@example.com',
@@ -68,7 +68,7 @@ class LoginViewTests(APITestCase):
     """Tests for user login endpoint."""
 
     def setUp(self):
-        self.url = reverse('users:auth-login')
+        self.url = '/api/auth/login/'
         self.user = User.objects.create_user(
             username='logintest',
             email='login@test.com',
@@ -108,7 +108,7 @@ class ProfileViewTests(APITestCase):
     """Tests for profile endpoint."""
 
     def setUp(self):
-        self.url = reverse('users:auth-profile')
+        self.url = '/api/auth/me/'
         self.user = User.objects.create_user(
             username='profiletest',
             email='profile@test.com',
@@ -134,7 +134,7 @@ class UserListViewTests(APITestCase):
     """Tests for admin-only user listing."""
 
     def setUp(self):
-        self.url = reverse('users:user-list')
+        self.url = '/api/auth/users/'
         self.admin = User.objects.create_user(
             username='admin',
             email='admin@test.com',
