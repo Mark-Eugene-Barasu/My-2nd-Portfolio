@@ -18,7 +18,7 @@ class ContactViewTests(APITestCase):
     """Tests for contact form endpoint."""
 
     def setUp(self):
-        self.url = reverse('contact')
+        self.url = reverse('contact:contact')
         self.valid_payload = {
             'name': 'Jane Recruiter',
             'email': 'jane@techcorp.com',
