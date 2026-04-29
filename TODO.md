@@ -5,7 +5,7 @@
 - [ ] **1. Quantified Business Impact** — Add metrics to every project card
 - [ ] **2. Lighthouse Score Badge** — Display performance score on site
 - [ ] **3. GitHub Actions CI/CD** — `.github/workflows/django.yml`
-- [ ] **4. Django Unit Tests** — `tests.py` for users, contact, analytics
+- [x] **4. Django Unit Tests** — `tests.py` for users, contact, analytics
 - [ ] **5. Resume PDF Download** — Generate resume from portfolio data
 
 ## 🚀 Tier 2 — Professional Polish
