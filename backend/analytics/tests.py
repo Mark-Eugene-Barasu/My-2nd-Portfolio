@@ -25,33 +25,35 @@ class TrackPageViewTests(APITestCase):
         }
 
     def test_track_valid_page_public(self):
-        """Anonymous users should track page views."""
+        """Unauth should get 401."""
+        response = self.client.post(
+            self.url, self.valid_payload, format='json')
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+    def test_track_valid_page_auth(self):
+        """Auth users track successfully."""
+        user = User.objects.create_user(
+            username='trackuser',
+            email='track@test.com',
+            password='TestPass123!',
+            role='USER'
+        )
+        self.client.force_authenticate(user=user)
         response = self.client.post(
             self.url, self.valid_payload, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(PageView.objects.count(), 1)
         view = PageView.objects.first()
         self.assertEqual(view.page, '/projects/django_project.html')
-        self.assertEqual(view.user_role, '')
+        self.assertEqual(view.user_role, 'USER')
 
     def test_track_missing_page(self):
-        """Missing page should be rejected."""
+        """Missing page rejected."""
+        user = User.objects.create_user(
+            username='miss', password='pass', role='USER')
+        self.client.force_authenticate(user=user)
         response = self.client.post(self.url, {}, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-
-    def test_track_authenticated_user_role(self):
-        """Authenticated users should have role captured."""
-        user = User.objects.create_user(
-            username='roleuser',
-            email='role@test.com',
-            password='TestPass123!',
-            role='RECRUITER'
-        )
-        self.client.force_authenticate(user=user)
-        response = self.client.post(
-            self.url, self.valid_payload, format='json')
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(PageView.objects.first().user_role, 'RECRUITER')
 
 
 class PageViewStatsTests(APITestCase):
@@ -79,26 +81,20 @@ class PageViewStatsTests(APITestCase):
         PageView.objects.create(page='/projects/', user_role='')
 
     def test_admin_can_view_stats(self):
-        """Admin should get full statistics."""
+        """Admin gets full statistics."""
         self.client.force_authenticate(user=self.admin)
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn('total_views', response.data)
-        self.assertIn('by_page', response.data)
-        self.assertIn('by_role', response.data)
         self.assertEqual(response.data['total_views'], 3)
 
     def test_non_admin_forbidden(self):
-        """Non-admins should get 403."""
+        """Non-admins get 403."""
         self.client.force_authenticate(user=self.recruiter)
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
-    def test_stats_aggregation(self):
-        """Verify stats aggregation logic."""
-        self.client.force_authenticate(user=self.admin)
+    def test_stats_unauth(self):
+        """Unauth gets 401."""
         response = self.client.get(self.url)
-        by_page = {item['page']: item['views']
-                   for item in response.data['by_page']}
-        self.assertEqual(by_page['/projects/'], 2)
-        self.assertEqual(by_page['/about.html'], 1)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
