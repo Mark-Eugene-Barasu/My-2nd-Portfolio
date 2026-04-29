@@ -49,7 +49,7 @@ function updateNav() {
 }
 
 // Listen for auth changes
-window.addEventListener('authchange', updateNav);
+window.addEventListener('authchange', () => setTimeout(updateNav, 100));
 
 // Run on page load
 document.addEventListener('DOMContentLoaded', updateNav);
