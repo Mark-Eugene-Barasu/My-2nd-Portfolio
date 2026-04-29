@@ -123,14 +123,14 @@
     .skill-desc { font-size: 0.85rem; color: #888; }
 
     /* Contact */
-    .contact-form { max-width: 600px; margin: 0 auto; background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
+.contact-form { max-width: 600px; margin: 0 auto; background: white; padding: 3rem; border-radius: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
     .form-group { margin-bottom: 1.5rem; }
     .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #2c3e50; }
     .form-group input, .form-group textarea { width: 100%; padding: 1rem; border: 2px solid #f0f0f0; border-radius: 10px; font-family: inherit; transition: border-color 0.3s; }
     .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #ff6b6b; }
 
     /* Footer */
-    footer { background: #2c3e50; color: white; text-align: center; padding: 3rem 2rem 1rem; }
+footer { background: #2c3e50; color: white; text-align: center; padding: 3rem 2rem 1rem; border-top-left-radius: 40px; border-top-right-radius: 40px; }
     .footer-content { max-width: 800px; margin: 0 auto; }
     .social-links { display: flex; justify-content: center; gap: 1.2rem; margin: 2rem 0; }
     .social-links a { color: white; font-size: 1.4rem; transition: color 0.3s; }
@@ -139,7 +139,7 @@
     /* Login Modal */
     .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; align-items: center; justify-content: center; }
     .modal-overlay.active { display: flex; }
-    .modal { background: white; border-radius: 20px; padding: 2.5rem; width: 90%; max-width: 420px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.modal { background: white; border-radius: 30px; padding: 2.5rem; width: 90%; max-width: 420px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
     .modal h2 { margin-bottom: 1.5rem; color: #2c3e50; }
     .modal .form-group { margin-bottom: 1rem; }
     .modal .form-group input { padding: 0.8rem; }
@@ -197,7 +197,7 @@
       <div>
         <a href="#projects" class="cta">View Projects</a>
         <a href="#contact" class="cta-outline">Hire Me</a>
-        <a href="assets/resume.pdf" class="cta-outline" download style="margin-left:1rem;"><i class="fas fa-file-pdf"></i> Resume</a>
+href="resume/CV of Eugene Mark Korku Barasu.pdf"
       </div>
       <div class="live-badge"><i class="fas fa-circle"></i> Portfolio Live & Hosted</div>
   </section>
@@ -366,34 +366,46 @@
   <section id="testimonials" class="section" style="background:#f8f9fa; padding:5rem 2rem; max-width:none;">
     <h2 class="section-title fade-in">What People Say</h2>
     <p class="section-subtitle fade-in">Feedback from mentors, peers, and collaborators.</p>
-    <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; padding:0 2rem;">
-      <div class="skill-item fade-in" style="text-align:left;">
-        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
-          <div style="width:50px;height:50px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;">JM</div>
+    <div class="testimonials-grid" style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:2.5rem; padding:0 2rem;">
+      <div class="testimonial-card fade-in" style="background:white; padding:2.5rem; border-radius:25px; box-shadow:0 15px 40px rgba(0,0,0,0.08); text-align:left; border:1px solid #e9ecef;">
+        <div style="display:flex; align-items:center; gap:1.2rem; margin-bottom:1.5rem;">
+          <div style="width:55px;height:55px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.1rem;">JM</div>
           <div>
             <strong>James M.</strong><br>
-            <span style="font-size:0.8rem;color:#888;">Bootcamp Mentor</span>
+            <span style="font-size:0.85rem;color:#6c757d;">Bootcamp Mentor</span>
           </div>
-        <p style="color:#555;line-height:1.6;">"Eugene consistently delivered production-ready code. His Django API project had better authentication handling than some senior developers I've worked with."</p>
-        <div style="color:#ffc107;margin-top:0.5rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-      <div class="skill-item fade-in" style="text-align:left;">
-        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
-          <div style="width:50px;height:50px;background:linear-gradient(135deg,#ff6b6b,#ee5a5a);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;">SK</div>
+        </div>
+        <p style="color:#495057;line-height:1.7;font-size:1.05rem;margin-bottom:1.2rem;">"Eugene consistently delivered production-ready code. His Django API project had better authentication handling than some senior developers I've worked with."</p>
+        <div style="color:#ffc107;">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in" style="background:white; padding:2.5rem; border-radius:25px; box-shadow:0 15px 40px rgba(0,0,0,0.08); text-align:left; border:1px solid #e9ecef;">
+        <div style="display:flex; align-items:center; gap:1.2rem; margin-bottom:1.5rem;">
+          <div style="width:55px;height:55px;background:linear-gradient(135deg,#ff6b6b,#ee5a5a);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.1rem;">SK</div>
           <div>
             <strong>Sarah K.</strong><br>
-            <span style="font-size:0.8rem;color:#888;">Project Collaborator</span>
+            <span style="font-size:0.85rem;color:#6c757d;">Project Collaborator</span>
           </div>
-        <p style="color:#555;line-height:1.6;">"Working with Eugene on the NextJS ecommerce project was seamless. He understands both frontend UX and backend scalability."</p>
-        <div style="color:#ffc107;margin-top:0.5rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-      <div class="skill-item fade-in" style="text-align:left;">
-        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
-          <div style="width:50px;height:50px;background:linear-gradient(135deg,#6DB33F,#85BD5B);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;">LT</div>
+        </div>
+        <p style="color:#495057;line-height:1.7;font-size:1.05rem;margin-bottom:1.2rem;">"Working with Eugene on the NextJS ecommerce project was seamless. He understands both frontend UX and backend scalability."</p>
+        <div style="color:#ffc107;">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in" style="background:white; padding:2.5rem; border-radius:25px; box-shadow:0 15px 40px rgba(0,0,0,0.08); text-align:left; border:1px solid #e9ecef;">
+        <div style="display:flex; align-items:center; gap:1.2rem; margin-bottom:1.5rem;">
+          <div style="width:55px;height:55px;background:linear-gradient(135deg,#6DB33F,#85BD5B);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.1rem;">LT</div>
           <div>
             <strong>Dr. L. Tshabalala</strong><br>
-            <span style="font-size:0.8rem;color:#888;">University Lecturer</span>
+            <span style="font-size:0.85rem;color:#6c757d;">University Lecturer</span>
           </div>
-        <p style="color:#555;line-height:1.6;">"His ability to combine mechanical engineering principles with software development creates uniquely robust systems. A rare talent."</p>
-        <div style="color:#ffc107;margin-top:0.5rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+        <p style="color:#495057;line-height:1.7;font-size:1.05rem;margin-bottom:1.2rem;">"His ability to combine mechanical engineering principles with software development creates uniquely robust systems. A rare talent."</p>
+        <div style="color:#ffc107;">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+      </div>
     </div>
   </section>
 
