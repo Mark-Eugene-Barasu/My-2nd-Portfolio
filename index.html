@@ -189,15 +189,15 @@ footer { background: #2c3e50; color: white; text-align: center; padding: 3rem 2r
   </header>
 
   <!-- Hero -->
-  <section id="home" class="hero" role="main">
+  <section id="home" class="hero" role="main" style="border-bottom-left-radius: 60px; border-bottom-right-radius: 60px; overflow: hidden; margin-top: -2rem;">
     <div class="hero-content">
       <h1>Eugene Mark Korku Barasu</h1>
       <p class="hero-subtitle">Full-Stack Developer — Python/Django &middot; MERN/NextJS &middot; Spring Boot + PostgreSQL</p>
       <p class="hero-desc">I build production-grade REST APIs, scalable ecommerce platforms, and enterprise CRM systems. Mechanical Engineering student from Umtata, South Africa, with a track record of delivering secure, well-documented, and AI-augmented solutions.</p>
-      <div>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
         <a href="#projects" class="cta">View Projects</a>
         <a href="#contact" class="cta-outline">Hire Me</a>
-href="resume/CV of Eugene Mark Korku Barasu.pdf"
+        <a href="resume/CV of Eugene Mark Korku Barasu.pdf" class="cta-outline" download><i class="fas fa-file-pdf"></i> Resume</a>
       </div>
       <div class="live-badge"><i class="fas fa-circle"></i> Portfolio Live & Hosted</div>
   </section>
@@ -478,7 +478,16 @@ href="resume/CV of Eugene Mark Korku Barasu.pdf"
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
-        if (href === '#home' || href === '#main-content') return; // Prevent vibration
+        if (href === '#main-content') {
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        }
+        if (href === '#home') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          e.preventDefault();
+          return false;
+        }
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();

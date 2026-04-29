@@ -30,6 +30,7 @@ body.dark-mode .card,
 body.dark-mode .sidebar-card,
 body.dark-mode .stack-card,
 body.dark-mode .contact-form,
+body.dark-mode .ai-tool,
 body.dark-mode .yes-white,
 body.dark-mode .testimonial-card {
   background: #1e1e2e !important;
@@ -38,10 +39,56 @@ body.dark-mode .testimonial-card {
   border-color: #3d3d5c !important;
 }
 
+body.dark-mode .ai-section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+}
+
+body.dark-mode .ai-section h2,
+body.dark-mode .ai-section p,
+body.dark-mode .ai-tool h4,
+body.dark-mode .ai-tool span {
+  color: #e2e8f0 !important;
+}
+body.dark-mode .project-card,
+body.dark-mode .skill-item,
+body.dark-mode .section-card,
+body.dark-mode .card,
+body.dark-mode .sidebar-card,
+body.dark-mode .stack-card,
+body.dark-mode .contact-form,
+body.dark-mode .ai-tool,
+body.dark-mode .yes-white,
+body.dark-mode .testimonial-card {
+  background: #1e1e2e !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4) !important;
+  color: #e2e8f0 !important;
+  border-color: #3d3d5c !important;
+}
+
+body.dark-mode .ai-section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+}
+
 body.dark-mode .testimonial-card p,
 body.dark-mode .testimonial-card strong,
-body.dark-mode .testimonial-card span {
+body.dark-mode .testimonial-card span,
+body.dark-mode .stack-header-text h2,
+body.dark-mode .stack-body p {
   color: #e2e8f0 !important;
+}
+
+body.dark-mode .tech-tags span {
+  background: #2d2d3f !important;
+  color: #e2e8f0 !important;
+}
+
+body.dark-mode .badge {
+  background: #28a745 !important;
+  color: white !important;
+}
+
+body.dark-mode .badge {
+  background: #28a745 !important;
 }
 
 /* Section backgrounds */
@@ -139,9 +186,20 @@ body.dark-mode div[style*="background-color: #282E34"] {
 body.dark-mode .project-info h4 { color: #e2e8f0 !important; }
 body.dark-mode .project-link { color: #ff6b6b !important; }
 
-/* Hero stats */
+/* Hero stats & about stats */
 body.dark-mode .hero-stat strong,
-body.dark-mode .hero-stat span { color: #e2e8f0 !important; }
+body.dark-mode .hero-stat span,
+body.dark-mode .about-stat strong,
+body.dark-mode .about-stat span { 
+  color: #60a5fa !important; 
+}
+body.dark-mode .about-stat strong { color: #f0f9ff !important; font-size: 1.5rem; }
+body.dark-mode .about-stat span { color: #cbd5e1 !important; }
+body.dark-mode .about-stat { 
+  background: #1e293b !important; 
+  border: 1px solid #334155 !important;
+  color: #f1f5f9 !important;
+}
 
 /* Scrollbar */
 body.dark-mode ::-webkit-scrollbar { width: 8px; }
