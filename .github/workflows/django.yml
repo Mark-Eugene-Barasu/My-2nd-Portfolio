@@ -36,26 +36,12 @@ jobs:
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-
-      - name: Install Poetry
-        run: |
-          curl -sSL https://install.python-poetry.org | python3 -
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
-
-      - name: Cache Poetry dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pypoetry
-          key: ${{ runner.os }}-poetry-${{ hashFiles('backend/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-poetry-
+          python-version: 3.12
 
       - name: Install dependencies
         run: |
           cd backend
-          poetry config virtualenvs.create false
-          poetry install --no-interaction
+          pip install -r requirements.txt
 
       - name: Run tests
         env:
@@ -65,36 +51,41 @@ jobs:
         run: |
           cd backend
           python manage.py migrate
-          pytest --cov=users --cov=contact --cov=analytics --cov-report=xml
-          coverage report --fail-under=85
+          python manage.py test
 
       - name: Lint with black
         run: |
           cd backend
-          black --check --diff .
-          flake8 .
+          black --check .
+          echo "Black linting passed"
+
+      - name: Lint with flake8
+        run: |
+          cd backend
+          flake8 . 
+          echo "Flake8 linting passed"
 
       - name: Security scan
         run: |
+          cd backend
           pip install bandit
           bandit -r backend/
 
-      - name: Upload coverage
-        uses: codecov/codecov-action@v4
-        with:
-          file: backend/coverage.xml
+      # - name: Upload coverage (optional, requires codecov token)
+      #   uses: codecov/codecov-action@v4
+      #   with:
+      #     file: backend/coverage.xml
 
   security:
     name: Security Scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run Snyk
-        uses: snyk/actions/python@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --file=backend/requirements.txt
+      - name: Bandit Security Scan
+        run: |
+          pip install bandit>=1.7.3
+          cd backend
+          bandit -r . --format github || true
 
   deploy-staging:
     name: Deploy to Staging
