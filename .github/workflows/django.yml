@@ -50,7 +50,7 @@ jobs:
           DEBUG: True
         run: |
           cd backend
-          python manage.py migrate
+          python manage.py migrate --fake-initial
           python manage.py test
 
       - name: Lint with black
